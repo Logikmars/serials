@@ -1,0 +1,17 @@
+.TrandingNowBig{
+    padding: 13px;
+    background-color: #EF4BC5;
+    border: 1px solid #EF4BC5;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    font-family: 'ARIAL regular';
+    font-size: 16px;
+    max-width: 170px;
+    img{
+        width: 14px;
+        height: 18px;
+    }
+}
