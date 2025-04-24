@@ -1,9 +1,21 @@
 .SliderSmall {
+
+    margin-top: 120px;
+
     &_slider {
         display: flex;
         justify-content: center;
-        padding: 100px 20px;
-        gap: 30px;
+        align-items: center;
+        // gap: 30px;
+        height: 400px;
+    }
+
+    &_header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 32px;
+        font-weight: 800;
     }
 
 }

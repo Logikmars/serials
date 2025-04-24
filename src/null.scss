@@ -103,6 +103,7 @@ button {
     box-sizing: border-box;
     color: white;
     font-family: 'ARIAL regular';
+    user-select: none;
     // font-family: 'Gilroy';
 }
 
@@ -134,11 +135,11 @@ html {
     scroll-behavior: smooth;
 }
 
-.sizecontainer {
+.container {
     width: 100%;
-    max-width: 1900px;
+    max-width: 1300px;
     margin: 0 auto;
-    padding: 0px 50px;
+    padding: 0px 16px;
 }
 
 

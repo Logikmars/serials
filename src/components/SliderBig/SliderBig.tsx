@@ -86,7 +86,7 @@ const SliderBig: React.FC<Props> = ({ property }) => {
                     />
                 })}
             </div>
-            <div className='SliderBig_buttons SliderElementWidth free_img'>
+            <div className='SliderBig_buttons container free_img'>
                 <div className='SliderBig_button SliderBig_button_left' onClick={handlePrev}>
                     <img src="/img/icons/arrow.svg" alt="" />
                 </div>

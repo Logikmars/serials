@@ -26,9 +26,9 @@ const Footer: React.FC = () => {
 
     return (
         <div className='Footer_wrapper'>
-            <div className='Footer sizecontainer'>
+            <div className='Footer container'>
                 <div className='Footer_logo'>
-                    <img src="/img/header/logo.png" alt="" />
+                    <img src="/img/logo.svg" alt="" />
                     LookTwice
                 </div>
                 <div className='Footer_items'>
@@ -48,9 +48,9 @@ const Footer: React.FC = () => {
                     </div>
                 </div>
                 <div className='Footer_media'>
-                    <img src="/img/youtube.svg" alt="" />
-                    <img src="/img/tiktok.svg" alt="" />
-                    <img src="/img/telegram.svg" alt="" />
+                    <img src="/img/media/youtube.svg" alt="" />
+                    <img src="/img/media/tiktok.svg" alt="" />
+                    <img src="/img/media/telegram.svg" alt="" />
                 </div>
                 <div className='Footer_copy'>
                     © 2025 LookTwice. All rights reserved

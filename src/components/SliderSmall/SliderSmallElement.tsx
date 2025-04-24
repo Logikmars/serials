@@ -20,13 +20,10 @@ const SliderSmallElement: React.FC<Props> = ({ el }) => {
             <div className='SliderSmallElement_img' style={{
                 backgroundImage: `url(${el.img})`
             }}>
-                <div className='SliderSmallElement_btn'>
-                {el.actionType && (
-                    <div className='SliderSmallElement_btn'>
-                        <SliderSmallBtn title={el.actionType} type={el.actionType} />
-                    </div>
-                )}
+                {el.actionType && <div className='SliderSmallElement_btn'>
+                    <SliderSmallBtn type={el.actionType} />
                 </div>
+                }
                 {
                     el.progress && <div className='SliderSmallElement_progress'>
                         <div className='SliderSmallElement_progress_inner' style={{
@@ -35,16 +32,16 @@ const SliderSmallElement: React.FC<Props> = ({ el }) => {
                             columnGap: el.progress >= 100 ? `10px` : '0px',
                         }}>
                             {el.progress >= 100 && <div className="SliderSmallElement_progress_heart free_img">
-                                <img src="/img/heartWhite.svg" alt="" />
+                                <img src="/img/icons/heartWhite.svg" alt="" />
                             </div>}
                             {el.progress}%
                             {
                                 el.progress < 100 && <div className="SliderSmallElement_progress_img free_img">
-                                    <img src="/img/progressFire.svg" alt="" />
+                                    <img src="/img/icons/progressFire.svg" alt="" />
                                 </div>
                             }
                             {el.progress >= 100 && <div className="SliderSmallElement_progress_heart SliderSmallElement_progress_heart_right free_img">
-                                <img src="/img/heartWhite2.svg" alt="" />
+                                <img src="/img/icons/heartWhite2.svg" alt="" />
                             </div>}
                         </div>
                     </div>

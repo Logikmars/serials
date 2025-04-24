@@ -9,7 +9,7 @@ function App() {
     <div className='App'>
       <Header />
       <SliderBig />
-      <SliderSmall />
+      <SliderSmall title="Shoto" />
       <Footer />
     </div>
   )

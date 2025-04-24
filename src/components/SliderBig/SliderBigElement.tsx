@@ -15,7 +15,7 @@ const SliderBigElement: React.FC<Props> = ({
 }) => {
     return (
         <div className='SliderBigElement_wrapper free_img' style={{
-            transform: `translate(${(index - currentSlide) * 1400}px, 0px)`,
+            transform: `translate(${(index - currentSlide) * 1600}px, 0px)`,
             transition: loop ? 'none' : 'transform 500ms'
         }}>
 
@@ -44,7 +44,7 @@ const SliderBigElement: React.FC<Props> = ({
 
                 </div>
                 <div className='SliderBigElement_bot'>
-                    <div className='SliderBigElement_content'>
+                    <div className='SliderBigElement_content container'>
                         <div className='SliderBigElement_header'>
                             {element.title}
                         </div>
