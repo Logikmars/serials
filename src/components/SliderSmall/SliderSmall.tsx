@@ -12,21 +12,15 @@ const elements = [
     {
         img: '/img/trends/0.webp',
         progress: 50,
-        loveIt: true,
-        continue: false,
-        trailer: false
+        actionType: 'loveIt',
     },
     {
         img: '/img/trends/1.webp',
-        loveIt: false,
-        continue: true,
-        trailer: false
+        actionType: 'continue',
     },
     {
         img: '/img/trends/2.webp',
-        loveIt: false,
-        continue: false,
-        trailer: true
+        actionType: 'trailer',
     },
 
 ]
