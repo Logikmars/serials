@@ -12,11 +12,13 @@ const elements = [
         img: '/img/trends/0.webp',
         progress: 10,
         actionType: 'loveIt',
+        releaseInSec: 10,
     },
     {
         img: '/img/trends/1.webp',
         progress: 25,
         actionType: 'continue',
+        releaseInSec: 100,
     },
     {
         img: '/img/trends/2.webp',
@@ -27,7 +29,8 @@ const elements = [
         img: '/img/trends/0.webp',
         progress: 55,
         actionType: 'loveIt',
-        effect: 'heart'
+        effect: 'heart',
+        releaseInSec: 1
     },
     {
         img: '/img/trends/1.webp',
