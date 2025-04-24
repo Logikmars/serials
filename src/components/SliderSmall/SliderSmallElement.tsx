@@ -14,6 +14,24 @@ interface Props {
 }
 const SliderSmallElement: React.FC<Props> = ({ el }) => {
 
+    const formatReleaseTime = (minutes?: number): string => {
+        if (typeof minutes !== 'number' || minutes <= 0) return '';
+    
+        const hours = Math.floor(minutes / 60);
+        const days = Math.floor(hours / 24);
+        const remainingMinutes = minutes % 60;
+        const remainingHours = hours % 24;
+    
+        if (minutes < 60) {
+            return `${minutes} mins`;
+        } else if (hours < 24) {
+            return `${hours} hour ${remainingMinutes > 0 ? `${remainingMinutes} mins` : ''}`;
+        } else {
+            // Если дней больше 0, добавляем оставшиеся часы и минуты
+            return `${days} day${remainingHours > 0 || remainingMinutes > 0 ? ' ' + remainingHours + ' hour' : ''} ${remainingMinutes > 0 ? `${remainingMinutes} min` : ''}`;
+        }
+    };
+
     return (
         <div className='SliderSmallElement'>
 
@@ -33,7 +51,7 @@ const SliderSmallElement: React.FC<Props> = ({ el }) => {
                         <div className='SliderSmallElement_line_decor_text free_img'>
                             <div className='SliderSmallElement_line_decor_text_title'>
                                 <span>RELEASE IN</span>
-                                <span>{el.releaseInSec}</span>
+                                <span>{formatReleaseTime(el.releaseInSec)}</span>
                             </div>
                         </div>
                     </div>

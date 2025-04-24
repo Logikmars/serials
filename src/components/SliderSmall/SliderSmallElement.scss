@@ -178,11 +178,14 @@
                     align-items: center;
                     text-align: center;
                     flex-wrap: wrap;
+                    gap: 5px;
 
                     span {
-                        font-family: 'ARIAL regular';
-                        font-size: 12px;
+                        font-family: 'ARIAL bold';
+                        letter-spacing: 0%;
+                        font-size: 16px;
                         white-space: nowrap;
+                        text-shadow: 1px 1px 2px #000;
                     }
                 }
             }
