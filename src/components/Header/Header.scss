@@ -1,67 +1,81 @@
-.Header{
+.Header {
     width: 100%;
     display: flex;
     align-items: center;
-    padding-top: 10px !important;
-    &__leftcontainer{
+    // padding-top: 10px !important;
+    height: 60px;
+
+    &__leftcontainer {
         width: 50%;
         display: flex;
         justify-content: start;
         align-items: center;
         gap: 24px;
-        &_logo{
+
+        &_logo {
             display: flex;
             justify-content: center;
             align-items: center;
             gap: 11px;
-            img{
+
+            img {
                 width: 37px;
                 height: 37px;
             }
-            &_title{
+
+            &_title {
                 font-family: 'ARIAL bold';
                 font-size: 24px;
             }
         }
-        &_btns{
+
+        &_btns {
             display: flex;
             justify-content: center;
             align-items: center;
             gap: 23px;
         }
-        &_text{
+
+        &_text {
             font-family: 'ARIAL regular';
             font-size: 16px;
             cursor: pointer;
             transition: color 300ms;
-            &:hover{
+
+            &:hover {
                 color: #9dccff;
             }
-            &_active{
+
+            &_active {
                 color: #007AFF;
             }
         }
     }
-    &__rightcontainer{
+
+    &__rightcontainer {
         width: 50%;
         display: flex;
         justify-content: end;
         gap: 20px;
-        &_icons{
+
+        &_icons {
             display: flex;
             justify-content: center;
             align-items: center;
             gap: 18px;
-            img{
+
+            img {
                 width: 15px;
                 height: 15px;
                 transition: scale 300ms;
-                &:hover{
+
+                &:hover {
                     scale: 1.1;
                 }
             }
         }
-        &_language{
+
+        &_language {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -69,7 +83,8 @@
             font-family: 'ARIAL regular';
             font-size: 16px;
         }
-        &_signin{
+
+        &_signin {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -81,12 +96,14 @@
             font-size: 16px;
             cursor: pointer;
             transition: color 300ms, background-color 300ms;
-            &:hover{
+
+            &:hover {
                 color: #000;
                 background-color: #FFF;
             }
         }
-        &_login{
+
+        &_login {
             padding: 10px 12px 11px 12px;
             display: flex;
             justify-content: center;
@@ -94,12 +111,15 @@
             background-color: #FFF;
             border-radius: 50px;
             transition: background-color 300ms;
-            img{
+
+            img {
                 transition: filter 300ms;
             }
-            &:hover{
+
+            &:hover {
                 background-color: #000;
-                img{
+
+                img {
                     filter: invert(1);
                 }
             }

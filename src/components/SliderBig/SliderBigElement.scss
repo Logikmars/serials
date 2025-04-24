@@ -1,0 +1,70 @@
+.SliderBigElement {
+    display: flex;
+    align-content: space-between;
+    background-size: cover;
+    background-position: center;
+    align-content: space-between;
+    flex-wrap: wrap;
+
+    &_top {
+        width: 100%;
+    }
+
+    &_center {
+        width: 100%;
+    }
+
+    &_bot {
+        width: 100%;
+    }
+
+    &_header {
+        font-size: 32px;
+        text-shadow: 0px 0px 2px #000, 0px 0px 10px #000;
+        font-family: 'ARIAL bold';
+    }
+
+    &_content {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding-bottom: 60px;
+    }
+
+    &_desc {
+        font-size: 24px;
+        padding-right: 160px;
+        margin-top: 8px;
+        text-shadow: 0px 0px 2px #000, 0px 0px 10px #000;
+    }
+
+    &_buttons {
+        display: flex;
+        margin-top: 24px;
+
+        &_watch {
+            padding: 12px 32px;
+            background: rgba(0, 122, 255, 1);
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            column-gap: 8px;
+            font-size: 20px;
+
+            img {
+                width: 16px;
+            }
+
+        }
+    }
+}
+
+
+.SliderElementWidth {
+    min-width: 1400px;
+    max-width: 1400px;
+}
+
+.SliderElementHeight {
+    min-height: 700px;
+}
