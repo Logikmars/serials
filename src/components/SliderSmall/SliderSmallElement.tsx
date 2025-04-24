@@ -8,21 +8,9 @@ interface Props {
         effect?: string;
         actionType?: string;
         img?: string;
-        loveIt?: boolean;
-        continue?: boolean;
-        trailer?: boolean;
     }
 }
 const SliderSmallElement: React.FC<Props> = ({ el }) => {
-
-    const getButtonData = () => {
-        if (el.loveIt) return { key: 'loveIt', title: 'You love it' };
-        if (el.continue) return { key: 'continue', title: 'Continue watching!' };
-        if (el.trailer) return { key: 'trailer', title: 'Trailer watching' };
-        return { key: 'default', title: 'Default' };
-    };
-
-    const { key, title } = getButtonData();
 
     return (
         <div className='SliderSmallElement'>
@@ -33,8 +21,11 @@ const SliderSmallElement: React.FC<Props> = ({ el }) => {
                 backgroundImage: `url(${el.img})`
             }}>
                 <div className='SliderSmallElement_btn'>
-                    {/* lox */}
-                    <SliderSmallBtn title={title} type={key}/>
+                {el.actionType && (
+                    <div className='SliderSmallElement_btn'>
+                        <SliderSmallBtn title={el.actionType} type={el.actionType} />
+                    </div>
+                )}
                 </div>
                 {
                     el.progress && <div className='SliderSmallElement_progress'>
