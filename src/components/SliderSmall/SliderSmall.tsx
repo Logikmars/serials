@@ -64,7 +64,7 @@ const SliderSmall: React.FC<Props> = ({ title }) => {
 
     const [currentSlide, setcurrentSlide] = useState(0);
 
-    const elementsPerSlide = 2
+    // const elementsPerSlide = 2
 
     return (
         <div className='SliderSmall'>

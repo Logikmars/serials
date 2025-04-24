@@ -1,0 +1,31 @@
+.Stories{
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    flex-wrap: wrap;
+    &_header{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 32px;
+        font-weight: 800;
+    }
+    &_title{
+        font-family: 'ARIAL bold';
+        font-size: 32px;
+    }
+    &_slider{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 200px;
+        overflow: hidden;
+        width: 100%;
+        gap: 30px;
+
+        &_element {
+            transition: transform 200ms, opacity 200ms;
+        }
+    }
+}
