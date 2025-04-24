@@ -13,14 +13,17 @@ const elements = [
         img: '/img/trends/0.webp',
         progress: 50,
         actionType: 'loveIt',
+        effect: 'heart'
     },
     {
         img: '/img/trends/1.webp',
         actionType: 'continue',
+        effect: 'fire'
     },
     {
         img: '/img/trends/2.webp',
         actionType: 'trailer',
+        effect: 'heart'
     },
 
 ]

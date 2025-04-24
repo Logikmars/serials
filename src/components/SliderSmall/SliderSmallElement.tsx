@@ -1,6 +1,8 @@
 import React from 'react';
 import './SliderSmallElement.scss';
 import SliderSmallBtn from './SliderSmallBtn/SliderSmallBtn';
+import SliderSmallHeartDecor from './SliderSmallHeartDecor/SliderSmallHeartDecor';
+import SliderSmallFireDecor from './SliderSmallFireDecor/SliderSmallFireDecor';
 interface Props {
     el: {
         progress?: number;
@@ -15,17 +17,23 @@ const SliderSmallElement: React.FC<Props> = ({ el }) => {
     return (
         <div className='SliderSmallElement'>
 
+                <div className='SliderSmallElement_decor'>
+                    {el.effect === 'heart' && (<SliderSmallHeartDecor />)}
+
+                    {el.effect === 'fire' && (<SliderSmallFireDecor />)}
+                </div>
+
             <div className='SliderSmallElement_effects free_img'></div>
 
             <div className='SliderSmallElement_img' style={{
                 backgroundImage: `url(${el.img})`
             }}>
                 <div className='SliderSmallElement_btn'>
-                {el.actionType && (
-                    <div className='SliderSmallElement_btn'>
-                        <SliderSmallBtn title={el.actionType} type={el.actionType} />
-                    </div>
-                )}
+                    {el.actionType && (
+                        <div className='SliderSmallElement_btn'>
+                            <SliderSmallBtn type={el.actionType} />
+                        </div>
+                    )}
                 </div>
                 {
                     el.progress && <div className='SliderSmallElement_progress'>

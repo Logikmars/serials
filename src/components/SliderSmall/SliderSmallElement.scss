@@ -45,4 +45,90 @@
         justify-content: center;
         align-items: center;
     }
+    &_decor{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &_1{
+            left: 100px;
+            img{
+                width: 33px;
+                rotate: 20deg;
+            }
+        }
+        &_2{
+            left: 85px;
+            top: 15px;
+            img{
+                width: 15px;
+            }
+            &_fire{
+                top: 25px;
+                img{
+                    width: 20px;
+                }
+            }
+        }
+        &_3{
+            left: 100px;
+            top: 35px;
+            img{
+                rotate: 50deg;
+            }
+            &_fire{
+                left: 110px;
+                top: 40px;
+                img{
+                    rotate: 30deg;
+                }
+            }
+        }
+        &_4{
+            right: 110px;
+            top: 40px;
+            img{
+                width: 20px;
+            }
+        }
+        &_5{
+            left: 110px;
+            top: 220px;
+            img{
+                rotate: 50deg;
+                width: 20px;
+            }
+        }
+        &_6{
+            right: 110px;
+            top: 270px;
+            &_fire{
+                img{
+                    rotate: 10deg;
+                }
+            }
+        }
+        &_7{
+            right: 90px;
+            top: 250px;
+            img{
+                rotate: 50deg;
+                width: 20px;
+            }
+            &_fire{
+                img{
+                    rotate: 15deg;
+                    width: 25px;
+                }
+            }
+        }
+        &_8{
+            right: 115px;
+            top: 230px;
+            img{
+                rotate: 15deg;
+                width: 35px;
+            }
+        }
+    }
 }
