@@ -9,6 +9,7 @@
         align-items: end;
         align-content: end;
         overflow: hidden;
+        flex-wrap: wrap;
     }
 
     &_progress {
@@ -36,5 +37,12 @@
                 min-width: 18px;
             }
         }
+    }
+    &_btn{
+        margin-bottom: 20px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }
