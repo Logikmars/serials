@@ -8,6 +8,11 @@
         align-items: center;
         // gap: 30px;
         height: 400px;
+        overflow: hidden;
+
+        &_element {
+            transition: transform 200ms, opacity 200ms;
+        }
     }
 
     &_header {
