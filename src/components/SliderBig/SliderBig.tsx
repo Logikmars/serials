@@ -74,7 +74,6 @@ const SliderBig: React.FC<Props> = ({ property }) => {
 
     return (
         <div className='SliderBig'>
-            {currentSlide}
             <div className='SliderBig_top'></div>
             <div className='SliderBig_elements SliderElementWidth SliderElementHeight'>
                 {elements.map((el, index) => {

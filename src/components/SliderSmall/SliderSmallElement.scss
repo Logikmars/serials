@@ -1,0 +1,40 @@
+.SliderSmallElement {
+    &_img {
+        width: 220px;
+        height: 310px;
+        background-size: cover;
+        border-radius: 18px;
+        display: flex;
+        justify-content: center;
+        align-items: end;
+        align-content: end;
+        overflow: hidden;
+    }
+
+    &_progress {
+        width: 100%;
+        background: #000a;
+        backdrop-filter: blur(6px);
+
+        &_inner {
+            background: #EF4BC5;
+            display: flex;
+            justify-content: right;
+            align-items: center;
+            font-size: 12px;
+            font-weight: 800;
+            height: 15px;
+        }
+
+
+        &_img {
+            left: -3px;
+
+            img {
+                position: relative;
+                z-index: -1;
+                min-width: 18px;
+            }
+        }
+    }
+}

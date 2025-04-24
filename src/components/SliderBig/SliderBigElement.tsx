@@ -18,16 +18,30 @@ const SliderBigElement: React.FC<Props> = ({
             transform: `translate(${(index - currentSlide) * 1400}px, 0px)`,
             transition: loop ? 'none' : 'transform 500ms'
         }}>
+
             <div className='SliderBigElement SliderElementWidth SliderElementHeight' style={{
                 backgroundImage: `url(${element.src})`
             }}>
-                <div className='SliderBigElement_top'>
-                    {/* <div className='SliderBigElement_fade_top'></div> */}
-                </div>
-                <div className='SliderBigElement_center'>
-                    {/* <div className='SliderBigElement_fade_left'></div> */}
 
-                    {/* <div className='SliderBigElement_fade_right'></div> */}
+
+
+                <div className='SliderBigElement_top'>
+
+                    <div className='SliderBigElement_fade_vertical_wrapper free_img'>
+                        <div className='SliderBigElement_fade_vertical free_img'>
+                            <div className='SliderBigElement_fade_vertical_inner SliderElementHeight'></div>
+                        </div>
+
+                        <div className='SliderBigElement_fade_vertical SliderBigElement_fade_vertical_invert free_img'>
+                            <div className='SliderBigElement_fade_vertical_inner SliderElementHeight'></div>
+                        </div>
+                    </div>
+
+
+                    <div className='SliderBigElement_fade_horizontal free_img'>
+                        <div className='SliderBigElement_fade_horizontal_inner'></div>
+                    </div>
+
                 </div>
                 <div className='SliderBigElement_bot'>
                     <div className='SliderBigElement_content'>
@@ -44,7 +58,9 @@ const SliderBigElement: React.FC<Props> = ({
                             </div>
                         </div>
                     </div>
-                    {/* <div className='SliderBigElement_fade_top'></div> */}
+                    <div className='SliderBigElement_fade_horizontal SliderBigElement_fade_horizontal_invert free_img'>
+                        <div className='SliderBigElement_fade_horizontal_inner'></div>
+                    </div>
                 </div>
             </div>
         </div>
