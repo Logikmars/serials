@@ -17,11 +17,28 @@ const SliderSmallElement: React.FC<Props> = ({ el }) => {
     return (
         <div className='SliderSmallElement'>
 
-                <div className='SliderSmallElement_decor'>
-                    {el.effect === 'heart' && (<SliderSmallHeartDecor />)}
-
-                    {el.effect === 'fire' && (<SliderSmallFireDecor />)}
-                </div>
+            <div className='SliderSmallElement_decor'>
+                {el.effect === 'heart' && (<SliderSmallHeartDecor />)}
+                {el.effect === 'fire' && (<SliderSmallFireDecor />)}
+            </div>
+            <div className='SliderSmallElement_line'>
+                {typeof el.releaseInSec === 'number' && el.releaseInSec > 0 && (
+                    <div className='SliderSmallElement_line_decor free_img'>
+                        <div className='SliderSmallElement_line_decor_top free_img'>
+                            <img src="/img/icons/releaseInFront.svg" alt="" />
+                        </div>
+                        <div className='SliderSmallElement_line_decor_back free_img'>
+                            <img src="/img/icons/releaseInBack.svg" alt="" />
+                        </div>
+                        <div className='SliderSmallElement_line_decor_text free_img'>
+                            <div className='SliderSmallElement_line_decor_text_title'>
+                                <span>RELEASE IN</span>
+                                <span>{el.releaseInSec}</span>
+                            </div>
+                        </div>
+                    </div>
+                )}
+            </div>
 
             <div className='SliderSmallElement_effects free_img'></div>
 

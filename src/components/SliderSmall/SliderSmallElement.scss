@@ -131,4 +131,32 @@
             }
         }
     }
+
+    &_line{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &_decor{
+            width: 100% !important;
+            top: 170px;
+            &_back{
+                z-index: -1;
+            }
+            &_text{
+                bottom: 10px;
+                &_title{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    text-align: center;
+                    flex-wrap: wrap;
+                    span{
+                        font-family: 'ARIAL regular';
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+    }
 }
