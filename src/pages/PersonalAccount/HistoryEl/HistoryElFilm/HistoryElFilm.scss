@@ -1,0 +1,44 @@
+.HistoryElFilm{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    gap: 24px;
+    &_info{
+        width: calc(100% - 250px);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: start;
+        align-content: space-between;
+        &_top{
+            width: 100%;
+            justify-content: start;
+            align-items: center;
+            font-family: 'ARIAL bold';
+            font-size: 24px;
+            font-weight: 700;
+            &_top{
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                &_nav{
+                    display: flex;
+                    gap: 8px;
+                    align-items: center;
+                }
+            }
+            &_bottom{
+                width: 100%;
+                font-size: 16px;
+                font-weight: 700;
+            }
+        }
+        &_bottom{
+            width: 100%;
+            display: flex;
+            justify-content: end;
+            align-items: center;
+        }
+    }
+}

@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './Header.scss';
+import { Link } from 'react-router-dom'
+import SignInBtn from '../SignInBtn/SignInBtn';
 
 const Header: React.FC = () => {
     const [activeTab, setActiveTab] = useState("Home");
@@ -13,17 +15,18 @@ const Header: React.FC = () => {
     return (
         <div className='Header container'>
             <div className='Header_left'>
-                <div className='Header_left_logo'>
+                <Link to="/" className='Header_left_logo'>
                     <img src="/img/logo.svg" alt="" />
                     <h2 className='Header_left_logo_title'>LookTwice</h2>
-                </div>
+                </Link>
                 <div className='Header_left_btns'>
-                    <p
+                    <Link
+                    to="/"
                         className={`Header_left_text ${activeTab === 'Home' ? 'Header_left_text_active' : ''}`}
                         onClick={() => setActiveTab('Home')}
                     >
                         Home
-                    </p>
+                    </Link>
                     <p
                         className={`Header_left_text ${activeTab === 'Fandom' ? 'Header_left_text_active' : ''}`}
                         onClick={() => setActiveTab('Fandom')}
@@ -51,13 +54,10 @@ const Header: React.FC = () => {
                         <li>German</li>
                     </ul>
                 </div>
-
-                <div className='Header_right_signin'>
-                    Sign In
-                </div>
-                <div className='Header_right_login'>
-                    <img src="/img/header/login.png" alt="" />
-                </div>
+                <SignInBtn />
+                <Link to="/personalaccount" className='Header_right_login'>
+                    <img src="/img/header/login.svg" alt="" />
+                </Link>
             </div>
         </div>
     );

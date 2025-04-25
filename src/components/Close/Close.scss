@@ -1,0 +1,21 @@
+.Close{
+    background-color: #1E1E1E;
+    padding: 13px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 300ms;
+    cursor: pointer;
+    img{
+        width: 11px;
+        height: 11px;
+        transition: filter 300ms;
+    }
+    &:hover{
+        background-color: #FFF;
+        img{
+            filter: invert(1);
+        }
+    }
+}

@@ -1,0 +1,52 @@
+.PersonalAccountPerson{
+    width: 100%;
+    background: linear-gradient(to bottom, #2b1c279f 70%, #1E2C3B9f 100%);
+    border-radius: 25px;
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    &_wrapper{
+        width: 50%;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        gap: 15px;
+    }
+    &_img{
+        width: 36px;
+        height: 36px;
+        padding: 10px 12px 11px 12px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #FFF;
+        border-radius: 50px;
+        img {
+            transition: filter 300ms;
+        }
+    }
+    &_info{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        &_name{
+            width: 100%;
+            font-family: 'ARIAL bold';
+            font-size: 24px;
+        }
+        &_uid{
+            width: 100%;
+            font-family: 'ARIAL regular';
+            font-size: 12px;
+            color: #C7C7C7;
+            text-transform: uppercase;
+        }
+    }
+    &_signIn{
+        width: 50%;
+        display: flex;
+        justify-content: end;
+        align-items: center;
+    }
+}
