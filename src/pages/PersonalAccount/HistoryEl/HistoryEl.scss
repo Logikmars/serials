@@ -1,0 +1,43 @@
+.HistoryEl{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    align-items: start;
+    align-content: start;
+    gap: 32px;
+    &_header{
+        width: 100%;
+        display: flex;
+        justify-content: start;
+        gap: 16px;
+        align-items: center;
+        padding-top: 30px;
+        &_title{
+            font-family: 'ARIAL bold';
+            font-size: 24px;
+        }
+        &_choise{
+            padding: 4px 16px;
+            background-color: #1F1E1E;
+            border-radius: 50px;
+            font-family: 'ARIAL regular';
+            font-size: 16px;
+            cursor: pointer;
+            &_active{
+                background-color: #007AFF;
+            }
+        }
+    }
+    &_list{
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: start;
+        gap: 24px;
+        &_title{
+            font-family: 'ARIAL regular';
+            font-size: 16px;
+        }
+    }
+}

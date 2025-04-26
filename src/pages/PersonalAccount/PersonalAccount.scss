@@ -1,0 +1,126 @@
+.PersonalAccount{
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    gap: 32px;
+    margin-top: 35px !important;
+    margin-bottom: 35px !important;
+    &_leftinfo{
+        width: 33%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-content: start;
+        gap: 16px;
+        &_balance{
+            background: linear-gradient(to bottom, #2b1c279f 70%, #1E2C3B9f 100%);
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: start;
+            padding: 16px;
+            border-radius: 25px;
+            gap: 16px;
+            &_title{
+                font-family: 'ARIAL regular';
+                font-size: 16px;
+            }
+            &_tickets_wrapper{
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            &_coins{
+                width: 50%;
+                display: flex;
+                justify-content: start;
+                align-items: center;
+                gap: 8px;
+                &_logo{
+                    padding: 6px 8px 7px 9px;
+                    background-color: #EF29DC;
+                    border-radius: 50px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+                &_amount{
+                    font-family: 'ARIAL bold';
+                    font-size: 24px;
+                }
+            }
+            &_tickets{
+                width: 50%;
+                display: flex;
+                justify-content: start;
+                gap: 8px;
+                &_logo{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 2px;
+                    &_left{
+                        background-color: #EF29DC;
+                        width: 7px;
+                        height: 24px;
+                        border-top-left-radius: 50px;
+                        border-bottom-left-radius: 50px;
+                    }
+                    &_center{
+                        background-color: #EF29DC;
+                        height: 24px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        padding: 4px 6px;
+                    }
+                    &_right{
+                        background-color: #EF29DC;
+                        width: 7px;
+                        height: 24px;
+                        border-top-right-radius: 50px;
+                        border-bottom-right-radius: 50px;
+                    }
+                }
+                &_amount{
+                    font-family: 'ARIAL bold';
+                    font-size: 24px;
+                }
+            }
+            &_btn{
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-family: 'ARIAL regular';
+                font-size: 16px;
+                background-color: #007AFF;
+                padding: 10px 0px 10px 0px;
+                border-radius: 28px;
+                transition: color 300ms, background-color 300ms;
+                cursor: pointer;
+                &:hover{
+                    color: #000;
+                    background-color: #FFF;
+                }
+            }
+        }
+        &_list{
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center; 
+            background: linear-gradient(to bottom, #2b1c279f 99%, #1E2C3B9f 100%); 
+            border-radius: 15px;    
+        }
+    }
+
+    &_right{
+        width: calc(77% - 32px);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: start;
+
+    }
+}
