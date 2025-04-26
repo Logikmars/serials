@@ -1,0 +1,32 @@
+.Arrow{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba($color: #2B2B2BB2, $alpha: .7);
+    transition: background-color 300ms;
+    cursor: pointer;
+    position: relative;
+    z-index: 99;
+    img{
+        transition: filter 300ms;
+    }
+    &:hover{
+        background-color: #FFF;
+        img{
+            filter: invert(1);
+        }
+    }
+    &_bigWidth{
+        padding: 15px;
+        border-radius: 50px;
+    }
+    &_bigHeight{
+        padding: 37px 10px;
+        border-radius: 50px;
+    }
+    &__img{
+        &_right{
+            rotate: 180deg;
+        }
+    }
+}

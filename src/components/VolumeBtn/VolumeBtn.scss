@@ -1,0 +1,21 @@
+.VolumeBtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #00000040;
+    padding: 11px 10px 12px 8px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 300ms;
+    img{
+        width: 19px;
+        height: 12px;
+        transition: filter 300ms;
+    }
+    &:hover{
+        background-color: #FFF;
+        img{
+            filter: invert(1);
+        }
+    }
+}

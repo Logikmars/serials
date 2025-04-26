@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Stories.scss';
 import StoriesElement from './StoriesElement/StoriesElement';
+import { Link } from 'react-router-dom'
 
 interface Props {
     title: string;
@@ -37,8 +38,10 @@ const Stories: React.FC<Props> = ({ title }) => {
                                     : 0
                             }}
                         >
-                            {/* <img src={el.img} alt="" /> */}
-                            <StoriesElement key={`StoriesElement_${index}`} el={el} />
+                            <Link to='/stories'>
+                                {/* <img src={el.img} alt="" /> */}
+                                <StoriesElement key={`StoriesElement_${index}`} el={el} />
+                            </Link>
                         </div>
                     })
                 }
