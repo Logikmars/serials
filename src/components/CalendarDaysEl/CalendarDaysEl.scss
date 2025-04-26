@@ -1,0 +1,57 @@
+.CalendarDaysEl {
+    --element-width: calc(100% / 6 - 10px);
+    width: var(--element-width);
+    min-height: 50px;
+    padding: 14px 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFFFFF1A;
+    border-radius: 10px;
+    &_el{
+        font-family: 'ARIAL bold';
+        font-size: 16px;
+    }
+    &_today{
+        background-color: #007AFF;
+    }
+    &_hot{
+        background-color: #6E275C;
+        &_decor{
+            bottom: 25px;
+            left: 30px;
+            img{
+                width: 8px;
+                height: 10px;
+            }
+            &_border{
+                padding: 5px 6px;
+                background-color: #EF4BC5;
+                border-radius: 50px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    }
+    &_locked{
+        background-color: #0D2238;
+        &_decor{
+            bottom: 25px;
+            left: 35px;
+            img{
+                width: 8px;
+                height: 11px;
+            }
+            &_border{
+                background-color: #007AFF;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 3px 5px;
+                border-radius: 50px;
+            }
+        }
+    }
+  }
+  

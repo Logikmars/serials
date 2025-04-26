@@ -1,0 +1,20 @@
+.CommentsBtn{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    font-family: 'ARIAL regular';
+    font-size: 12px;
+    img{
+        width: 19px;
+    }
+    &_img{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #00000040;
+        padding: 11px;
+        border-radius: 50px;
+    }
+}
