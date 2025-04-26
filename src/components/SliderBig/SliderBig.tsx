@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './SliderBig.scss';
 import SliderBigElement from './SliderBigElement';
 import { ISliderBigElement } from './ISliderBigElement';
@@ -11,19 +11,27 @@ interface Props {
 const elementsRAW: ISliderBigElement[] = [
     {
         src: '/img/largePreviews/0.webp',
-        title: 'The Empire Strikes Back',
-        description: 'In the heart of Cloud City, destiny clashes with legacy. As Luke faces Darth Vader in a duel of light and shadow, secrets are revealed and paths are changed forever. One choice. One truth. The galaxy will never be the same.'
+        title: 'WWE THIS SUNDAY',
+        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore fugiat veniam non, alias aperiam voluptas eos repellat ipsam eligendi illo laborum iste accusantium nostrum, inventore commodi magnam eius nesciunt placeat.'
+    },
+
+    {
+        src: '/img/largePreviews/0.webp',
+        title: 'WWE THIS SUNDAY',
+        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore fugiat veniam non, alias aperiam voluptas eos repellat ipsam eligendi illo laborum iste accusantium nostrum, inventore commodi magnam eius nesciunt placeat.'
     },
     {
-        src: '/img/largePreviews/1.png',
-        title: 'The Empire Strikes Back',
-        description: 'In the heart of Cloud City, destiny clashes with legacy. As Luke faces Darth Vader in a duel of light and shadow, secrets are revealed and paths are changed forever. One choice. One truth. The galaxy will never be the same.'
+        src: '/img/largePreviews/0.webp',
+        title: 'WWE THIS SUNDAY',
+        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore fugiat veniam non, alias aperiam voluptas eos repellat ipsam eligendi illo laborum iste accusantium nostrum, inventore commodi magnam eius nesciunt placeat.'
     },
 ]
 
 const elements = [elementsRAW[elementsRAW.length - 1], ...elementsRAW, elementsRAW[0]]
 
 const SliderBig: React.FC<Props> = ({ property }) => {
+
+    console.log(property);
 
     const [currentSlide, setcurrentSlide] = useState(1);
 
@@ -70,20 +78,36 @@ const SliderBig: React.FC<Props> = ({ property }) => {
         }
     }
 
+    const [maxWidth, setMaxWidth] = useState(Math.min(1600, window.innerWidth));
+
+    useEffect(() => {
+        const handleResize = () => setMaxWidth(Math.min(1600, window.innerWidth));
+        window.addEventListener('resize', handleResize);
+        handleResize();
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+
 
 
     return (
         <div className='SliderBig'>
             <div className='SliderBig_top'></div>
-            <div className='SliderBig_elements SliderElementWidth SliderElementHeight'>
+            <div className='SliderBig_elements  SliderElementHeight' style={{
+                maxWidth: maxWidth,
+                minWidth: maxWidth,
+            }}>
                 {elements.map((el, index) => {
-                    return <SliderBigElement
-                        key={index}
-                        index={index}
-                        element={el}
-                        currentSlide={currentSlide}
-                        loop={loop}
-                    />
+
+                    return <div key={index} className='SliderBigElement_wrapper free_img' style={{
+                        transform: `translate(${(index - currentSlide) * maxWidth}px, 0px)`,
+                        transition: loop ? 'none' : 'transform 500ms, opacity 500ms',
+                        opacity: Math.abs(index - currentSlide) > 0 ? 0 : 1
+                    }}>
+                        <SliderBigElement
+                            element={el}
+                        />
+                    </div>
                 })}
             </div>
             <div className='SliderBig_buttons container free_img'>
