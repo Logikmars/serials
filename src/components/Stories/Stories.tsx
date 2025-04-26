@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Stories.scss';
 import StoriesElement from './StoriesElement/StoriesElement';
 import { Link } from 'react-router-dom'
@@ -9,6 +9,10 @@ interface Props {
 const Stories: React.FC<Props> = ({ title }) => {
 
     const [currentSlide, setcurrentSlide] = useState(0);
+    useEffect(() => {
+        // заглушка шоб не ругалос
+        setcurrentSlide(0)
+    }, [])
 
     const storiesElements = [
         {
