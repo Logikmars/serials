@@ -4,8 +4,8 @@ import SliderBig from "./components/SliderBig/SliderBig"
 import SliderSmall from "./components/SliderSmall/SliderSmall"
 import Stories from "./components/Stories/Stories"
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import PersonalAccount from "./Pages/PersonalAccount/PersonalAccount"
-import WatchStories from "./Pages/WatchStories/WatchStories"
+import PersonalAccount from "./pages/PersonalAccount/PersonalAccount"
+import WatchStories from "./pages/WatchStories/WatchStories"
 
 function App() {
 
