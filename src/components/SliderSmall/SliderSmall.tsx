@@ -165,7 +165,7 @@ const SliderSmall: React.FC<Props> = ({ title }) => {
                         })
                     }
                 </div>
-                <div className='SliderSmall_arrow_wrapper free_img'>
+                <div className='SliderSmall_arrow_wrapper SliderSmall_arrow_wrapper_right free_img'>
                     <div className='SliderSmall_arrow SliderSmall_arrow_right' onClick={handleNext}>
                         <img src="/img/icons/arrow.svg" alt="" />
                     </div>

@@ -9,6 +9,10 @@
 
     &_wrapper {
         background: linear-gradient(to bottom, #2b1c279c 70%, #1e2c3b93 100%);
+
+        @media(max-width: 750px) {
+            display: none;
+        }
     }
 
     &_logo {

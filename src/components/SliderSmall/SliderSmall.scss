@@ -19,6 +19,7 @@
         align-items: center;
         transition: background-color 200ms;
 
+
         &:hover {
             cursor: pointer;
             background-color: #fff4;
@@ -26,11 +27,23 @@
 
         &_right {
             rotate: 180deg;
+
         }
 
         &_wrapper {
             position: relative;
             z-index: 2;
+
+            @media(max-width: 1200px) {
+                left: 40px;
+            }
+
+            &_right {
+                @media(max-width: 1200px) {
+                    left: -40px !important;
+                }
+            }
+
         }
     }
 

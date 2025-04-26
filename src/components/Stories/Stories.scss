@@ -1,9 +1,11 @@
-.Stories{
+.Stories {
     width: 100%;
     display: flex;
     justify-content: start;
     flex-wrap: wrap;
-    &_header{
+    margin-top: 120px !important;
+
+    &_header {
         width: 100%;
         display: flex;
         align-items: center;
@@ -11,11 +13,13 @@
         font-size: 32px;
         font-weight: 800;
     }
-    &_title{
+
+    &_title {
         font-family: 'ARIAL bold';
         font-size: 32px;
     }
-    &_slider{
+
+    &_slider {
         display: flex;
         justify-content: center;
         align-items: center;

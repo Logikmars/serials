@@ -17,7 +17,7 @@ function App() {
             <>
               <SliderBig />
               <Stories title="Stories" />
-              <SliderSmall title="Shoto" />
+              <SliderSmall title="Featuring" />
             </>
           } />
 
