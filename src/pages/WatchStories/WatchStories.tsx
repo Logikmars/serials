@@ -9,6 +9,8 @@ import LikeBtn from '../../components/LikeBtn/LikeBtn';
 import CommentsBtn from '../../components/CommentsBtn/CommentsBtn';
 import ShareArrowBtn from '../../components/ShareArrowBtn/ShareArrowBtn';
 import CalendarDaysEl from '../../components/CalendarDaysEl/CalendarDaysEl';
+import useIsPortrait from '../../hooks/useIsPortrait';
+import ShareDots from '../../components/ShareDots/ShareDots';
 
 interface Props {
     el: {
@@ -50,10 +52,25 @@ const WatchStories: React.FC<Props> = ({ el }) => {
         />);
     }
 
+    const isPortrait = useIsPortrait();
+
     return (
         <div className='WatchStories Bigcontainer'>
-            <div className='WatchStories_left'>
-                <Close />
+            <div className={`WatchStories_left ${isPortrait && 'WatchStories_mob'}`}>
+                {
+                    isPortrait ? 
+                    <div className='WatchStories_mob_top'>
+                        <div className='WatchStories_mob_top_left'>
+                            <Close />
+                            {el.title}
+                        </div>
+                        <div className='WatchStories_mob_top_right'>
+                            {el.today}/{el.days}
+                            <ShareDots />
+                        </div>
+                    </div>
+                    :<Close />
+                }
             </div>
             <div className='WatchStories_center'>
                 <Arrow bigHeight={true}/>

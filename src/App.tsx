@@ -6,6 +6,8 @@ import Stories from "./components/Stories/Stories"
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import PersonalAccount from "./pages/PersonalAccount/PersonalAccount"
 import WatchStories from "./pages/WatchStories/WatchStories"
+import MobMenu from "./components/MobMenu/MobMenu"
+import HistoryEl from "./pages/PersonalAccount/HistoryEl/HistoryEl"
 
 function App() {
 
@@ -40,8 +42,13 @@ function App() {
           {/* meow */}
           <Route path="/personalaccount" element={<PersonalAccount />} />
           <Route path="/stories" element={<WatchStories el={el} />} />
-        </Routes>
 
+          <Route path="/history" element={<HistoryEl />} />
+          <Route path="/profile/history" element={<HistoryEl />} />
+          <Route path="/profile" element={<PersonalAccount />} />
+
+        </Routes>
+          <MobMenu />
       </div>
     </BrowserRouter>
   )

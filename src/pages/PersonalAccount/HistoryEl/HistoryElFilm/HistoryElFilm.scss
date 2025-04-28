@@ -26,6 +26,9 @@
                     display: flex;
                     gap: 8px;
                     align-items: center;
+                    @media(max-width: 750px){
+                        flex-wrap: wrap;
+                    }
                 }
             }
             &_bottom{

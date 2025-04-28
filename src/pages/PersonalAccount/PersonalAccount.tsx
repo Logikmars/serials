@@ -5,6 +5,8 @@ import ListItem from './ListItem/ListItem';
 import WalletEl from './WalletEl/WalletEl';
 import FavoriteEl from './FavoriteEl/FavoriteEl';
 import HistoryEl from './HistoryEl/HistoryEl';
+import { Link } from 'react-router-dom';
+import useIsPortrait from '../../hooks/useIsPortrait';
 const PersonalAccount: React.FC = () => {
 
     const Person = [
@@ -20,19 +22,24 @@ const PersonalAccount: React.FC = () => {
     const listItems = [
         {
             img: "/img/icons/wallet.svg",
-            title: "My wallet"
+            title: "My wallet",
+            to: 'wallet'
         },
         {
             img: "/img/header/likes.png",
-            title: "My favorites"
+            title: "My favorites",
+            to: 'liked'
         },
         {
             img: "/img/header/clock.png",
-            title: "History"
+            title: "History",
+            to: 'history'
         },
     ]
 
-    const [activeIndex, setActiveIndex] = useState<number | null>(2);
+    const [activeIndex, setActiveIndex] = useState<number | null>();
+
+    const isPortrait = useIsPortrait();
 
     return (
         <div className='PersonalAccount container'>
@@ -74,16 +81,28 @@ const PersonalAccount: React.FC = () => {
                 </div>
                 <div className='PersonalAccount_leftinfo_list'>
                     {
-                        listItems.map((el, index) => (
+                    listItems.map((el, index) => (
+                        isPortrait ? (
+                        <Link to={el.to} key={index}>
                             <ListItem
-                                img={el.img}
-                                title={el.title}
-                                key={index}
-                                index={index}
-                                isActive={activeIndex === index}
-                                onClick={() => setActiveIndex(index)}
+                            img={el.img}
+                            title={el.title}
+                            index={index}
+                            isActive={activeIndex === index}
+                            onClick={() => setActiveIndex(index)}
                             />
-                        ))
+                        </Link>
+                        ) : (
+                        <ListItem
+                            img={el.img}
+                            title={el.title}
+                            key={index}
+                            index={index}
+                            isActive={activeIndex === index}
+                            onClick={() => setActiveIndex(index)}
+                        />
+                        )
+                    ))
                     }
                 </div>
             </div>

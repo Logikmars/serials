@@ -5,6 +5,11 @@
     gap: 32px;
     margin-top: 35px !important;
     margin-bottom: 35px !important;
+    @media(max-width: 900px){
+        flex-wrap: wrap;
+        justify-content: center;
+
+    }
     &_leftinfo{
         width: 33%;
         display: flex;
@@ -12,6 +17,12 @@
         justify-content: center;
         align-content: start;
         gap: 16px;
+        @media(max-width: 900px){
+            width: calc(77% - 32px);
+        }
+        @media(max-width: 750px){
+            width: 100%;
+        }
         &_balance{
             background: linear-gradient(to bottom, #2b1c279f 70%, #1E2C3B9f 100%);
             width: 100%;
@@ -48,6 +59,15 @@
                 &_amount{
                     font-family: 'ARIAL bold';
                     font-size: 24px;
+                    @media(max-width: 1120px){
+                        font-size: 18px;
+                    }
+                    @media(max-width: 950px){
+                        font-size: 14px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
                 }
             }
             &_tickets{
@@ -86,6 +106,15 @@
                 &_amount{
                     font-family: 'ARIAL bold';
                     font-size: 24px;
+                    @media(max-width: 1120px){
+                        font-size: 18px;
+                    }
+                    @media(max-width: 950px){
+                        font-size: 14px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
                 }
             }
             &_btn{
@@ -113,6 +142,9 @@
             justify-content: center; 
             background: linear-gradient(to bottom, #2b1c279f 99%, #1E2C3B9f 100%); 
             border-radius: 15px;    
+            a{
+                width: 100%;
+            }
         }
     }
 
@@ -121,6 +153,8 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: start;
-
+        @media(max-width: 750px){
+            display: none;
+        }
     }
 }

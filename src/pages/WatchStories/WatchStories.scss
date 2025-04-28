@@ -3,12 +3,19 @@
     display: flex;
     justify-content: space-between;
     gap: 20px;
+    @media(max-width: 1090px){
+        justify-content: center;
+        flex-wrap: wrap;
+    }
     &_left{
         width: calc(25% - 20px);
         display: flex;
         justify-content: start;
         align-items: start;
         padding-left: 50px;
+        @media(max-width: 1090px){
+            width: 100%;
+        }
     }
 
     &_center{
@@ -94,6 +101,10 @@
         flex-wrap: wrap;
         align-content: start;
         gap: 16px;
+        min-width: 350px;
+        @media(max-width: 1090px){
+            display: none;
+        }
         &_title{
             width: 100%;
             display: flex;
@@ -152,6 +163,57 @@
                 justify-content: start;
                 flex-wrap: wrap;
                 gap: 6px;
+            }
+        }
+    }
+
+
+    &_mob{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0px 10px;
+        @media(max-width: 750px){
+            padding-top: 20px !important;
+        }
+        &_top{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            &_left{
+                width: 75%;
+                display: flex;
+                align-items: center;
+                justify-content: start;
+                gap: 16px;
+                font-weight: 700;
+                font-size: 16px;
+                @media(max-width: 480px){
+                    font-size: 12px;
+                }
+                @media(max-width: 390px){
+                    gap: 5px;
+                    font-size: 10px;
+                }
+            }
+            &_right{
+                width: 25%;
+                display: flex;
+                justify-content: end;
+                align-items: center;
+                gap: 16px;
+                font-weight: 700;
+                font-size: 16px;
+                letter-spacing: 1px;
+                @media(max-width: 480px){
+                    font-size: 12px;
+                }
+                @media(max-width: 390px){
+                    gap: 5px;
+                    font-size: 10px;
+                }
             }
         }
     }
