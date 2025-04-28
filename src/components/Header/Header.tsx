@@ -27,12 +27,13 @@ const Header: React.FC = () => {
                     >
                         Home
                     </Link>
-                    <p
+                    <Link
                         className={`Header_left_text ${activeTab === 'Fandom' ? 'Header_left_text_active' : ''}`}
                         onClick={() => setActiveTab('Fandom')}
+                        to={'/fandom'}
                     >
                         Fandom
-                    </p>
+                    </Link>
                 </div>
             </div>
 

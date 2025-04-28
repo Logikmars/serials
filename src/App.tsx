@@ -8,6 +8,7 @@ import PersonalAccount from "./pages/PersonalAccount/PersonalAccount"
 import WatchStories from "./pages/WatchStories/WatchStories"
 import MobMenu from "./components/MobMenu/MobMenu"
 import HistoryEl from "./pages/PersonalAccount/HistoryEl/HistoryEl"
+import Fandom from "./pages/Fandom/Fandom"
 
 function App() {
 
@@ -42,6 +43,7 @@ function App() {
           {/* meow */}
           <Route path="/personalaccount" element={<PersonalAccount />} />
           <Route path="/stories" element={<WatchStories el={el} />} />
+          <Route path="/fandom" element={<Fandom />} />
 
           <Route path="/history" element={<HistoryEl />} />
           <Route path="/profile/history" element={<HistoryEl />} />

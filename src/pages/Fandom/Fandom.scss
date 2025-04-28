@@ -1,0 +1,15 @@
+.Fandom{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    &_slider{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 400px;
+        max-width: 1300px;
+    }
+}

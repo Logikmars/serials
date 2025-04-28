@@ -73,7 +73,9 @@ const WatchStories: React.FC<Props> = ({ el }) => {
                 }
             </div>
             <div className='WatchStories_center'>
-                <Arrow bigHeight={true}/>
+                <div className='WatchStories_center_btn'>
+                    <Arrow bigHeight={true}/>
+                </div>
                 <div className='WatchStories_center_stories'>
                     <div className='WatchStories_center_stories_video free_img'>
                         <div className='WatchStories_center_stories_container free_img'>
@@ -103,7 +105,9 @@ const WatchStories: React.FC<Props> = ({ el }) => {
                         <img src={el.img} alt="" />
                     </div>
                 </div>
-                <Arrow bigHeight={true} right={true}/>
+                <div className='WatchStories_center_btn'>
+                    <Arrow bigHeight={true} right={true}/>
+                </div>
             </div>
             <div className='WatchStories_right'>
                 <div className='WatchStories_right_title'>

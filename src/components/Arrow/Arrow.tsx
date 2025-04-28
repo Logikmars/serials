@@ -5,9 +5,10 @@ interface Props {
     right?: boolean;
     bigWidth?: boolean;
     bigHeight?: boolean;
+    onClick?: () => void;
 }
 
-const Arrow: React.FC<Props> = ({ right, bigWidth, bigHeight }) => {
+const Arrow: React.FC<Props> = ({ right, bigWidth, bigHeight, onClick }) => {
     const classNames = [
         'Arrow',
         bigWidth ? 'Arrow_bigWidth' : '',
@@ -20,10 +21,10 @@ const Arrow: React.FC<Props> = ({ right, bigWidth, bigHeight }) => {
     ].filter(Boolean).join(' ');
 
     return (
-        <div className={classNames}>
+        <div className={classNames} onClick={onClick}>
             <img className={imgClassNames} src="/img/icons/arrow.svg"/>
         </div>
     );
 };
 
-export default Arrow;
+export default Arrow

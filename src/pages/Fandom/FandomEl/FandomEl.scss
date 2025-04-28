@@ -1,0 +1,14 @@
+.FandomEl{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    img{
+        border-radius: 25px;
+    }
+    &_title{
+        &_block{
+            width: 235px !important;
+            background-color: #000;
+        }
+    }
+}
