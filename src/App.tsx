@@ -49,31 +49,6 @@ function App() {
           <Route path="/profile/history" element={<HistoryEl />} />
           <Route path="/profile" element={<PersonalAccount />} />
 
-          <div className='Post' style={{
-            overflow: 'hidden',
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'center',
-
-          }}>
-            <div className='Post_bg free_img' style={{
-              width: `100%`,
-              alignItems: "baseline",
-            }}>
-              <img src="asd" alt="" style={{
-                minWidth: `100%`,
-                minHeight: `600px`,
-                filter: 'blur(10px)'
-              }} />
-            </div>
-            <div className='Post_content'>
-              <img src="asd" alt="" style={{
-                width: `100%`,
-                maxHeight: `600px`
-              }} />
-            </div>
-          </div>
-
         </Routes>
         <MobMenu />
       </div>

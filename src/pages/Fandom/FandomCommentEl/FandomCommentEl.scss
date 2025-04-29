@@ -1,0 +1,48 @@
+.FandomCommentEl{
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    flex-wrap: wrap;
+    padding: 13px 18px;
+    gap: 16px;
+    &_header{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        &_left{
+            width: calc(70% - 10px);
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            gap: 5px;
+            font-family: 'ARIAL regular';
+            font-size: 12px;
+            &_time{
+                color: rgba($color: #FFF, $alpha: .7);
+            }
+        }
+        &_right{
+            width: calc(30% - 10px);
+            display: flex;
+            justify-content: end;
+            align-items: center;
+            gap: 8px;
+        }
+    }
+    &_round{
+        width: 4px;
+        height: 4px;
+        background-color: #FFF;
+        border-radius: 50px;
+    }
+
+    &_text{
+        color: rgba($color: #FFF, $alpha: .7);
+        font-family: 'ARIAL regular';
+        font-size: 16px;
+        width: 90%;
+        margin: auto 0 auto auto;
+    }
+}
