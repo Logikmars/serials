@@ -1,0 +1,92 @@
+.FandomPostEl{
+    width: 100%;
+    background: linear-gradient(200deg, #2B1C2777 0%, #1E2C3B77 100%);
+    padding: 16px 0px;
+    display: flex;
+    justify-content: start;
+    flex-wrap: wrap;
+    align-content: start;
+    border-radius: 25px;
+    gap: 16px;
+    &_header{
+        width: 100%;
+        padding: 0px 16px;
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        &_left{
+            width: calc(50% - 10px);
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            font-family: 'ARIAL regular';
+            &_round{
+                width: 4px;
+                height: 4px;
+                border-radius: 50px;
+                background-color: #FFF;
+            }
+            &_date{
+                color: rgba($color: #FFF, $alpha: .7);
+            }
+        }
+        &_right{
+            width: calc(50% - 10px);
+            display: flex;
+            justify-content: end;
+            align-items: center;
+            gap: 8px;
+        }
+    }
+    &_title{
+        width: 100%;
+        padding: 0px 16px;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        font-family: 'ARIAL regular';
+        font-size: 16px;
+    }
+    &_post{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &_back{
+            position: relative;
+            z-index: 0;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 25px;
+            img{
+                width: 100%;
+                object-fit: contain;
+                filter: blur(10px);
+                border-radius: 25px;
+                opacity: .8;
+            }
+        }
+        &_middle{
+            align-items: center !important;
+            z-index: 9999;
+            right: 50%;
+            img{
+                width: 400px;
+                filter: blur(0px);
+                opacity: 1;
+            }
+        }
+    }
+    &_nav{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+}

@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import './Fandom.scss';
 import Arrow from '../../components/Arrow/Arrow';
 import FandomEl from './FandomEl/FandomEl';
+import FandomDiscussionEl from './FandomDiscussionEl/FandomDiscussionEl';
+import FandomPostEl from './FandomPostEl/FandomPostEl';
 const Fandom: React.FC = () => {
 
     const elementsRAW = [
@@ -75,6 +77,101 @@ const Fandom: React.FC = () => {
             }
         }
     
+    const discussionsEl = [
+        {
+            name: 'Guest 783412098',
+            members: 67138
+        },
+        {
+            name: 'Guest 783412098',
+            members: 67138
+        },
+        {
+            name: 'Guest 783412098',
+            members: 67138
+        },
+        {
+            name: 'Guest 783412098',
+            members: 67138
+        },
+
+        {
+            name: 'Guest 783412098',
+            members: 67138
+        },
+        
+        {
+            name: 'Guest 783412098',
+            members: 67138
+        },
+        
+        {
+            name: 'Guest 783412098',
+            members: 67138
+        },
+        
+        {
+            name: 'Guest 783412098',
+            members: 67138
+        },
+        {
+            name: 'Guest 783412098',
+            members: 67138
+        },
+        {
+            name: 'Guest 783412098',
+            members: 67138
+        },
+        {
+            name: 'Guest 783412098',
+            members: 67138
+        },
+        {
+            name: 'Guest 783412098',
+            members: 67138
+        },
+        {
+            name: 'Guest 783412098',
+            members: 67138
+        },
+        {
+            name: 'Guest 783412098',
+            members: 67138
+        },
+        {
+            name: 'Guest 783412098',
+            members: 67138
+        },
+        {
+            name: 'Guest 783412098',
+            members: 67138
+        },
+        {
+            name: 'Guest 783412098',
+            members: 67138
+        },
+        {
+            name: 'Guest 783412098',
+            members: 67138
+        },
+    ]
+
+    const [visibleDiscussions, setVisibleDiscussions] = useState(11);
+
+    const handleSeeMore = () => {
+        setVisibleDiscussions(prev => prev + 11);
+    };
+
+    const postEl = [
+        {
+            name: "Guest 783412098",
+            date: new Date(),
+            title: "OMG 😭💔 I CAN’T BREATHE",
+            likes: 14,
+            comments: 14,
+            img: '/img/fandom/fandomImg.webp'
+        }
+    ];
 
     return (
         <div className='Fandom container'>
@@ -100,6 +197,48 @@ const Fandom: React.FC = () => {
                     }
                 </div>
                 <Arrow bigHeight right onClick={handleNext}/>
+            </div>
+            <div className='Fandom_content'>
+                <div className='Fandom_content_nav'>
+                    <div className='Fandom_content_nav_item'>
+                        Hot 
+                        <img src="/img/icons/arrow.svg" alt="" />
+                    </div>
+                    <div className='Fandom_content_nav_item'>
+                        Everywhere
+                        <img src="/img/icons/arrow.svg" alt="" />
+                    </div>
+                </div>
+                <div className='Fandom_content_main'>
+                    <div className='Fandom_content_balance'></div>
+                    <div className='Fandom_content_middle'>
+                        {
+                            postEl.map((el, index) => (
+                                <FandomPostEl el={el} key={`FandomPostEl-${index}`}/>
+                            ))
+                        }
+                    </div>
+                    <div className='Fandom_content_left'>
+                        <div className='Fandom_content_left_title'>
+                            MY DISCUSSIONS
+                        </div>
+                        <div className='Fandom_content_left_list'>
+                        {
+                            discussionsEl.slice(0, visibleDiscussions).map((el, index) => (
+                                <FandomDiscussionEl name={el.name} members={el.members} key={`FandomDiscussionEl-${index}`} />
+                            ))
+                        }
+                        </div>
+                        {
+                            visibleDiscussions < discussionsEl.length && (
+                            <div className='Fandom_content_left_btn'>
+                                <div className='Fandom_content_left_btn_el' onClick={handleSeeMore}>
+                                    See more
+                                </div>
+                            </div>
+                        )}
+                    </div>
+                </div>
             </div>
         </div>
     )};

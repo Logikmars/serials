@@ -4,6 +4,7 @@
     justify-content: center;
     flex-wrap: wrap;
     align-items: center;
+    flex-wrap: wrap;
     &_slider{
         width: 100%;
         display: flex;
@@ -11,5 +12,96 @@
         align-items: center;
         height: 400px;
         max-width: 1300px;
+    }
+    &_content{
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 16px;
+        &_nav{
+            width: 50%;
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            gap: 22px;
+            &_item{
+                display: flex;
+                justify-content: start;
+                align-items: center;
+                gap: 10px;
+                color: rgba($color: #FFF, $alpha: .7);
+                cursor: pointer;
+                img{
+                    rotate: 270deg;
+                    opacity: .7;
+                }
+            }
+        }
+        &_main{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            align-content: start;
+            gap: 16px;
+        }
+
+        &_balance{
+            width: calc(20% - 16px);
+        }
+
+        &_middle{
+            width: calc(60% - 16px);
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            align-content: start;
+        }
+
+        &_left{
+            width: calc(20% - 16px);
+            padding: 16px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: start;
+            gap: 16px;
+            background: linear-gradient(200deg, #2b1c2777 0%, #1E2C3B77 100%);
+            backdrop-filter: blur(10px);
+            border-radius: 25px;
+            &_title{
+                width: 100%;
+                font-family: 'ARIAL regular';
+                font-size: 12px;
+                text-transform: uppercase;
+            }
+            &_list{
+                width: 100%;
+                display: flex;
+                justify-content: start;
+                flex-wrap: wrap;
+            }
+            &_btn{
+                width: 100%;
+                display: flex;
+                justify-content: start;
+                align-items: center;
+                &_el{
+                    padding: 5px 15px;
+                    background-color: #007AFF;
+                    border-radius: 50px;
+                    font-family: 'ARIAL regular';
+                    font-size: 16px;
+                    cursor: pointer;
+                    transition: color 300ms, background-color 300ms;
+                    &:hover{
+                        color: #000;
+                        background-color: #FFF;
+                    }
+                }
+            }
+        }
     }
 }

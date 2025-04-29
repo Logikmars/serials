@@ -1,0 +1,26 @@
+.FandomDiscussionEl{
+    width: 100%;
+    border-top: 1px solid rgba($color: #FFFFFF, $alpha: .13);
+    border-bottom: 1px solid rgba($color: #FFFFFF, $alpha: .13);
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 16px;
+    padding: 8px 0px;
+    &_info{
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        flex-wrap: wrap;
+        &_name{
+            font-family: 'ARIAL regular';
+            font-size: 12px;
+            width: 100%;
+        }
+        &_members{
+            font-family: 'ARIAL regular';
+            font-size: 12px;
+            color: #C7C7C7;
+        }
+    }
+}
