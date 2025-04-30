@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './HistoryEl.scss';
 import HistoryElFilm from './HistoryElFilm/HistoryElFilm';
 import useIsPortrait from '../../../hooks/useIsPortrait';
@@ -8,22 +8,22 @@ const HistoryEl: React.FC = () => {
 
   const FilmEl = [
     {
-        img: '/img/trends/0.webp',
-        progress: 10,
-        title: "Episode 3 - The Empire Strikes Back",
-        percent: 78,
+      img: '/img/trends/0.webp',
+      progress: 10,
+      title: "Episode 3 - The Empire Strikes Back",
+      percent: 78,
     },
     {
-        img: '/img/trends/0.webp',
-        progress: 50,
-        title: "Episode 3 - The Empire Strikes Back",
-        percent: 78,
+      img: '/img/trends/0.webp',
+      progress: 50,
+      title: "Episode 3 - The Empire Strikes Back",
+      percent: 78,
     },
     {
-        img: '/img/trends/0.webp',
-        progress: 10,
-        title: "Episode 3 - The Empire Strikes Back",
-        percent: 78,
+      img: '/img/trends/0.webp',
+      progress: 10,
+      title: "Episode 3 - The Empire Strikes Back",
+      percent: 78,
     },
   ]
 
@@ -33,20 +33,20 @@ const HistoryEl: React.FC = () => {
     <div className={`HistoryEl ${isPortrait ? 'container' : ''}`}>
       <div className={`HistoryEl_header ${isPortrait && 'HistoryEl_headermob'}`}>
         {
-          isPortrait ? 
-          <div className='HistoryEl_header_mob'>
-            <div className='HistoryEl_header_mob_close HistoryEl_header_mob_btn'>
-              <img src="/img/icons/close.svg" alt="" />
+          isPortrait ?
+            <div className='HistoryEl_header_mob'>
+              <div className='HistoryEl_header_mob_close HistoryEl_header_mob_btn'>
+                <img src="/img/icons/close.svg" alt="" />
+              </div>
+              <div className='HistoryEl_header_mob_title'>
+                History
+              </div>
+              <div className='HistoryEl_header_mob_edit HistoryEl_header_mob_btn'>
+                <img src="/img/icons/edit.svg" alt="" />
+              </div>
             </div>
-            <div className='HistoryEl_header_mob_title'>
-              History
-            </div>
-            <div className='HistoryEl_header_mob_edit HistoryEl_header_mob_btn'>
-              <img src="/img/icons/edit.svg" alt="" />
-            </div>
-          </div>
-          :
-          <h2 className='HistoryEl_header_title'>Viewing history</h2>
+            :
+            <h2 className='HistoryEl_header_title'>Viewing history</h2>
         }
         <div
           className={`HistoryEl_header_choise ${activeFilter === 'date' ? 'HistoryEl_header_choise_active' : ''}`}
@@ -64,12 +64,12 @@ const HistoryEl: React.FC = () => {
       </div>
       <div className='HistoryEl_list'>
         <h2 className='HistoryEl_list_title'>
-            Yeasterday
+          Yeasterday
         </h2>
         {
-            FilmEl.map((el, index) => (
-                <HistoryElFilm el={el} key={index}/>
-            ))
+          FilmEl.map((el, index) => (
+            <HistoryElFilm el={el} key={index} />
+          ))
         }
       </div>
     </div>
