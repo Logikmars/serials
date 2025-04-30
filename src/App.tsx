@@ -33,7 +33,7 @@ function App() {
 
         <Routes>
           <Route path="/" element={
-            <div style={{ overflow: 'hidden' }}>
+            <div style={{ overflow: 'hidden', marginBottom: '70px' }}>
               <SliderBig />
               <Stories title="Stories" />
               <SliderSmall title="Features" />
