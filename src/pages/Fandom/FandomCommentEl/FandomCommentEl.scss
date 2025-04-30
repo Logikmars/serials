@@ -19,6 +19,9 @@
             gap: 5px;
             font-family: 'ARIAL regular';
             font-size: 12px;
+            @media(max-width: 400px){
+                font-size: 8px;
+            }
             &_time{
                 color: rgba($color: #FFF, $alpha: .7);
             }

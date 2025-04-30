@@ -6,6 +6,9 @@
     align-items: start;
     align-content: start;
     gap: 32px;
+    @media(max-width: 750px){
+        padding-bottom: 100px !important;
+    }
     &_header{
         width: 100%;
         display: flex;

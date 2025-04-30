@@ -25,6 +25,10 @@
             @media(max-width: 860px){
                 width: calc(70% - 10px);
             }
+            @media(max-width: 400px){
+                font-size: 8px;
+                flex-wrap: wrap;
+            }
             &_round{
                 width: 4px;
                 height: 4px;

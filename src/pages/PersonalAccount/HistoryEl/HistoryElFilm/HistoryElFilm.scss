@@ -4,12 +4,28 @@
     flex-wrap: wrap;
     justify-content: start;
     gap: 24px;
+    @media(max-width: 440px){
+        flex-wrap: wrap;
+    }
+    &_film{
+        @media(max-width: 420px){
+            order: 2;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
     &_info{
         width: calc(100% - 250px);
         display: flex;
         flex-wrap: wrap;
         justify-content: start;
         align-content: space-between;
+        @media(max-width: 420px){
+            order: 1;
+            width: 100%;
+        }
         &_top{
             width: 100%;
             justify-content: start;
@@ -17,6 +33,12 @@
             font-family: 'ARIAL bold';
             font-size: 24px;
             font-weight: 700;
+            @media(max-width: 560px){
+                font-size: 16px;
+            }
+            @media(max-width: 440px){
+                font-size: 12px;
+            }
             &_top{
                 width: 100%;
                 display: flex;
@@ -29,12 +51,21 @@
                     @media(max-width: 750px){
                         flex-wrap: wrap;
                     }
+                    @media(max-width: 320px){
+                        width: 40px;
+                    }
                 }
             }
             &_bottom{
                 width: 100%;
                 font-size: 16px;
                 font-weight: 700;
+                @media(max-width: 560px){
+                    font-size: 12px;
+                }
+                @media(max-width: 440px){
+                    font-size: 8px;
+                }
             }
         }
         &_bottom{
@@ -42,6 +73,9 @@
             display: flex;
             justify-content: end;
             align-items: center;
+            @media(max-width: 440px){
+                justify-content: center;
+            }
         }
     }
 }

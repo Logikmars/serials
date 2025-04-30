@@ -176,6 +176,19 @@ const Fandom: React.FC = () => {
                 text: "Edward kissed Louisa at 00:56 of episode 7 and I’m not okay 😭 I’ve been shipping them since S1E3 when he looked at her like she hung the stars, and now THIS???"
             }
         },
+        {
+            name: "Guest 783412098",
+            date: new Date(),
+            title: "OMG 😭💔 I CAN’T BREATHE",
+            likes: 14,
+            comments: 14,
+            img: '/img/fandom/fandomImg.webp',
+            commentsEl: {
+                name: "Guest 783412098",
+                date: new Date(),
+                text: "Edward kissed Louisa at 00:56 of episode 7 and I’m not okay 😭 I’ve been shipping them since S1E3 when he looked at her like she hung the stars, and now THIS???"
+            }
+        },
     ];
 
     return (

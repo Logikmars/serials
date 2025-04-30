@@ -33,12 +33,12 @@ function App() {
 
         <Routes>
           <Route path="/" element={
-            <>
+            <div style={{ overflow: 'hidden' }}>
               <SliderBig />
               <Stories title="Stories" />
               <SliderSmall title="Features" />
               <Footer />
-            </>
+            </div>
           } />
           {/* meow */}
           <Route path="/personalaccount" element={<PersonalAccount />} />
