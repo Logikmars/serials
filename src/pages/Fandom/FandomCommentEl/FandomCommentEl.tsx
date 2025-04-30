@@ -40,6 +40,26 @@ const FandomCommentEl: React.FC<Props> = ({ el }) => {
             <div className='FandomCommentEl_text'>
                 {el.text}
             </div>
+            <div className='FandomCommentEl_nav'>
+                <div className='FandomCommentEl_nav_left'>
+                    <div className='FandomCommentEl_nav_left_plus'>
+                        <span className='FandomCommentEl_nav_left_plus_span'></span>
+                    </div>
+                    <div className='FandomCommentEl_nav_left_text'>
+                        12 more replies
+                    </div>
+                </div>
+                <div className='FandomCommentEl_nav_right'>
+                    <div className='FandomCommentEl_nav_right_likes'>
+                        <img src="/img/icons/heart.svg" alt="" className='FandomCommentEl_nav_right_likes_img'/>
+                        23k
+                    </div>
+                    <div className='FandomCommentEl_nav_right_likes'>
+                        <img src="/img/icons/comments.svg" alt="" />
+                        Reply
+                    </div>
+                </div>
+            </div>
         </div>
     )};
 export default FandomCommentEl
