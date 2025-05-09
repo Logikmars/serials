@@ -7,6 +7,9 @@
     align-items: center;
     gap: 16px;
     padding: 8px 0px;
+    @media(max-width: 750px){
+        padding: 10px;
+    }
     &_info{
         display: flex;
         justify-content: start;
@@ -19,6 +22,9 @@
             @media(max-width: 940px){
                 font-size: 8px;
             }
+            @media(max-width: 750px){
+                font-size: 12px;
+            }
         }
         &_members{
             font-family: 'ARIAL regular';
@@ -27,6 +33,16 @@
             @media(max-width: 940px){
                 font-size: 8px;
             }
+            @media(max-width: 750px){
+                font-size: 12px;
+            }
         }
     }
+}
+.FandomDiscussionEl:first-child{
+    border-top: none;
+}
+
+.FandomDiscussionEl:last-child{
+    border-bottom: none;
 }

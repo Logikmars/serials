@@ -4,6 +4,7 @@ import Arrow from '../../components/Arrow/Arrow';
 import FandomEl from './FandomEl/FandomEl';
 import FandomDiscussionEl from './FandomDiscussionEl/FandomDiscussionEl';
 import FandomPostEl from './FandomPostEl/FandomPostEl';
+import Close from '../../components/Close/Close';
 const Fandom: React.FC = () => {
 
     const elementsRAW = [
@@ -152,8 +153,25 @@ const Fandom: React.FC = () => {
         },
         {
             name: 'Guest 783412098',
-            members: 67138
+            members: 1488228
         },
+        {
+            name: 'Guest 783412098',
+            members: 1488228
+        },
+        {
+            name: 'Guest 783412098',
+            members: 1488228
+        },
+        {
+            name: 'Guest 783412098',
+            members: 1488228
+        },
+        {
+            name: 'Guest 783412098',
+            members: 1488228
+        },
+        
     ]
 
     const [visibleDiscussions, setVisibleDiscussions] = useState(11);
@@ -191,8 +209,30 @@ const Fandom: React.FC = () => {
         },
     ];
 
+    const [openDiscussions, setopenDiscussions] = useState(false);
+
+    const handleOpenDiscussions = () =>{
+        setopenDiscussions(prev => !prev);
+    }
+
     return (
         <div className='Fandom container'>
+            <div className={`Fandom_mobDiscussions ${openDiscussions && 'Fandom_mobDiscussions_open'}`}>
+                <div className='Fandom_mobDiscussions_header'>
+                    <Close onclick={handleOpenDiscussions}/>
+                    My Discussions
+                    <div className='Fandom_mobDiscussions_header_pencil'>
+                        <img src="/img/icons/pencil.svg" alt="" />
+                    </div>
+                </div>
+                <div className='Fandom_mobDiscussions_list'>
+                    {
+                        discussionsEl.map((el, index) => (
+                            <FandomDiscussionEl name={el.name} members={el.members} key={`FandomDiscussionEl-${index}`} />
+                        ))
+                    }
+                </div>
+            </div>
             <div className='Fandom_slider'>
                 <Arrow bigHeight onClick={handlePrev}/>
                 <div className='Fandom_slider_slider'>
@@ -218,13 +258,20 @@ const Fandom: React.FC = () => {
             </div>
             <div className='Fandom_content'>
                 <div className='Fandom_content_nav'>
-                    <div className='Fandom_content_nav_item'>
-                        Hot 
-                        <img src="/img/icons/arrow.svg" alt="" />
+                    <div className='Fandom_content_nav_left'>
+                        <div className='Fandom_content_nav_item'>
+                            Hot 
+                            <img src="/img/icons/arrow.svg" alt="" />
+                        </div>
+                        <div className='Fandom_content_nav_item'>
+                            Everywhere
+                            <img src="/img/icons/arrow.svg" alt="" />
+                        </div>
                     </div>
-                    <div className='Fandom_content_nav_item'>
-                        Everywhere
-                        <img src="/img/icons/arrow.svg" alt="" />
+                    <div className='Fandom_content_nav_right'>
+                        <div className='Fandom_content_nav_right_discussions' onClick={handleOpenDiscussions}>
+                            My Discussions
+                        </div>
                     </div>
                 </div>
                 <div className='Fandom_content_main'>
