@@ -1,8 +1,12 @@
 import React from 'react';
 import './Close.scss';
-const Close: React.FC = () => {
+interface Props {
+    onclick: () => void;
+}
+
+const Close: React.FC<Props> = ({ onclick }) => {
     return (
-        <div className='Close'>
+        <div className='Close' onClick={onclick}>
             <img src="/img/icons/close.svg" alt="" />
         </div>
     )};

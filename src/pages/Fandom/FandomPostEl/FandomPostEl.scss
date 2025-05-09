@@ -29,6 +29,9 @@
                 font-size: 8px;
                 flex-wrap: wrap;
             }
+            @media(max-width: 350px){
+                gap: 3px;
+            }
             &_round{
                 width: 4px;
                 height: 4px;
