@@ -2,13 +2,75 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    img{
-        border-radius: 25px;
+    min-width: 260px;
+    height: 350px;
+    border-radius: 25px;
+    box-shadow: 0px 0px 10px #ffffff9f;
+    align-content: space-between;
+    @media(max-width: 370px){
+        min-width: 210px;
+    }
+    &_bouncer{
+        height: 30%;
+        width: 100%;
     }
     &_title{
-        &_block{
-            width: 235px !important;
-            background-color: #000;
+        width: 100%;
+        min-height: 50%;
+        display: flex;
+        justify-content: start;
+        align-items: end;
+        border-bottom-left-radius: 25px;
+        border-bottom-right-radius: 25px;
+        padding: 16px 16px 10px 16px;
+        background: linear-gradient(to right, #2f242da8 0%, #1a1f35a8 100%);
+        backdrop-filter: blur(10px);
+        flex-wrap: wrap;
+        gap: 8px;
+        &_date{
+            width: 100%;
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            color: #C7C7C7;
+            font-size: 12px;
+            font-family: 'ARIAL regular';
+        }
+        &_title{
+            width: 100%;
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            font-family: 'ARIAL bold';
+            font-size: 16px;
+        }
+        &_description{
+            width: 100%;
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            color: #C7C7C7;
+            font-size: 12px;
+            font-family: 'ARIAL regular';
+        }
+        &_user{
+            width: 100%;
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            gap: 5px;
+            font-size: 12px;
+            &_img{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 8px;
+                border-radius: 50px;
+                background-color: #FFF;
+                img{
+                    width: 9px;
+                }
+            }
         }
     }
 }
