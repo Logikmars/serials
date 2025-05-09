@@ -17,12 +17,12 @@ const SliderSmallElement: React.FC<Props> = ({ el }) => {
 
     const formatReleaseTime = (minutes?: number): string => {
         if (typeof minutes !== 'number' || minutes <= 0) return '';
-    
+
         const hours = Math.floor(minutes / 60);
         const days = Math.floor(hours / 24);
         const remainingMinutes = minutes % 60;
         const remainingHours = hours % 24;
-    
+
         if (minutes < 60) {
             return `${minutes} mins`;
         } else if (hours < 24) {
@@ -40,20 +40,26 @@ const SliderSmallElement: React.FC<Props> = ({ el }) => {
                 {el.effect === 'heart' && (<SliderSmallHeartDecor />)}
                 {el.effect === 'fire' && (<SliderSmallFireDecor />)}
             </div>
-            <div className='SliderSmallElement_line'>
+            <div className='SliderSmallElement_line_top'>
                 {typeof el.releaseInSec === 'number' && el.releaseInSec > 0 && (
                     <div className='SliderSmallElement_line_decor free_img'>
                         <div className='SliderSmallElement_line_decor_top free_img'>
                             <img src="/img/icons/releaseInFront.svg" alt="" />
-                        </div>
-                        <div className='SliderSmallElement_line_decor_back free_img'>
-                            <img src="/img/icons/releaseInBack.svg" alt="" />
                         </div>
                         <div className='SliderSmallElement_line_decor_text free_img'>
                             <div className='SliderSmallElement_line_decor_text_title'>
                                 <span>RELEASE IN</span>
                                 <span>{formatReleaseTime(el.releaseInSec)}</span>
                             </div>
+                        </div>
+                    </div>
+                )}
+            </div>
+            <div className='SliderSmallElement_line_bot'>
+                {typeof el.releaseInSec === 'number' && el.releaseInSec > 0 && (
+                    <div className='SliderSmallElement_line_decor free_img'>
+                        <div className='SliderSmallElement_line_decor_back free_img'>
+                            <img src="/img/icons/releaseInBack.svg" alt="" />
                         </div>
                     </div>
                 )}
@@ -98,7 +104,7 @@ const SliderSmallElement: React.FC<Props> = ({ el }) => {
                         </div>
                     </div>
                     <div className='SliderSmallElement_img_hover_right'>
-                        <img src="/img/icons/heart.svg" alt="" className='SliderSmallElement_img_hover_right_heart'/>
+                        <img src="/img/icons/heart.svg" alt="" className='SliderSmallElement_img_hover_right_heart' />
                         <img src="/img/icons/shareArrow.svg" alt="" />
                     </div>
                 </div>

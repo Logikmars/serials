@@ -48,8 +48,8 @@ function App() {
               <LoadMore onclick={handleClick} />
               {
                 showMore && <>
-                              <SliderSmall title="Features" />
-                              <SliderSmall title="Second Chance" />
+                  <SliderSmall title="Features" />
+                  <SliderSmall title="Second Chance" />
                 </>
               }
               <Footer />

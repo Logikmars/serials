@@ -7,6 +7,34 @@ import Arrow from '../Arrow/Arrow';
 interface Props {
     title: string;
 }
+
+const elementsRAW = [
+    {
+        img: "/img/stories/stories1.png",
+        isSeen: true
+    },
+    {
+        img: "/img/stories/stories1.png",
+        isSeen: true
+    },
+    {
+        img: "/img/stories/stories1.png",
+        isSeen: true
+    },
+    {
+        img: "/img/stories/stories1.png",
+        isSeen: true
+    },
+    {
+        img: "/img/stories/stories1.png",
+        isSeen: true
+    },
+    {
+        img: "/img/stories/stories1.png",
+        isSeen: true
+    },
+]
+
 const Stories: React.FC<Props> = ({ title }) => {
 
     useEffect(() => {
@@ -14,94 +42,69 @@ const Stories: React.FC<Props> = ({ title }) => {
         setcurrentSlide(0)
     }, [])
 
-        const [elementsPerScreen, setelementsPerScreen] = useState(6);
-    
-        useEffect(() => {
-            const handleResize = () => {
-                if (window.innerWidth < 99999) setelementsPerScreen(6)
-                if (window.innerWidth < 1300) setelementsPerScreen(4)
-                if (window.innerWidth < 950) setelementsPerScreen(2)
-                if (window.innerWidth < 650) setelementsPerScreen(1)
-            }
-            window.addEventListener('resize', handleResize);
-            handleResize();
-            return () => window.removeEventListener('resize', handleResize);
-        }, []);
+    const elementsPerSlide = 1;
+    const [elementsPerScreen, setelementsPerScreen] = useState(5);
+
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth < 99999) setelementsPerScreen(5)
+            if (window.innerWidth < 1300) setelementsPerScreen(4)
+            if (window.innerWidth < 950) setelementsPerScreen(2)
+            if (window.innerWidth < 650) setelementsPerScreen(1)
+        }
+        window.addEventListener('resize', handleResize);
+        handleResize();
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
 
 
-    const storiesElements = [
-        {
-            img: "/img/stories/stories1.png",
-            isSeen: true
-        },
-        {
-            img: "/img/stories/stories1.png",
-            isSeen: true
-        },
-        {
-            img: "/img/stories/stories1.png",
-            isSeen: true
-        },
-        {
-            img: "/img/stories/stories1.png",
-            isSeen: true
-        },
-        {
-            img: "/img/stories/stories1.png",
-            isSeen: true
-        },
-        {
-            img: "/img/stories/stories1.png",
-            isSeen: true
-        },
-    ]
 
-    const stories = [storiesElements[storiesElements.length - 1], ...storiesElements, storiesElements[0]]
 
-    const [wantToLoop, setwantToLoop] = useState(false);
-    const [currentSlide, setcurrentSlide] = useState(storiesElements.length);
+    const [currentSlide, setcurrentSlide] = useState(elementsRAW.length);
     const [loop, setloop] = useState(false);
+    const [wtloop, setwtloop] = useState(false);
+    const elements = [...elementsRAW, ...elementsRAW, ...elementsRAW]
 
-        const handleNext = () => {
-            if (!wantToLoop) {
-                const prev = currentSlide;
-                if (prev + 1 > stories.length - 2) {
-                    setwantToLoop(true)
-                    setTimeout(() => {
-                        setloop(true)
-                    }, 600);
-                    setTimeout(() => {
-                        setcurrentSlide(1)
-                    }, 650);
-                    setTimeout(() => {
-                        setloop(false)
-                        setwantToLoop(false)
-                    }, 700);
-                }
-                setcurrentSlide(prev => prev + 1)
+    const handleNext = () => {
+        if (!wtloop) {
+            const prevSlideNumber = currentSlide
+            if (prevSlideNumber + elementsPerSlide > (elements.length / 3) * 2) {
+                setwtloop(true)
+                setTimeout(() => {
+                    setloop(true)
+                }, 250);
+                setTimeout(() => {
+                    setcurrentSlide(prev => prev - (elements.length / 3))
+                }, 300);
+                setTimeout(() => {
+                    setloop(false)
+                    setwtloop(false)
+                }, 350);
             }
+            setcurrentSlide(prev => prev + elementsPerSlide)
         }
-        const handlePrev = () => {
-            if (!wantToLoop) {
-                const prev = currentSlide;
-                if (prev - 1 < 1) {
-                    setwantToLoop(true)
-                    setTimeout(() => {
-                        setloop(true)
-                    }, 600);
-                    setTimeout(() => {
-                        setcurrentSlide(stories.length - 2)
-                    }, 650);
-                    setTimeout(() => {
-                        setloop(false)
-                        setwantToLoop(false)
-                    }, 700);
-                }
-                setcurrentSlide(prev => prev - 1)
-            }
-        }
+    }
 
+    const handlePrev = () => {
+        if (!wtloop) {
+            const prevSlideNumber = currentSlide
+            if (prevSlideNumber - elementsPerSlide < (elements.length / 3)) {
+                setwtloop(true)
+                setTimeout(() => {
+                    setloop(true)
+                }, 250);
+                setTimeout(() => {
+                    setcurrentSlide(prev => prev + (elements.length / 3))
+                }, 300);
+                setTimeout(() => {
+                    setloop(false)
+                    setwtloop(false)
+                }, 350);
+            }
+            setcurrentSlide(prev => prev - elementsPerSlide)
+        }
+    }
     return (
         <div className='Stories container'>
             <div className='Stories_header'>
@@ -111,16 +114,16 @@ const Stories: React.FC<Props> = ({ title }) => {
             </div>
             <div className='Stories_content'>
                 <div className='Stories_btn_wrapper free_img'>
-                    <Arrow bigHeight onClick={handlePrev}/>
+                    <Arrow bigHeight onClick={handlePrev} />
                 </div>
                 <div className='Stories_slider'>
                     {
-                        stories.map((el, index) => {
+                        elements.map((el, index) => {
                             const isThisVisible = currentSlide + elementsPerScreen - index > 0
-                            ? currentSlide - 1 - index < 0
-                            ? true
-                            : false
-                            : false
+                                ? currentSlide - 1 - index < 0
+                                    ? true
+                                    : false
+                                : false
                             return (
                                 <div
                                     key={`StoriesElement_${index}`}
@@ -138,10 +141,10 @@ const Stories: React.FC<Props> = ({ title }) => {
                                 </div>
                             )
                         })
-                    }   
+                    }
                 </div>
                 <div className='Stories_btn_wrapper_right free_img'>
-                    <Arrow bigHeight right onClick={handleNext}/>
+                    <Arrow bigHeight right onClick={handleNext} />
                 </div>
             </div>
         </div>
