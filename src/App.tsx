@@ -2,6 +2,7 @@ import Footer from "./components/Footer/Footer"
 import Header from "./components/Header/Header"
 import SliderBig from "./components/SliderBig/SliderBig"
 import SliderSmall from "./components/SliderSmall/SliderSmall"
+import Slider from "./components/Slider/Slider"
 import Stories from "./components/Stories/Stories"
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import PersonalAccount from "./pages/PersonalAccount/PersonalAccount"
@@ -40,7 +41,7 @@ function App() {
 
         <Routes>
           <Route path="/" element={
-            <div style={{ overflow: 'hidden', marginBottom: '70px' }}>
+            <div style={{ overflow: 'hidden' }}>
               <SliderBig />
               <Stories title="Stories" />
               <SliderSmall title="Features" />

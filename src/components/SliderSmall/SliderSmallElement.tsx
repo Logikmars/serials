@@ -3,7 +3,8 @@ import './SliderSmallElement.scss';
 import SliderSmallBtn from './SliderSmallBtn/SliderSmallBtn';
 import SliderSmallHeartDecor from './SliderSmallHeartDecor/SliderSmallHeartDecor';
 import SliderSmallFireDecor from './SliderSmallFireDecor/SliderSmallFireDecor';
-import ShareArrowBtn from '../ShareArrowBtn/ShareArrowBtn';
+// import ShareArrowBtn from '../ShareArrowBtn/ShareArrowBtn';
+
 interface Props {
     el: {
         progress?: number;
@@ -112,4 +113,5 @@ const SliderSmallElement: React.FC<Props> = ({ el }) => {
         </div>
     )
 };
+
 export default SliderSmallElement

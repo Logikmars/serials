@@ -1,0 +1,155 @@
+import React, { useEffect, useState } from 'react';
+import './Slider.scss';
+import SliderSmallElement from '../SliderSmall/SliderSmallElement';
+import { Link } from 'react-router-dom';
+import StoriesElement from '../Stories/StoriesElement/StoriesElement';
+
+
+interface Props {
+    content: any[];
+    contentType: 'stories' | 'films';
+}
+
+
+const Slider: React.FC<Props> = ({ content, contentType }) => {
+    const elementsPerSlide = 1
+    const [elementsPerScreen, setelementsPerScreen] = useState(4);
+
+    const elementWidths = {
+        stories: 200,
+        films: 280
+    }
+
+    const elementWidth = elementWidths[contentType]
+
+
+    const elementsPerType: Record<'stories' | 'films', Record<number, number>> = {
+        stories: {
+            99999: 5,
+            1300: 4,
+            950: 3,
+            650: 2,
+            450: 1,
+        },
+        films: {
+            99999: 4,
+            1300: 3,
+            950: 2,
+            650: 1,
+        }
+    }
+
+    useEffect(() => {
+        const handleResize = () => {
+            if (contentType === 'stories' || contentType === 'films') {
+                const widths = Object.keys(elementsPerType[contentType])
+                    .map(Number)
+                    .sort((a, b) => a - b);
+
+                for (const w of widths) {
+                    if (window.innerWidth < w) {
+                        setelementsPerScreen(elementsPerType[contentType][w]);
+                        return;
+                    }
+                }
+
+                setelementsPerScreen(elementsPerType[contentType][99999]);
+            }
+        };
+
+        window.addEventListener('resize', handleResize);
+        handleResize();
+        return () => window.removeEventListener('resize', handleResize);
+    }, [contentType]);
+
+
+
+    const [currentSlide, setcurrentSlide] = useState(content.length);
+    const [loop, setloop] = useState(false);
+    const [wtloop, setwtloop] = useState(false);
+    const elements = [...content, ...content, ...content]
+
+    const handleNext = () => {
+        if (!wtloop) {
+            const prevSlideNumber = currentSlide
+            if (prevSlideNumber + elementsPerSlide > (elements.length / 3) * 2) {
+                setwtloop(true)
+                setTimeout(() => {
+                    setloop(true)
+                }, 250);
+                setTimeout(() => {
+                    setcurrentSlide(prev => prev - (elements.length / 3))
+                }, 300);
+                setTimeout(() => {
+                    setloop(false)
+                    setwtloop(false)
+                }, 350);
+            }
+            setcurrentSlide(prev => prev + elementsPerSlide)
+        }
+    }
+
+    const handlePrev = () => {
+        if (!wtloop) {
+            const prevSlideNumber = currentSlide
+            if (prevSlideNumber - elementsPerSlide < (elements.length / 3)) {
+                setwtloop(true)
+                setTimeout(() => {
+                    setloop(true)
+                }, 250);
+                setTimeout(() => {
+                    setcurrentSlide(prev => prev + (elements.length / 3))
+                }, 300);
+                setTimeout(() => {
+                    setloop(false)
+                    setwtloop(false)
+                }, 350);
+            }
+            setcurrentSlide(prev => prev - elementsPerSlide)
+        }
+    }
+
+
+    return (
+        <div className='SliderSmall_content'>
+            <div className='SliderSmall_arrow_wrapper free_img'>
+                <div className='SliderSmall_arrow' onClick={handlePrev}>
+                    <img src="/img/icons/arrow.svg" alt="" />
+                </div>
+            </div>
+
+            <div className={`SliderSmall_slider SliderSmall_slider_${contentType}`}>
+                {
+                    elements.map((el, index) => {
+                        const isThisVisible = currentSlide + elementsPerScreen - index > 0
+                            ? currentSlide - 1 - index < 0
+                                ? true
+                                : false
+                            : false
+                        return <div className='SliderSmall_slider_element free_img' style={{
+                            transition: loop ? 'none' : 'transform 200ms, opacity 200ms',
+                            transform: `translate(${-(currentSlide - ((elementsPerScreen - 1) / 2) - index + (elementsPerScreen - 1)) * elementWidth}px, 0px)`,
+                            opacity: isThisVisible ? 1 : 0,
+                            pointerEvents: isThisVisible ? 'all' : 'none'
+                        }}>
+                            {
+                                contentType === 'films' && <SliderSmallElement key={`SliderSmallElement_${index}`} el={el} />
+                            }
+                            {
+                                contentType === 'stories' && <Link to='/stories'>
+                                    <StoriesElement el={el} />
+                                </Link>
+                            }
+                        </div>
+                    })
+                }
+            </div>
+            <div className='SliderSmall_arrow_wrapper SliderSmall_arrow_wrapper_right free_img'>
+                <div className='SliderSmall_arrow SliderSmall_arrow_right' onClick={handleNext}>
+                    <img src="/img/icons/arrow.svg" alt="" />
+                </div>
+            </div>
+        </div>
+    )
+};
+export default Slider

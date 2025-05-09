@@ -1,6 +1,6 @@
 .SliderSmall {
 
-    margin-top: 100px;
+    margin-top: 60px;
 
     &_content {
         display: flex;
@@ -53,9 +53,10 @@
         align-items: center;
         height: 400px;
         width: 1200px;
+        max-width: calc(100vw);
 
-        &_element {
-            // transition: transform 200ms, opacity 200ms;
+        &_stories {
+            height: 220px;
         }
     }
 
