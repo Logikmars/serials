@@ -11,6 +11,7 @@ import ShareArrowBtn from '../../components/ShareArrowBtn/ShareArrowBtn';
 import CalendarDaysEl from '../../components/CalendarDaysEl/CalendarDaysEl';
 import useIsPortrait from '../../hooks/useIsPortrait';
 import ShareDots from '../../components/ShareDots/ShareDots';
+import { useNavigate } from 'react-router-dom';
 
 interface Props {
     el: {
@@ -54,6 +55,8 @@ const WatchStories: React.FC<Props> = ({ el }) => {
 
     const isPortrait = useIsPortrait();
 
+    const navigate = useNavigate();
+
     return (
         <div className='WatchStories Bigcontainer'>
             <div className={`WatchStories_left ${isPortrait && 'WatchStories_mob'}`}>
@@ -61,7 +64,7 @@ const WatchStories: React.FC<Props> = ({ el }) => {
                     isPortrait ? 
                     <div className='WatchStories_mob_top'>
                         <div className='WatchStories_mob_top_left'>
-                            <Close />
+                        <Close onclick={() => navigate('/')} />
                             {el.title}
                         </div>
                         <div className='WatchStories_mob_top_right'>
@@ -69,7 +72,7 @@ const WatchStories: React.FC<Props> = ({ el }) => {
                             <ShareDots />
                         </div>
                     </div>
-                    :<Close />
+                    :<Close onclick={() => navigate('/')} />
                 }
             </div>
             <div className='WatchStories_center'>

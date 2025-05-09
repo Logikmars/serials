@@ -3,6 +3,7 @@
     display: flex;
     justify-content: space-between;
     gap: 20px;
+    padding-top: 20px !important;
     @media(max-width: 1090px){
         justify-content: center;
         flex-wrap: wrap;
@@ -221,9 +222,6 @@
         align-items: center;
         justify-content: center;
         padding: 0px 10px;
-        @media(max-width: 750px){
-            padding-top: 20px !important;
-        }
         &_top{
             width: 100%;
             display: flex;
