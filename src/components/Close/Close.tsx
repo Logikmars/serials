@@ -9,5 +9,6 @@ const Close: React.FC<Props> = ({ onclick }) => {
         <div className='Close' onClick={onclick}>
             <img src="/img/icons/close.svg" alt="" />
         </div>
-    )};
+    )
+};
 export default Close

@@ -3,11 +3,13 @@ import './Slider.scss';
 import SliderSmallElement from '../SliderSmall/SliderSmallElement';
 import { Link } from 'react-router-dom';
 import StoriesElement from '../Stories/StoriesElement/StoriesElement';
+import FandomEl from '../../pages/Fandom/FandomEl/FandomEl';
+// import FandomEl from './FandomEl/FandomEl';
 
 
 interface Props {
     content: any[];
-    contentType: 'stories' | 'films';
+    contentType: 'stories' | 'films' | 'fandom';
 }
 
 
@@ -17,13 +19,14 @@ const Slider: React.FC<Props> = ({ content, contentType }) => {
 
     const elementWidths = {
         stories: 200,
-        films: 280
+        films: 280,
+        fandom: 280
     }
 
     const elementWidth = elementWidths[contentType]
 
 
-    const elementsPerType: Record<'stories' | 'films', Record<number, number>> = {
+    const elementsPerType: Record<'stories' | 'films' | 'fandom', Record<number, number>> = {
         stories: {
             99999: 5,
             1300: 4,
@@ -32,6 +35,12 @@ const Slider: React.FC<Props> = ({ content, contentType }) => {
             450: 1,
         },
         films: {
+            99999: 4,
+            1300: 3,
+            950: 2,
+            650: 1,
+        },
+        fandom: {
             99999: 4,
             1300: 3,
             950: 2,
@@ -139,6 +148,9 @@ const Slider: React.FC<Props> = ({ content, contentType }) => {
                                 contentType === 'stories' && <Link to='/stories'>
                                     <StoriesElement el={el} />
                                 </Link>
+                            }
+                            {
+                                contentType === 'fandom' && <FandomEl el={el} />
                             }
                         </div>
                     })

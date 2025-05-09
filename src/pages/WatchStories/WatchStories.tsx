@@ -7,7 +7,7 @@ import VolumeBtn from '../../components/VolumeBtn/VolumeBtn';
 import FullScreenBtn from '../../components/FullScreenBtn/FullScreenBtn';
 import LikeBtn from '../../components/LikeBtn/LikeBtn';
 import CommentsBtn from '../../components/CommentsBtn/CommentsBtn';
-import ShareArrowBtn from '../../components/ShareArrowBtn/ShareArrowBtn';
+// import ShareArrowBtn from '../../components/ShareArrowBtn/ShareArrowBtn';
 import CalendarDaysEl from '../../components/CalendarDaysEl/CalendarDaysEl';
 import useIsPortrait from '../../hooks/useIsPortrait';
 import ShareDots from '../../components/ShareDots/ShareDots';
@@ -45,12 +45,12 @@ const WatchStories: React.FC<Props> = ({ el }) => {
     const daysElements = [];
     for (let i = 0; i < days; i++) {
         daysElements.push(
-        <CalendarDaysEl 
-            day={i} 
-            locked={i + 1 > el.unlockDays} 
-            hot={i + 1 === el.hotday} 
-            today={i + 1 === el.today}
-        />);
+            <CalendarDaysEl
+                day={i}
+                locked={i + 1 > el.unlockDays}
+                hot={i + 1 === el.hotday}
+                today={i + 1 === el.today}
+            />);
     }
 
     const isPortrait = useIsPortrait();
@@ -61,23 +61,23 @@ const WatchStories: React.FC<Props> = ({ el }) => {
         <div className='WatchStories Bigcontainer'>
             <div className={`WatchStories_left ${isPortrait && 'WatchStories_mob'}`}>
                 {
-                    isPortrait ? 
-                    <div className='WatchStories_mob_top'>
-                        <div className='WatchStories_mob_top_left'>
-                        <Close onclick={() => navigate('/')} />
-                            {el.title}
+                    isPortrait ?
+                        <div className='WatchStories_mob_top'>
+                            <div className='WatchStories_mob_top_left'>
+                                <Close onclick={() => navigate('/')} />
+                                {el.title}
+                            </div>
+                            <div className='WatchStories_mob_top_right'>
+                                {el.today}/{el.days}
+                                <ShareDots />
+                            </div>
                         </div>
-                        <div className='WatchStories_mob_top_right'>
-                            {el.today}/{el.days}
-                            <ShareDots />
-                        </div>
-                    </div>
-                    :<Close onclick={() => navigate('/')} />
+                        : <Close onclick={() => navigate('/')} />
                 }
             </div>
             <div className='WatchStories_center'>
                 <div className='WatchStories_center_btn'>
-                    <Arrow bigHeight={true}/>
+                    <Arrow bigHeight={true} />
                 </div>
                 <div className='WatchStories_center_stories'>
                     <div className='WatchStories_center_stories_video free_img'>
@@ -93,9 +93,9 @@ const WatchStories: React.FC<Props> = ({ el }) => {
                                     </div>
                                 </div>
                                 <div className='WatchStories_center_stories_center'>
-                                    <LikeBtn likes={el.likes}/>
-                                    <CommentsBtn comments={el.comments}/>
-                                    <ShareArrowBtn />
+                                    <LikeBtn likes={el.likes} />
+                                    <CommentsBtn comments={el.comments} />
+                                    {/* <ShareArrowBtn /> */}
                                 </div>
                                 <div className='WatchStories_center_stories_bottom'>
                                     <div className='WatchStories_center_stories_bottom_watch'
@@ -109,7 +109,7 @@ const WatchStories: React.FC<Props> = ({ el }) => {
                     </div>
                 </div>
                 <div className='WatchStories_center_btn'>
-                    <Arrow bigHeight={true} right={true}/>
+                    <Arrow bigHeight={true} right={true} />
                 </div>
             </div>
             <div className='WatchStories_right'>

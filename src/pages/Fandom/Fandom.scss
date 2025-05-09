@@ -1,4 +1,4 @@
-.Fandom{
+.Fandom {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -6,12 +6,13 @@
     align-items: center;
     flex-wrap: wrap;
     padding-bottom: 20px;
-    @media(max-width: 750px){
-        overflow-x: hidden;
+
+    @media(max-width: 750px) {
         min-height: 100vh;
         margin-bottom: 100px !important;
     }
-    &_slider{
+
+    &_slider {
         width: 100%;
         display: flex;
         justify-content: space-between;
@@ -19,47 +20,56 @@
         height: 400px;
         max-width: 1300px;
     }
-    &_content{
+
+    &_content {
         width: 100%;
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
         align-items: center;
         gap: 16px;
-        @media(max-width: 750px){
+
+        @media(max-width: 750px) {
             min-height: 500px;
             align-content: start;
         }
-        &_nav{
+
+        &_nav {
             width: 50%;
             display: flex;
             justify-content: start;
             align-items: center;
             gap: 22px;
-            @media(max-width: 750px){
+
+            @media(max-width: 750px) {
                 width: 100%;
             }
-            &_left{
+
+            &_left {
                 width: 30%;
                 display: flex;
                 justify-content: start;
                 align-items: center;
                 gap: 17px;
-                @media(max-width: 340px){
+
+                @media(max-width: 340px) {
                     gap: 7px;
                 }
             }
-            &_right{
+
+            &_right {
                 opacity: 0;
                 pointer-events: none;
-                @media(max-width: 750px){
+
+                @media(max-width: 750px) {
                     opacity: 1;
                     pointer-events: all;
                     width: 70%;
                     display: flex;
                     justify-content: end;
                     align-items: center;
-                    &_discussions{
+
+                    &_discussions {
                         padding: 10px 15px;
                         background-color: #ffffff34;
                         border-radius: 50px;
@@ -68,30 +78,35 @@
                         align-items: center;
                         cursor: pointer;
                         transition: color 300ms, background-color 300ms;
-                        &:hover{
+
+                        &:hover {
                             background-color: #FFF;
                             color: #000;
                         }
-                        @media(max-width: 340px){
+
+                        @media(max-width: 340px) {
                             font-size: 14px;
                         }
                     }
                 }
             }
-            &_item{
+
+            &_item {
                 display: flex;
                 justify-content: start;
                 align-items: center;
                 gap: 10px;
                 color: rgba($color: #FFF, $alpha: .7);
                 cursor: pointer;
-                img{
+
+                img {
                     rotate: 270deg;
                     opacity: .7;
                 }
             }
         }
-        &_main{
+
+        &_main {
             width: 100%;
             display: flex;
             justify-content: space-between;
@@ -100,14 +115,15 @@
             gap: 16px;
         }
 
-        &_balance{
+        &_balance {
             width: calc(20% - 16px);
-            @media(max-width: 750px){
+
+            @media(max-width: 750px) {
                 display: none;
             }
         }
 
-        &_middle{
+        &_middle {
             width: calc(60% - 16px);
             height: 100px;
             display: flex;
@@ -115,12 +131,13 @@
             flex-wrap: wrap;
             align-content: start;
             gap: 24px;
-            @media(max-width: 750px){
+
+            @media(max-width: 750px) {
                 width: 100%;
             }
         }
 
-        &_left{
+        &_left {
             width: calc(20% - 16px);
             padding: 16px;
             display: flex;
@@ -130,27 +147,32 @@
             background: linear-gradient(200deg, #2b1c2777 0%, #1E2C3B77 100%);
             backdrop-filter: blur(10px);
             border-radius: 25px;
-            @media(max-width: 750px){
+
+            @media(max-width: 750px) {
                 display: none;
             }
-            &_title{
+
+            &_title {
                 width: 100%;
                 font-family: 'ARIAL regular';
                 font-size: 12px;
                 text-transform: uppercase;
             }
-            &_list{
+
+            &_list {
                 width: 100%;
                 display: flex;
                 justify-content: start;
                 flex-wrap: wrap;
             }
-            &_btn{
+
+            &_btn {
                 width: 100%;
                 display: flex;
                 justify-content: start;
                 align-items: center;
-                &_el{
+
+                &_el {
                     padding: 5px 15px;
                     background-color: #007AFF;
                     border-radius: 50px;
@@ -158,7 +180,8 @@
                     font-size: 16px;
                     cursor: pointer;
                     transition: color 300ms, background-color 300ms;
-                    &:hover{
+
+                    &:hover {
                         color: #000;
                         background-color: #FFF;
                     }
@@ -167,7 +190,7 @@
         }
     }
 
-    &_mobDiscussions{
+    &_mobDiscussions {
         position: fixed;
         width: 100vw;
         height: calc(100vh - 75px);
@@ -185,17 +208,20 @@
         overflow: auto;
         top: 0px;
         left: 0px;
-        &_open{
+
+        &_open {
             opacity: 1;
             pointer-events: all;
         }
-        &_header{
+
+        &_header {
             width: 100%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             font-family: 'ARIAL bold';
-            &_pencil{
+
+            &_pencil {
                 background-color: #1E1E1E;
                 padding: 13px;
                 border-radius: 50px;
@@ -204,20 +230,24 @@
                 align-items: center;
                 transition: background-color 300ms;
                 cursor: pointer;
-                img{
+
+                img {
                     width: 11px;
                     height: 11px;
                     transition: filter 300ms;
                 }
-                &:hover{
+
+                &:hover {
                     background-color: #FFF;
-                    img{
+
+                    img {
                         filter: invert(1);
                     }
                 }
             }
         }
-        &_list{
+
+        &_list {
             width: 100%;
             display: flex;
             justify-content: center;

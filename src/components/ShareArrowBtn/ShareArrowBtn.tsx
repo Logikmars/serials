@@ -2,7 +2,7 @@ import React from 'react';
 import './ShareArrowBtn.scss';
 interface Props {
     noText: boolean;
-    }
+}
 const ShareArrowBtn: React.FC<Props> = ({ noText }) => {
     return (
         <div className='ShareArrowBtn'>

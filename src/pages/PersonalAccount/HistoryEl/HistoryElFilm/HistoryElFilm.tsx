@@ -1,7 +1,7 @@
 import React from 'react';
 import './HistoryElFilm.scss';
 import SliderSmallElement from '../../../../components/SliderSmall/SliderSmallElement';
-import Close from '../../../../components/Close/Close';
+// import Close from '../../../../components/Close/Close';
 import ShareDots from '../../../../components/ShareDots/ShareDots';
 import ContineuwathcingBtn from '../../../../components/ContineuwathcingBtn/ContineuwathcingBtn';
 
@@ -24,14 +24,13 @@ const HistoryElFilm: React.FC<Props> = ({ el }) => {
     return (
         <div className='HistoryElFilm'>
             <div className='HistoryElFilm_film'>
-                <SliderSmallElement el={newEl}/>
+                <SliderSmallElement el={newEl} />
             </div>
             <div className='HistoryElFilm_info'>
                 <div className='HistoryElFilm_info_top'>
                     <div className='HistoryElFilm_info_top_top'>
                         {el.title}
                         <div className='HistoryElFilm_info_top_top_nav'>
-                            <Close />
                             <ShareDots />
                         </div>
                     </div>
