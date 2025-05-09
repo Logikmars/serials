@@ -109,35 +109,40 @@ const Stories: React.FC<Props> = ({ title }) => {
                     {title}
                 </h2>
             </div>
-
-            <div className='Stories_slider'>
-                <Arrow bigHeight onClick={handlePrev}/>
-                {
-                    stories.map((el, index) => {
-                        const isThisVisible = currentSlide + elementsPerScreen - index > 0
-                        ? currentSlide - 1 - index < 0
-                        ? true
-                        : false
-                        : false
-                        return (
-                            <div
-                                key={`StoriesElement_${index}`}
-                                className='Stories_slider_element free_img'
-                                style={{
-                                    transition: loop ? 'none' : 'transform 200ms, opacity 200ms',
-                                    transform: `translate(${-(currentSlide - ((elementsPerScreen - 1) / 2) - index + (elementsPerScreen - 1)) * 164}px, 0px)`,
-                                    opacity: isThisVisible ? 1 : 0,
-                                    pointerEvents: isThisVisible ? 'all' : 'none'
-                                }}
-                            >
-                                <Link to='/stories'>
-                                    <StoriesElement el={el} />
-                                </Link>
-                            </div>
-                        )
-                    })
-                }
-                <Arrow bigHeight right onClick={handleNext}/>
+            <div className='Stories_content'>
+                <div className='Stories_btn_wrapper free_img'>
+                    <Arrow bigHeight onClick={handlePrev}/>
+                </div>
+                <div className='Stories_slider'>
+                    {
+                        stories.map((el, index) => {
+                            const isThisVisible = currentSlide + elementsPerScreen - index > 0
+                            ? currentSlide - 1 - index < 0
+                            ? true
+                            : false
+                            : false
+                            return (
+                                <div
+                                    key={`StoriesElement_${index}`}
+                                    className='Stories_slider_element free_img'
+                                    style={{
+                                        transition: loop ? 'none' : 'transform 200ms, opacity 200ms',
+                                        transform: `translate(${-(currentSlide - ((elementsPerScreen - 1) / 2) - index + (elementsPerScreen - 1)) * 200}px, 0px)`,
+                                        opacity: isThisVisible ? 1 : 0,
+                                        pointerEvents: isThisVisible ? 'all' : 'none'
+                                    }}
+                                >
+                                    <Link to='/stories'>
+                                        <StoriesElement el={el} />
+                                    </Link>
+                                </div>
+                            )
+                        })
+                    }   
+                </div>
+                <div className='Stories_btn_wrapper_right free_img'>
+                    <Arrow bigHeight right onClick={handleNext}/>
+                </div>
             </div>
         </div>
     )
