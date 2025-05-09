@@ -21,15 +21,16 @@
 
     &_slider {
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
         height: 200px;
         overflow: hidden;
         width: 100%;
-        gap: 30px;
+        // gap: 0px;
 
         &_element {
             transition: transform 200ms, opacity 200ms;
+            // min-width: 164px;
         }
     }
 }

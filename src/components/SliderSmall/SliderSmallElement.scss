@@ -1,4 +1,26 @@
 .SliderSmallElement {
+    transition: scale 300ms;
+    &:hover{
+        scale: 1.05;
+        .SliderSmallElement_decor{
+            opacity: 0;
+        }
+        .SliderSmallElement_line{
+            opacity: 0;
+        }
+        .SliderSmallElement_btn{
+            opacity: 0;
+        }
+        .SliderSmallElement_progress{
+            opacity: 0;
+        }
+        .SliderSmallElement_img_hover{
+            opacity: 1;
+        }
+        .SliderSmallElement_img{
+            filter: drop-shadow(0 0 20px #FFF);
+        }
+    }
     &_img {
         width: 220px;
         height: 310px;
@@ -10,12 +32,64 @@
         align-content: end;
         overflow: hidden;
         flex-wrap: wrap;
+        transition: scale 300ms, filter 300ms;
+        &_hover{    
+            min-width: 220px;
+            min-height: 310px;
+            position: absolute;
+            background-color: #00000070;
+            opacity: 0;
+            pointer-events: none;
+            z-index: 9999;
+            transition: opacity 300ms;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            &_leftBouncer{
+                width: 25%;
+                height: 100%;
+            }
+            &_center{
+                width: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                &_play{
+                    backdrop-filter: blur(10px);
+                    padding: 20px 20px 20px 25px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 50px;
+                    border: 2px solid #FFF;
+                    cursor: pointer;
+                }
+            }
+            &_right{
+                width: 25%;
+                height: 270px;
+                display: flex;
+                justify-content: start;
+                align-items: center;
+                flex-direction: column;
+                gap: 7px;
+                &_heart{
+                    rotate: 25deg;
+                    width: 20px !important;
+                }
+                img{
+                    width: 18px;
+                    cursor: pointer;
+                }
+            }
+        }
     }
 
     &_progress {
         width: 100%;
         background: #000a;
         backdrop-filter: blur(6px);
+        transition: opacity 300ms;
 
         &_inner {
             background: #EF4BC5;
@@ -45,6 +119,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        transition: opacity 300ms;
     }
 
     &_decor {
@@ -52,7 +127,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-
+        transition: opacity 300ms;
         &_1 {
             left: 100px;
 
@@ -160,6 +235,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        transition: 100ms;
 
         &_decor {
             width: 100% !important;

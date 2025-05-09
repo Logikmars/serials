@@ -1,0 +1,20 @@
+.LoadMore{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &_btn{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px 23px;
+        background-color: #1E1E1E;
+        border-radius: 50px;
+        transition: color 300ms, background-color 300ms;
+        cursor: pointer;
+        &:hover{
+            background-color: #FFF;
+            color: #000;
+        }
+    }
+}

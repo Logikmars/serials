@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './SliderSmall.scss';
 import SliderSmallElement from './SliderSmallElement';
 import SliderSmallCategoriesSelector from './SliderSmallCategoriesSelector/SliderSmallCategoriesSelector';
+import Arrow from '../Arrow/Arrow';
 
 
 interface Props {
@@ -48,15 +49,15 @@ const elementsRAW = [
     },
     {
         img: '/img/trends/1.webp',
-        progress: 77,
-        actionType: 'continue',
-        effect: 'fire'
+        // progress: 77,
+        // actionType: 'continue',
+        // effect: 'fire'
     },
     {
         img: '/img/trends/2.webp',
-        actionType: 'trailer',
-        progress: 88,
-        effect: 'heart'
+        // actionType: 'trailer',
+        // progress: 88,
+        // effect: 'heart'
     },
 ]
 
@@ -141,9 +142,10 @@ const SliderSmall: React.FC<Props> = ({ title }) => {
             </div>
             <div className='SliderSmall_content'>
                 <div className='SliderSmall_arrow_wrapper free_img'>
-                    <div className='SliderSmall_arrow' onClick={handlePrev}>
+                    {/* <div className='SliderSmall_arrow' onClick={handlePrev}>
                         <img src="/img/icons/arrow.svg" alt="" />
-                    </div>
+                    </div> */}
+                    <Arrow bigHeight onClick={handlePrev}/>
                 </div>
 
                 <div className='SliderSmall_slider'>
@@ -166,9 +168,10 @@ const SliderSmall: React.FC<Props> = ({ title }) => {
                     }
                 </div>
                 <div className='SliderSmall_arrow_wrapper SliderSmall_arrow_wrapper_right free_img'>
-                    <div className='SliderSmall_arrow SliderSmall_arrow_right' onClick={handleNext}>
+                    {/* <div className='SliderSmall_arrow SliderSmall_arrow_right' onClick={handleNext}>
                         <img src="/img/icons/arrow.svg" alt="" />
-                    </div>
+                    </div> */}
+                    <Arrow bigHeight right onClick={handleNext}/>
                 </div>
             </div>
         </div>

@@ -3,6 +3,7 @@ import './SliderSmallElement.scss';
 import SliderSmallBtn from './SliderSmallBtn/SliderSmallBtn';
 import SliderSmallHeartDecor from './SliderSmallHeartDecor/SliderSmallHeartDecor';
 import SliderSmallFireDecor from './SliderSmallFireDecor/SliderSmallFireDecor';
+import ShareArrowBtn from '../ShareArrowBtn/ShareArrowBtn';
 interface Props {
     el: {
         progress?: number;
@@ -65,7 +66,6 @@ const SliderSmallElement: React.FC<Props> = ({ el }) => {
             }}>
                 {el.actionType && <div className='SliderSmallElement_btn'>
                     <SliderSmallBtn type={el.actionType} />
-
                 </div>
                 }
                 {
@@ -90,9 +90,19 @@ const SliderSmallElement: React.FC<Props> = ({ el }) => {
                         </div>
                     </div>
                 }
+                <div className='SliderSmallElement_img_hover'>
+                    <div className='SliderSmallElement_img_hover_leftBouncer'></div>
+                    <div className='SliderSmallElement_img_hover_center'>
+                        <div className='SliderSmallElement_img_hover_center_play'>
+                            <img src="/img/icons/play.svg" alt="" />
+                        </div>
+                    </div>
+                    <div className='SliderSmallElement_img_hover_right'>
+                        <img src="/img/icons/heart.svg" alt="" className='SliderSmallElement_img_hover_right_heart'/>
+                        <img src="/img/icons/shareArrow.svg" alt="" />
+                    </div>
+                </div>
             </div>
-
-
         </div>
     )
 };

@@ -9,6 +9,8 @@ import WatchStories from "./pages/WatchStories/WatchStories"
 import MobMenu from "./components/MobMenu/MobMenu"
 import HistoryEl from "./pages/PersonalAccount/HistoryEl/HistoryEl"
 import Fandom from "./pages/Fandom/Fandom"
+import LoadMore from "./components/LoadMore/LoadMore"
+import { useState } from "react"
 
 function App() {
 
@@ -25,6 +27,11 @@ function App() {
     comments: 15,
     percentWatched: 20
   }
+  const [showMore, setshowMore] = useState(false);
+
+  const handleClick = () => {
+    setshowMore(prev => !prev);
+  }
 
   return (
     <BrowserRouter>
@@ -37,6 +44,14 @@ function App() {
               <SliderBig />
               <Stories title="Stories" />
               <SliderSmall title="Features" />
+              <SliderSmall title="Second Chance" />
+              <LoadMore onclick={handleClick} />
+              {
+                showMore && <>
+                              <SliderSmall title="Features" />
+                              <SliderSmall title="Second Chance" />
+                </>
+              }
               <Footer />
             </div>
           } />

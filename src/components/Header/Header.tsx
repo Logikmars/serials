@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './Header.scss';
 import { Link } from 'react-router-dom'
 import SignInBtn from '../SignInBtn/SignInBtn';
+import DownloadAppBtn from '../DownloadAppBtn/DownloadAppBtn';
 
 const Header: React.FC = () => {
     const [activeTab, setActiveTab] = useState("Home");
@@ -55,6 +56,7 @@ const Header: React.FC = () => {
                         <li>German</li>
                     </ul>
                 </div>
+                <DownloadAppBtn />
                 <SignInBtn />
                 <Link to="/personalaccount" className='Header_right_login'>
                     <img src="/img/header/login.svg" alt="" />

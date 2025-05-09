@@ -5,12 +5,12 @@
     // padding-top: 10px !important;
     height: 60px;
 
-    @media(max-width: 750px) {
+    @media(max-width: 1000px) {
         display: none;
     }
 
     &_left {
-        width: 50%;
+        width: 30%;
         display: flex;
         justify-content: start;
         align-items: center;
@@ -57,7 +57,7 @@
     }
 
     &_right {
-        width: 50%;
+        width: 70%;
         display: flex;
         justify-content: end;
         gap: 20px;
