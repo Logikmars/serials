@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 
-const useIsPortrait = (): boolean => {
-  const [isPortrait, setIsPortrait] = useState<boolean>(window.innerHeight > window.innerWidth);
+const isPortrait = (): boolean => {
+  const [isPortrait, setisPortrait] = useState(window.innerWidth < 1000);
 
   useEffect(() => {
     const handleResize = () => {
-      setIsPortrait(window.innerHeight > window.innerWidth);
+      setisPortrait(window.innerWidth < 1000);
     };
 
     window.addEventListener('resize', handleResize);
@@ -15,4 +15,4 @@ const useIsPortrait = (): boolean => {
   return isPortrait;
 };
 
-export default useIsPortrait;
+export default isPortrait;

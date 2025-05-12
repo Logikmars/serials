@@ -17,10 +17,11 @@
         justify-content: center;
         align-content: start;
         gap: 16px;
-        @media(max-width: 900px){
+        order: 2;
+        @media(max-width: 1000px){
             width: calc(77% - 32px);
         }
-        @media(max-width: 750px){
+        @media(max-width: 1000px){
             width: 100%;
         }
         &_balance{
@@ -62,7 +63,7 @@
                     @media(max-width: 1120px){
                         font-size: 18px;
                     }
-                    @media(max-width: 950px){
+                    @media(max-width: 1000px){
                         font-size: 14px;
                         display: flex;
                         justify-content: center;
@@ -109,7 +110,7 @@
                     @media(max-width: 1120px){
                         font-size: 18px;
                     }
-                    @media(max-width: 950px){
+                    @media(max-width: 1000px){
                         font-size: 14px;
                         display: flex;
                         justify-content: center;
@@ -153,7 +154,7 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: start;
-        @media(max-width: 750px){
+        @media(max-width: 1000px){
             display: none;
         }
     }

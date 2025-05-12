@@ -12,6 +12,7 @@ import HistoryEl from "./pages/PersonalAccount/HistoryEl/HistoryEl"
 import Fandom from "./pages/Fandom/Fandom"
 import LoadMore from "./components/LoadMore/LoadMore"
 import { useState } from "react"
+import Register from "./pages/Register/Register"
 
 function App() {
 
@@ -64,6 +65,7 @@ function App() {
           <Route path="/history" element={<HistoryEl />} />
           <Route path="/profile/history" element={<HistoryEl />} />
           <Route path="/profile" element={<PersonalAccount />} />
+          <Route path="/register" element={<Register />} />
 
         </Routes>
         <MobMenu />

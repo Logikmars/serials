@@ -1,0 +1,128 @@
+.Register{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    align-content: center;
+    min-height: calc(100vh - 60px);
+    @media (max-width: 1000px) {
+        padding-bottom: 80px !important;
+        min-height: calc(100vh - 60px - 80px);
+    }
+    &_wrapper{
+        width: 50%;
+        background: linear-gradient(200deg, #2B1C2777 0%, #1E2C3B77 100%);
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        padding: 25px 20px;
+        max-width: 332px;
+        min-width: 332px;
+    }
+    &_close{
+        width: 100%;
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        img{
+            cursor: pointer;
+            transition: scale 300ms;
+            &:hover{
+                scale: 1.1;
+            }
+        }
+    }
+    &_content{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+    &_logo{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 8px;
+        &_img{
+            width: 72px;
+            height: 72px;
+            border-radius: 15px;
+            background: linear-gradient(45deg, #EC4AC5 20%, #1437D1 100%);
+        }
+        &_title{
+            font-family: 'ARIAL bold';
+            font-size: 20px;
+        }
+    }
+    &_btns{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+    }
+    &_form{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+    &_line {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #535353;
+
+        &::before,
+        &::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background-color: #535353;
+            margin: 0 10px;
+        }
+    }
+    &_method{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 11px;
+        &_ico{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #FFF;
+            border-radius: 15px;
+            padding: 10px 13px;
+            transition: background-color 300ms;
+            cursor: pointer;
+            img{
+                transition: filter 300ms;
+            }
+            &:hover{
+                background-color: #000;
+                img{
+                    filter: invert(1);
+                }
+            }
+        }
+    }
+    &_agreement{
+        width: 100%;
+        text-align: center;
+        color: #535353;
+        font-size: 12px;
+        &_link{
+            color: #007AFF;
+        }
+    }
+}
