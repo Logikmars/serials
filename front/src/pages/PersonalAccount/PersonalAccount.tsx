@@ -7,6 +7,8 @@ import FavoriteEl from './FavoriteEl/FavoriteEl';
 import HistoryEl from './HistoryEl/HistoryEl';
 import { Link } from 'react-router-dom';
 import useIsPortrait from '../../hooks/useIsPortrait';
+import Coins from '../../components/Coins/Coins';
+import TicketsAmount from '../../components/TicketsAmount/TicketsAmount';
 const PersonalAccount: React.FC = () => {
 
     const Person = [
@@ -37,7 +39,7 @@ const PersonalAccount: React.FC = () => {
         },
     ]
 
-    const [activeIndex, setActiveIndex] = useState<number | null>();
+    const [activeIndex, setActiveIndex] = useState<number | null>(2);
 
     const isPortrait = useIsPortrait();
 
@@ -54,30 +56,12 @@ const PersonalAccount: React.FC = () => {
                         Account balance
                     </h2>
                     <div className='PersonalAccount_leftinfo_balance_tickets_wrapper'>
-                        <div className='PersonalAccount_leftinfo_balance_coins'>
-                            <div className='PersonalAccount_leftinfo_balance_coins_logo'>
-                                <img src="/img/icons/LIcons.svg" alt="" />
-                            </div>
-                            <div className='PersonalAccount_leftinfo_balance_coins_amount'>
-                                {coinsAmount} coins
-                            </div>
-                        </div>
-                        <div className='PersonalAccount_leftinfo_balance_tickets'>
-                            <div className='PersonalAccount_leftinfo_balance_tickets_logo'>
-                                <div className='PersonalAccount_leftinfo_balance_tickets_logo_left'></div>
-                                <div className='PersonalAccount_leftinfo_balance_tickets_logo_center'>
-                                    <img src="/img/icons/LIcons.svg" alt="" />
-                                </div>
-                                <div className='PersonalAccount_leftinfo_balance_tickets_logo_right'></div>
-                            </div>
-                            <div className='PersonalAccount_leftinfo_balance_tickets_amount'>
-                                {ticketsAmount} tickets
-                            </div>
-                        </div>
+                        <Coins coinsAmount={0}/>
+                        <TicketsAmount ticketsAmount={0} />
                     </div>
-                    <div className='PersonalAccount_leftinfo_balance_btn'>
+                    <Link className='PersonalAccount_leftinfo_balance_btn' to={'/topUp'}>
                         Top up
-                    </div>
+                    </Link>
                 </div>
                 <div className='PersonalAccount_leftinfo_list'>
                     {

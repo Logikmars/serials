@@ -13,6 +13,8 @@ import Fandom from "./pages/Fandom/Fandom"
 import LoadMore from "./components/LoadMore/LoadMore"
 import { useState } from "react"
 import Register from "./pages/Register/Register"
+import TopUp from "./pages/TopUp/TopUp"
+import Genre from "./pages/Genre/Genre"
 
 function App() {
 
@@ -66,6 +68,8 @@ function App() {
           <Route path="/profile/history" element={<HistoryEl />} />
           <Route path="/profile" element={<PersonalAccount />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/topUp" element={<TopUp />} />
+          <Route path="/genre" element={<Genre />} />
 
         </Routes>
         <MobMenu />

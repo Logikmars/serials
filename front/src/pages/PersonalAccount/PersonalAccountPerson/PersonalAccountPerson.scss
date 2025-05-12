@@ -5,6 +5,10 @@
     padding: 24px;
     display: flex;
     align-items: center;
+    &_small{
+        background: transparent;
+        max-width: 400px;
+    }
     &_wrapper{
         width: 50%;
         display: flex;

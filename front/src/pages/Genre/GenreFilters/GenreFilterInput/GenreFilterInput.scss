@@ -1,0 +1,35 @@
+.GenreFilterInput{
+    display: flex;
+    justify-content: center;
+    // align-items: center;
+    gap: 20px;
+    @media(max-width: 1000px){
+        flex-wrap: wrap;
+    }
+    &_input_wrapper{
+        width: 70%;
+        display: flex;
+        justify-content: center;
+        padding: 12px;
+        border-radius: 25px;
+        border: 1px solid #535353;
+        background-color: #1E1E1E;
+        gap: 8px;
+        min-width: 350px;
+        @media(max-width: 1040px){
+            min-width: 300px;
+        }
+        input{
+            min-width: 300px;
+            background-color: #1E1E1E; 
+            border: none;
+            outline: none;
+            color: #FFF;
+            font-family: 'ARIAL regular';
+            font-size: 16px;
+            @media(max-width: 1040px){
+                min-width: 250px;
+            }
+        }
+    }
+}

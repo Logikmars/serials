@@ -1,0 +1,82 @@
+.TopUp{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 50px;
+    padding-bottom: 50px !important;
+    @media(max-width: 1000px){
+        padding-bottom: 100px !important;
+    }
+    &_header{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: linear-gradient(to bottom, #2B1C2777 0%, #1E2C3B77 100%);
+        border-radius: 25px;
+        padding: 0px 10px;
+        @media(max-width: 650px){
+            margin-top: 20px !important;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        &_info{
+            width: 50%;
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            @media(max-width: 650px){
+                justify-content: center;
+                gap: 20px;
+            }
+        }
+    }
+    &_modes{
+        width: 100%;
+        max-width: 500px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 43px;
+        @media(max-width: 570px){
+            flex-wrap: wrap;
+            gap: 70px;
+        }
+    }
+    &_refil,
+    &_payments{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 16px;
+        &_title{
+            width: 100%;
+            font-family: 'ARIAL bold';
+            font-size: 24px;
+            padding: 0px 20px;
+            @media(max-width: 1000px){
+                text-align: center;
+            }
+        }
+        &_content{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            flex-wrap: wrap;
+            @media(max-width: 1000px){
+                justify-content: center;
+            }
+        }
+    }
+    &_payments{
+        &_content{
+            justify-content: start;
+            gap: 15px;
+            @media(max-width: 1000px){
+                justify-content: center;
+            }
+        }
+    }
+}

@@ -6,7 +6,7 @@ interface Props {
 }
 const SignInBtn: React.FC<Props> = ({ title }) => {
     return (
-        <Link className='Header_right_signin' to={title ? '' : '/register'}>
+        <Link className={`Header_right_signin ${title === 'Search' && 'Header_right_signin_big'}`} to={title ? '' : '/register'}>
             {title ?? 'Sign In'}
         </Link>
     )};

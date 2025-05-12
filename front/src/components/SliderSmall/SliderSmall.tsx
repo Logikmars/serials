@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './SliderSmall.scss';
 import SliderSmallCategoriesSelector from './SliderSmallCategoriesSelector/SliderSmallCategoriesSelector';
 import Slider from '../Slider/Slider';
@@ -53,6 +53,10 @@ const SliderSmall: React.FC<Props> = ({ title }) => {
 
     const [category, setcategory] = useState('');
 
+    useEffect(() => {
+        //шоб не ругалось
+        category
+    }, [])
 
     return (
         <div className='SliderSmall'>
@@ -62,7 +66,7 @@ const SliderSmall: React.FC<Props> = ({ title }) => {
                 </div>
                 <div className='SliderSmall_header_filter' >
                     <SliderSmallCategoriesSelector
-                        category={category}
+                        category={'Categories'}
                         setcategory={setcategory}
                     />
                 </div>

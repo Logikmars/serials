@@ -1,0 +1,35 @@
+.RefilModes{
+    width: calc(100% / 3 - 30px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #161A23;
+    border-radius: 28px;
+    cursor: pointer;
+    transition: background-color 300ms;
+    min-width: 300px;
+    &:hover{
+        background-color: #EF4BC5;
+    }
+    &_info{
+        width: 80%;
+        background-color: #120D12;
+        border-radius: 25px;
+        padding: 12px 12px;
+        font-family: 'ARIAL bold';
+        font-size: 24px;
+
+        &_text{
+            font-family: 'ARIAL regular';
+            font-size: 16px;
+        }
+    }
+    &_price{
+        width: 20%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'ARIAL regular';
+        font-size: 32px;
+    }
+}
