@@ -95,29 +95,6 @@
         display: flex;
         margin-top: 24px;
 
-        &_watch {
-            padding: 10px 30px;
-            background-color: #007aff;
-            border-radius: 24px;
-            display: flex;
-            align-items: center;
-            column-gap: 8px;
-            font-size: 20px;
-            border: 4px solid #007aff;
-            transition: background-color 200ms;
-
-
-            img {
-                width: 16px;
-            }
-
-            &:hover {
-                background-color: #005abb;
-                cursor: pointer;
-
-            }
-
-        }
     }
 }
 

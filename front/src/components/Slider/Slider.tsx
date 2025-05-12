@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './Slider.scss';
-import SliderSmallElement from '../SliderSmall/SliderSmallElement';
+import Film from '../Film/Film';
 import { Link } from 'react-router-dom';
 import StoriesElement from '../Stories/StoriesElement/StoriesElement';
 import FandomEl from '../../pages/Fandom/FandomEl/FandomEl';
@@ -120,14 +120,14 @@ const Slider: React.FC<Props> = ({ content, contentType }) => {
 
 
     return (
-        <div className='SliderSmall_content'>
-            <div className='SliderSmall_arrow_wrapper free_img'>
-                <div className='SliderSmall_arrow' onClick={handlePrev}>
+        <div className='Slider'>
+            <div className='Slider_arrow_wrapper free_img'>
+                <div className='Slider_arrow' onClick={handlePrev}>
                     <img src="/img/icons/arrow.svg" alt="" />
                 </div>
             </div>
 
-            <div className={`SliderSmall_slider SliderSmall_slider_${contentType}`}>
+            <div className={`Slider_content Slider_content_${contentType}`}>
                 {
                     elements.map((el, index) => {
                         const isThisVisible = currentSlide + elementsPerScreen - index > 0
@@ -135,14 +135,14 @@ const Slider: React.FC<Props> = ({ content, contentType }) => {
                                 ? true
                                 : false
                             : false
-                        return <div className='SliderSmall_slider_element free_img' style={{
+                        return <div className='Slider_content_element free_img' style={{
                             transition: loop ? 'none' : 'transform 200ms, opacity 200ms',
                             transform: `translate(${-(currentSlide - ((elementsPerScreen - 1) / 2) - index + (elementsPerScreen - 1)) * elementWidth}px, 0px)`,
                             opacity: isThisVisible ? 1 : 0,
                             pointerEvents: isThisVisible ? 'all' : 'none'
                         }}>
                             {
-                                contentType === 'films' && <SliderSmallElement key={`SliderSmallElement_${index}`} el={el} />
+                                contentType === 'films' && <Film key={`Film_${index}`} el={el} />
                             }
                             {
                                 contentType === 'stories' && <Link to='/stories'>
@@ -156,8 +156,8 @@ const Slider: React.FC<Props> = ({ content, contentType }) => {
                     })
                 }
             </div>
-            <div className='SliderSmall_arrow_wrapper SliderSmall_arrow_wrapper_right free_img'>
-                <div className='SliderSmall_arrow SliderSmall_arrow_right' onClick={handleNext}>
+            <div className='Slider_arrow_wrapper Slider_arrow_wrapper_right free_img'>
+                <div className='Slider_arrow Slider_arrow_right' onClick={handleNext}>
                     <img src="/img/icons/arrow.svg" alt="" />
                 </div>
             </div>

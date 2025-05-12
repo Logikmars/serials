@@ -1,9 +1,8 @@
 import React from 'react';
 import './HistoryElFilm.scss';
-import SliderSmallElement from '../../../../components/SliderSmall/SliderSmallElement';
+import SliderSmallElement from '../../../../components/Film/Film';
 // import Close from '../../../../components/Close/Close';
 import ShareDots from '../../../../components/ShareDots/ShareDots';
-import ContineuwathcingBtn from '../../../../components/ContineuwathcingBtn/ContineuwathcingBtn';
 
 interface Props {
     el: {
@@ -39,7 +38,8 @@ const HistoryElFilm: React.FC<Props> = ({ el }) => {
                     </div>
                 </div>
                 <div className='HistoryElFilm_info_bottom'>
-                    <ContineuwathcingBtn />
+                    {/* <ContineuwathcingBtn /> */}
+                    ШО ГДЕ
                 </div>
             </div>
         </div>

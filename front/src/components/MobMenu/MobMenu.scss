@@ -1,6 +1,7 @@
-.MobMenu{
+.MobMenu {
     display: none;
-    @media(max-width: 1000px){
+
+    @media(max-width: 750px) {
         position: fixed;
         width: 100vw;
         bottom: 0px;
@@ -12,22 +13,26 @@
         gap: 10px;
         padding: 16px;
         z-index: 999999999999;
-        &_navHome{
+
+        &_navHome {
             width: calc(100% / 4 - 10px);
             display: flex;
             justify-content: center;
             align-items: center;
             flex-wrap: wrap;
             gap: 4px;
-            img{
+
+            img {
                 width: 21px;
             }
-            &_active{
-                .MobMenu_navHome_title{
+
+            &_active {
+                .MobMenu_navHome_title {
                     color: #007AFF;
                 }
             }
-            &_title{
+
+            &_title {
                 width: 100%;
                 display: flex;
                 justify-content: center;

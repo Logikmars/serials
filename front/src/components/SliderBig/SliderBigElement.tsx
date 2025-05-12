@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import './SliderBigElement.scss';
 import { ISliderBigElement } from './ISliderBigElement';
+import Button from '../../UI/Button/Button';
+import { Link } from 'react-router-dom';
 interface Props {
     element: ISliderBigElement;
 
@@ -58,10 +60,9 @@ const SliderBigElement: React.FC<Props> = ({
                         {element.description}
                     </div>
                     <div className='SliderBigElement_buttons'>
-                        <div className='SliderBigElement_buttons_watch'>
-                            <img src="/img/icons/play.svg" alt="" />
-                            Watch
-                        </div>
+                        <Link to="/film/default">
+                            <Button text='Watch' size='l' color='blue' />
+                        </Link>
                     </div>
                 </div>
                 <div className='SliderBigElement_fade_horizontal SliderBigElement_fade_horizontal_invert free_img'>

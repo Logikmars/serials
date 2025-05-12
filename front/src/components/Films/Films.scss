@@ -1,0 +1,12 @@
+.Films {
+    margin-top: 60px;
+
+    &_header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+        z-index: 9;
+    }
+
+}

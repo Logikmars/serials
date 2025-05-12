@@ -38,9 +38,9 @@ const Stories: React.FC<Props> = ({ title }) => {
     return (
         <div className='Stories container'>
             <div className='Stories_header'>
-                <h2 className='Stories_title' >
+                <div className='Stories_title fsL fsW' >
                     {title}
-                </h2>
+                </div>
             </div>
             <Slider content={elements} contentType='stories' />
         </div>

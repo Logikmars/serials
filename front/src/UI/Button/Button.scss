@@ -1,0 +1,60 @@
+.Button {
+    font-family: 'ARIAL regular';
+    border-radius: 50px;
+    cursor: pointer;
+    transition: scale 300ms;
+    font-weight: 400;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 12px;
+    will-change: scale;
+
+
+    &:hover {
+        scale: 1.02;
+    }
+
+    img {
+        width: 16px;
+    }
+
+    &_color {
+        &_pink {
+            background-color: #EF4BC5;
+        }
+
+        &_blue {
+            background-color: #007AFF;
+        }
+
+        &_gradient {
+            background: linear-gradient(to right, #007AFF 0%, #7363E3 50%, #EF4BC5 100%);
+        }
+    }
+
+
+    &_size {
+
+        &_s {
+            padding: 0px 16px;
+            height: 28px;
+            font-size: 12px;
+        }
+
+        &_m {
+            padding: 0px 16px;
+            height: 40px;
+            font-size: 16px;
+        }
+
+        &_l {
+
+            padding: 0px 24px;
+            height: 48px;
+            font-size: 20px;
+        }
+
+    }
+
+}

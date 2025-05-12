@@ -140,18 +140,51 @@ html {
     max-width: 1300px;
     margin: 0 auto;
     padding: 0px 16px;
-}
 
-.Bigcontainer {
-    width: 100%;
-    max-width: 1900px;
-    margin: 0 auto;
-    padding: 0px 16px;
+    &_big {
+        @extend .container;
+        max-width: 1900px;
+    }
 }
 
 
 .App {
     width: 100%;
-    // overflow: hidden;
-    // min-height: 100vh;
+    overflow: hidden;
+}
+
+
+
+.fs {
+    &_s {}
+
+    &_m {}
+
+    &_l {
+        font-size: 32px;
+    }
+
+    // в смысле wide
+    &_w {
+        font-weight: 800;
+    }
+}
+
+
+.mt {
+    &_s {
+        margin-top: 8px;
+    }
+
+    &_m {
+        margin-top: 16px;
+    }
+
+    &_l {
+        margin-top: 32px;
+    }
+
+    &_xl {
+        margin-top: 64px;
+    }
 }
