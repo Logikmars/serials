@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Films.scss';
+// import SliderSmallCategoriesSelector from './SliderSmallCategoriesSelector/SliderSmallCategoriesSelector';
 import Slider from '../Slider/Slider';
 import DropDown from '../../UI/DropDown/DropDown';
 import { useNavigate } from 'react-router-dom';
@@ -77,12 +78,12 @@ const Films: React.FC<Props> = ({ title }) => {
                         defaultValue='Category'
                     />
                 </div>
-            </div>
+            </div >
 
             <Slider content={elements} contentType='films' />
 
 
-        </div>
+        </div >
     )
 };
 

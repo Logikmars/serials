@@ -4,10 +4,11 @@ import SignInBtn from '../../../components/SignInBtn/SignInBtn';
 interface Props {
     name: string;
     uid: number;
+    small?: boolean;
 }
-const PersonalAccountPerson: React.FC<Props> = ({ name, uid }) => {
+const PersonalAccountPerson: React.FC<Props> = ({ name, uid, small }) => {
     return (
-        <div className='PersonalAccountPerson'>
+        <div className={`PersonalAccountPerson ${small && 'PersonalAccountPerson_small'}`}>
             <div className='PersonalAccountPerson_wrapper'>
                 <div className='PersonalAccountPerson_img'>
                     <img src="/img/header/login.svg" alt="" />

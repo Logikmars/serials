@@ -1,12 +1,13 @@
 import React from 'react';
 import './SignInBtn.scss';
+import { Link } from 'react-router-dom';
 interface Props {
     title?: string;
 }
 const SignInBtn: React.FC<Props> = ({ title }) => {
     return (
-        <div className='Header_right_signin'>
-            {title ? title : 'Sign In'}
-        </div>
+        <Link className={`Header_right_signin ${title === 'Search' && 'Header_right_signin_big'}`} to={title ? '' : '/register'}>
+            {title ?? 'Sign In'}
+        </Link>
     )};
 export default SignInBtn

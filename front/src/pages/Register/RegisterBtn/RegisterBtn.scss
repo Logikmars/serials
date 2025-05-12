@@ -1,0 +1,21 @@
+.RegisterBtn{
+    padding: 5px 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #535353;
+    background-color: #1E1E1E;
+    border-radius: 30px;
+    font-family: 'ARIAL regular';
+    transition: background-color 300ms;
+    cursor: pointer;
+    &_active{
+        background-color: #007AFF;
+    }
+
+    &_form{
+        width: 100%;
+        background-color: #007AFF;
+        padding: 10px 20px;
+    }
+}
