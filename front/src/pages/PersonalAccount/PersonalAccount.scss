@@ -2,7 +2,6 @@
     width: 100%;
     display: flex;
     justify-content: start;
-    gap: 32px;
     margin-top: 35px !important;
     margin-bottom: 35px !important;
     @media(max-width: 900px){
@@ -16,7 +15,6 @@
         flex-wrap: wrap;
         justify-content: center;
         align-content: start;
-        gap: 16px;
         order: 2;
         @media(max-width: 1000px){
             width: calc(77% - 32px);
@@ -30,51 +28,34 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: start;
-            padding: 16px;
-            border-radius: 25px;
-            gap: 16px;
-            &_title{
-                font-family: 'ARIAL regular';
-                font-size: 16px;
-            }
             &_tickets_wrapper{
                 width: 100%;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
+                justify-content: space-between !important;
             }
             &_coins{
                 width: 50%;
-                display: flex;
-                justify-content: start;
-                align-items: center;
-                gap: 8px;
+                justify-content: start !important;
                 @media(max-width: 650px){
-                    justify-content: center;
+                    justify-content: center !important;
                     min-width: 100px;
                 }
                 &_logo{
-                    padding: 6px 8px 7px 9px;
+                    // padding: 6px 8px 7px 9px;
                     background-color: #EF29DC;
                     border-radius: 50px;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
                 }
                 &_amount{
-                    font-family: 'ARIAL bold';
-                    font-size: 24px;
                     @media(max-width: 1120px){
-                        font-size: 18px;
+                        font-size: 18px !important;
                     }
                     @media(max-width: 1000px){
-                        font-size: 14px;
+                        font-size: 14px !important;
                         display: flex;
                         justify-content: center;
                         align-items: center;
                     }
                     @media(max-width: 500px){
-                        font-size: 10px;
+                        font-size: 10px !important;
                     }
                 }
             }
@@ -82,15 +63,11 @@
                 width: 50%;
                 display: flex;
                 justify-content: start;
-                gap: 8px;
                 @media(max-width: 650px){
                     justify-content: center;
                     min-width: 100px;
                 }
                 &_logo{
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
                     gap: 2px;
                     &_left{
                         background-color: #EF29DC;
@@ -102,9 +79,6 @@
                     &_center{
                         background-color: #EF29DC;
                         height: 24px;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
                         padding: 4px 6px;
                     }
                     &_right{
@@ -116,32 +90,23 @@
                     }
                 }
                 &_amount{
-                    font-family: 'ARIAL bold';
-                    font-size: 24px;
                     @media(max-width: 1120px){
-                        font-size: 18px;
+                        font-size: 18px !important;
                     }
                     @media(max-width: 1000px){
-                        font-size: 14px;
+                        font-size: 14px !important;
                         display: flex;
                         justify-content: center;
                         align-items: center;
                     }
                     @media(max-width: 500px){
-                        font-size: 10px;
+                        font-size: 10px !important;
                     }
                 }
             }
             &_btn{
                 width: 100%;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                font-family: 'ARIAL regular';
-                font-size: 16px;
                 background-color: #007AFF;
-                padding: 10px 0px 10px 0px;
-                border-radius: 28px;
                 transition: color 300ms, background-color 300ms;
                 cursor: pointer;
                 &:hover{
@@ -155,8 +120,7 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center; 
-            background: linear-gradient(to bottom, #2b1c279f 99%, #1E2C3B9f 100%); 
-            border-radius: 15px;    
+            background: linear-gradient(to bottom, #2b1c279f 99%, #1E2C3B9f 100%);   
             a{
                 width: 100%;
             }

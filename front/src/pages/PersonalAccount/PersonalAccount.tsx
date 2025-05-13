@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './PersonalAccount.scss';
 import PersonalAccountPerson from './PersonalAccountPerson/PersonalAccountPerson';
 import ListItem from './ListItem/ListItem';
@@ -9,6 +9,9 @@ import { Link } from 'react-router-dom';
 import useIsPortrait from '../../hooks/useIsPortrait';
 import Coins from '../../components/Coins/Coins';
 import TicketsAmount from '../../components/TicketsAmount/TicketsAmount';
+import { useLocation } from 'react-router-dom';
+
+
 const PersonalAccount: React.FC = () => {
 
     const Person = [
@@ -23,7 +26,7 @@ const PersonalAccount: React.FC = () => {
 
     const listItems = [
         {
-            img: "/img/icons/wallet.svg",
+            img: "/img/icons/walletBlue.svg",
             title: "My wallet",
             to: 'wallet'
         },
@@ -40,30 +43,46 @@ const PersonalAccount: React.FC = () => {
     ]
 
     const [activeIndex, setActiveIndex] = useState<number | null>(2);
+    const location = useLocation();
 
     const isPortrait = useIsPortrait();
 
+    useEffect(() => {
+    if (location.state?.section) {
+        const sectionMap: { [key: string]: number } = {
+        wallet: 0,
+        liked: 1,
+        history: 2,
+        };
+
+        const sectionIndex = sectionMap[location.state.section];
+        if (sectionIndex !== undefined) {
+        setActiveIndex(sectionIndex);
+        }
+    }
+    }, [location.state]);
+
     return (
-        <div className='PersonalAccount container'>
-            <div className='PersonalAccount_leftinfo'>
+        <div className='PersonalAccount container gap_xl'>
+            <div className='PersonalAccount_leftinfo gap_s'>
                 {
                     Person.map((el, index) => (
                         <PersonalAccountPerson name={el.name} uid={el.uid} key={index} />
                     ))
                 }
-                <div className='PersonalAccount_leftinfo_balance'>
-                    <h2 className='PersonalAccount_leftinfo_balance_title'>
+                <div className='PersonalAccount_leftinfo_balance pa_l brad_25 gap_s'>
+                    <h2 className='PersonalAccount_leftinfo_balance_title ffar fs_s'>
                         Account balance
                     </h2>
-                    <div className='PersonalAccount_leftinfo_balance_tickets_wrapper'>
+                    <div className='PersonalAccount_leftinfo_balance_tickets_wrapper fcc'>
                         <Coins coinsAmount={0} />
                         <TicketsAmount ticketsAmount={0} />
                     </div>
-                    <Link className='PersonalAccount_leftinfo_balance_btn' to={'/topUp'}>
+                    <Link className='PersonalAccount_leftinfo_balance_btn fcc ffar fs_s pa_l brad_25' to={'/topUp'}>
                         Top up
                     </Link>
                 </div>
-                <div className='PersonalAccount_leftinfo_list'>
+                <div className='PersonalAccount_leftinfo_list brad_15'>
                     {
                         listItems.map((el, index) => (
                             isPortrait ? (

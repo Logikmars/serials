@@ -175,7 +175,7 @@ const Fandom: React.FC = () => {
     }
 
     return (
-        <div className='Fandom container'>
+        <div className='Fandom container mobPt_s'>
             <div className={`Fandom_mobDiscussions ${openDiscussions && 'Fandom_mobDiscussions_open'}`}>
                 <div className='Fandom_mobDiscussions_header'>
                     <Close onclick={handleOpenDiscussions} />

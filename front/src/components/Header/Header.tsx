@@ -7,65 +7,100 @@ import DownloadAppBtn from '../DownloadAppBtn/DownloadAppBtn';
 const Header: React.FC = () => {
     const [activeTab, setActiveTab] = useState("Home");
     const [isLanguageMenuOpen, setIsLanguageMenuOpen] = useState(false);
+    const [language, setlanguage] = useState('English');
 
-    // Функция для переключения состояния меню
     const toggleLanguageMenu = () => {
         setIsLanguageMenuOpen((prev) => !prev);
     };
 
+    const navEl = [
+        {
+            title: 'Home',
+            src: '/'
+        },
+        {
+            title: 'Fandom',
+            src: '/fandom'
+        },
+        {
+            title: 'Genre',
+            src: '/genre/drama'
+        }
+    ]
+
+    const navIcons = [
+        {
+            src: '/img/icons/heartWhiteNoFill.svg',
+            to: '/personalaccount',
+            section: 'liked'
+        },
+        {
+            src: '/img/icons/time.svg',
+            to: '/personalaccount',
+            section: 'history'
+        },
+        {
+            src: '/img/icons/search.svg',
+            to: '/genre/drama',
+            section: 'main'
+        }
+    ];
+
+
     return (
         <div className='Header container'>
-            <div className='Header_left'>
-                <Link to="/" className='Header_left_logo'>
+            <div className='Header_left gap_l fcc'>
+                <Link to="/" className='Header_left_logo gap_s fcc'>
                     <img src="/img/logo.svg" alt="" />
-                    <h2 className='Header_left_logo_title'>LookTwice</h2>
+                    <h2 className='Header_left_logo_title fs_m ffab'>LookTwice</h2>
                 </Link>
-                <div className='Header_left_btns'>
-                    <Link
-                    to="/"
-                        className={`Header_left_text ${activeTab === 'Home' ? 'Header_left_text_active' : ''}`}
-                        onClick={() => setActiveTab('Home')}
-                    >
-                        Home
-                    </Link>
-                    <Link
-                        className={`Header_left_text ${activeTab === 'Fandom' ? 'Header_left_text_active' : ''}`}
-                        onClick={() => setActiveTab('Fandom')}
-                        to={'/fandom'}
-                    >
-                        Fandom
-                    </Link>
-                                        <Link
-                        className={`Header_left_text ${activeTab === 'Genre' ? 'Header_left_text_active' : ''}`}
-                        onClick={() => setActiveTab('Genre')}
-                        to={'/genre'}
-                    >
-                        Genre
-                    </Link>
+                <div className='Header_left_btns fcc gap_l'>
+                    {
+                    navEl.map((el, index) => (
+                        <Link
+                        key={index}
+                        to={el.src}
+                        className={`Header_left_text fs_s ffar ${activeTab === el.title ? 'Header_left_text_active' : ''}`}
+                        onClick={() => setActiveTab(el.title)}
+                        >
+                        {el.title}
+                        </Link>
+                    ))
+                    }
                 </div>
             </div>
 
-            <div className='Header_right'>
-                <div className='Header_right_icons'>
-                    <img src="/img/header/search.png" alt="" />
-                    <img src="/img/header/likes.png" alt="" />
-                    <img src="/img/header/clock.png" alt="" />
+            <div className='Header_right gap_l'>
+                <div className='Header_right_icons fcc gap_m'>
+                    {
+                        navIcons.map((el, index) => (
+                            <Link
+                            key={index}
+                            to={el.to}
+                            state={{ section: el.section }}
+                            >
+                            <img src={el.src}/>
+                            </Link>
+                        ))
+                    }
+
                 </div>
                 
-                <div className='Header_right_language' onClick={toggleLanguageMenu}>
-                    <img src="/img/header/language.png" alt="" />
-                    English
+                <div className='Header_right_language fs_s fcc gap_xxxs' onClick={toggleLanguageMenu}>
+                    <img src="/img/icons/language.svg" alt="" />
+                    {language}
                     <img src="/img/icons/arrow.svg" alt="" className='Header_right_language_arrow'/>
                     <ul className={`Header_right_language_dropdown ${isLanguageMenuOpen ? 'Header_right_language_dropdown_show' : ''}`}>
-                        <li>English</li>
-                        <li>Arabic</li>
-                        <li>Tatar</li>
-                        <li>German</li>
+                        {
+                            ['English', 'Arabic', 'Tatar', 'German'].map((el, index) => (
+                                <li onClick={() => setlanguage(el)} key={`Header_right_language_${index}`} className='pa_l fs_s ffar'>{el}</li>
+                            ))
+                        }
                     </ul>
                 </div>
                 <DownloadAppBtn />
                 <SignInBtn />
-                <Link to="/personalaccount" className='Header_right_login'>
+                <Link to="/personalaccount" className='Header_right_login pa_logo fcc brad_50'>
                     <img src="/img/header/login.svg" alt="" />
                 </Link>
             </div>

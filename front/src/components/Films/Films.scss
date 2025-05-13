@@ -1,10 +1,7 @@
 .Films {
-    margin-top: 60px;
 
     &_header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+        justify-content: space-between !important;
         position: relative;
         z-index: 9;
     }

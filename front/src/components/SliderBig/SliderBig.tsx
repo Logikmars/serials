@@ -91,9 +91,9 @@ const SliderBig: React.FC<Props> = ({ property }) => {
 
 
     return (
-        <div className='SliderBig'>
+        <div className='SliderBig fs_xxs'>
             <div className='SliderBig_top'></div>
-            <div className='SliderBig_elements  SliderElementHeight' style={{
+            <div className='SliderBig_elements fcc m0 SliderElementHeight' style={{
                 maxWidth: maxWidth,
                 minWidth: maxWidth,
             }}>
@@ -111,10 +111,10 @@ const SliderBig: React.FC<Props> = ({ property }) => {
                 })}
             </div>
             <div className='SliderBig_buttons container free_img'>
-                <div className='SliderBig_button SliderBig_button_left' onClick={handlePrev}>
+                <div className='SliderBig_button fcc brad_50 SliderBig_button_left' onClick={handlePrev}>
                     <img src="/img/icons/arrow.svg" alt="" />
                 </div>
-                <div className='SliderBig_button SliderBig_button_right' onClick={handleNext}>
+                <div className='SliderBig_button fcc brad_50 SliderBig_button_right' onClick={handleNext}>
                     <img src="/img/icons/arrow.svg" alt="" />
                 </div>
             </div>

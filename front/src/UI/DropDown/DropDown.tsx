@@ -16,7 +16,7 @@ const DropDown: React.FC<Props> = ({ list, selected, select, defaultValue = '', 
 
     return (
         <div className='DropDown' onClick={() => setshow(!show)}>
-            <div className='DropDown_value' >
+            <div className='DropDown_value fs_s pa_m brad_25' >
                 {selected ? selected : defaultValue ? defaultValue : selected}
                 <img src={`/img/icons/${icon ? icon : 'burger'}.svg`} alt="" />
             </div>
@@ -24,7 +24,7 @@ const DropDown: React.FC<Props> = ({ list, selected, select, defaultValue = '', 
                 <div className='DropDown_list_wrapper free_img'>
                     <div className={`DropDown_list ${show && 'DropDown_list_show'} `}>
                         {list.map((el, index) => {
-                            return <div key={`catSelector-${index}`} className='DropDown_element' onClick={() => {
+                            return <div key={`catSelector-${index}`} className='DropDown_element fs_s pa_m' onClick={() => {
                                 select(el)
                                 setshow(false)
                             }}>

@@ -53,13 +53,13 @@ const SliderBigElement: React.FC<Props> = ({
             </div>
             <div className='SliderBigElement_bot'>
                 <div className='SliderBigElement_content container'>
-                    <div className='SliderBigElement_header'>
+                    <div className='SliderBigElement_header fs_l ffab'>
                         {element.title}
                     </div>
-                    <div className='SliderBigElement_desc'>
+                    <div className='SliderBigElement_desc fs_m mt_s'>
                         {element.description}
                     </div>
-                    <div className='SliderBigElement_buttons'>
+                    <div className='SliderBigElement_buttons mt_ml'>
                         <Link to="/film/default">
                             <Button text='Watch' size='l' color='blue' />
                         </Link>

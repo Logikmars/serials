@@ -2,8 +2,8 @@ import React from 'react';
 import './DownloadAppBtn.scss';
 const DownloadAppBtn: React.FC = () => {
 return (
-    <div className='DownloadAppBtn'>
+    <a href='https://play.google.com/store' target='_blank' className='DownloadAppBtn pa_xs'>
         Download App
-    </div>
+    </a>
 )};
 export default DownloadAppBtn

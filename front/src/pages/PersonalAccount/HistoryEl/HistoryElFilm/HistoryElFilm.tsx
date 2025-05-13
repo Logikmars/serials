@@ -21,19 +21,19 @@ const HistoryElFilm: React.FC<Props> = ({ el }) => {
     };
 
     return (
-        <div className='HistoryElFilm'>
+        <div className='HistoryElFilm gap_l'>
             <div className='HistoryElFilm_film'>
                 <SliderSmallElement el={newEl} />
             </div>
             <div className='HistoryElFilm_info'>
-                <div className='HistoryElFilm_info_top'>
+                <div className='HistoryElFilm_info_top ffab fs_m fs_lw'>
                     <div className='HistoryElFilm_info_top_top'>
                         {el.title}
                         <div className='HistoryElFilm_info_top_top_nav'>
                             <ShareDots />
                         </div>
                     </div>
-                    <div className='HistoryElFilm_info_top_bottom'>
+                    <div className='HistoryElFilm_info_top_bottom fs_s fs_lw'>
                         {el.percent}%
                     </div>
                 </div>

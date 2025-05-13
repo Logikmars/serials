@@ -8,11 +8,11 @@ interface Props {
 }
 const StoriesElement: React.FC<Props> = ({ el }) => {
     return (
-        <div className='StoriesElement'>
+        <div className='StoriesElement fcc brad_25'>
             {el.isSeen ? (
-                <div className="StoriesElement_border">
-                    <div className='StoriesElement_border_black'>
-                        <img src={el.img} alt="" />
+                <div className="StoriesElement_border fcc brad_30">
+                    <div className='StoriesElement_border_black brad_30'>
+                        <img src={el.img} alt="" className='brad_25'/>
                     </div>
                 </div>
             ) : (

@@ -1,13 +1,4 @@
 .SliderBig {
-    font-size: 10px;
-
-    &_elements {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        // overflow: hidden;
-        margin: 0 auto;
-    }
 
     &_otladka {
         font-size: 40px;
@@ -16,11 +7,7 @@
     &_button {
         min-width: 40px;
         min-height: 40px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
         background-color: rgba($color: #2B2B2B, $alpha: .7);
-        border-radius: 40px;
         transition: background-color 200ms;
 
 

@@ -147,6 +147,8 @@
             background: linear-gradient(200deg, #2b1c2777 0%, #1E2C3B77 100%);
             backdrop-filter: blur(10px);
             border-radius: 25px;
+            align-content: start;
+            align-self: flex-start;
 
             @media(max-width: 750px) {
                 display: none;

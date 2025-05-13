@@ -120,14 +120,14 @@ const Slider: React.FC<Props> = ({ content, contentType }) => {
 
 
     return (
-        <div className='Slider'>
+        <div className='Slider fcc'>
             <div className='Slider_arrow_wrapper free_img'>
-                <div className='Slider_arrow' onClick={handlePrev}>
+                <div className='Slider_arrow brad_50 fcc' onClick={handlePrev}>
                     <img src="/img/icons/arrow.svg" alt="" />
                 </div>
             </div>
 
-            <div className={`Slider_content Slider_content_${contentType}`}>
+            <div className={`Slider_content Slider_content_${contentType} fcc`}>
                 {
                     elements.map((el, index) => {
                         const isThisVisible = currentSlide + elementsPerScreen - index > 0
@@ -157,7 +157,7 @@ const Slider: React.FC<Props> = ({ content, contentType }) => {
                 }
             </div>
             <div className='Slider_arrow_wrapper Slider_arrow_wrapper_right free_img'>
-                <div className='Slider_arrow Slider_arrow_right' onClick={handleNext}>
+                <div className='Slider_arrow Slider_arrow_right brad_50 fcc' onClick={handleNext}>
                     <img src="/img/icons/arrow.svg" alt="" />
                 </div>
             </div>

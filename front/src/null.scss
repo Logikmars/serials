@@ -156,14 +156,24 @@ html {
 
 
 .fs {
-    &_s {}
-
-    &_m {}
-
+    &_xxs{
+        font-size: 10px;
+    }
+    &_s {
+        font-size: 16px;
+    }
+    &_m {
+        font-size: 24px;
+    }
     &_l {
         font-size: 32px;
     }
-
+    &_xl{
+        font-size: 40px;
+    }
+    &_lw{
+        font-weight: 700;
+    }
     // в смысле wide
     &_w {
         font-weight: 800;
@@ -179,7 +189,9 @@ html {
     &_m {
         margin-top: 16px;
     }
-
+    &_ml{
+        margin-top: 24px;
+    }
     &_l {
         margin-top: 32px;
     }
@@ -187,4 +199,84 @@ html {
     &_xl {
         margin-top: 64px;
     }
+}
+
+.mobPt{
+    @media(max-width: 1000px){
+        &_s{
+            padding-top: 25px !important;
+        }
+    }
+}
+
+.pa{
+    &_xs{
+        padding: 4px 18px !important;
+    }
+    &_logo{
+        padding: 10px 12px 11px 12px !important;
+    }
+    &_smallLogo{
+        padding: 6px 8px 7px 9px;
+    }
+    &_m{
+        padding: 8px 16px !important; 
+    }
+    &_l{
+        padding: 10px 20px !important;
+    }
+}
+
+.gap{
+    &_xxxs{
+        gap: 4px;
+    }
+    &_xs{
+        gap: 8px;
+    }
+    &_s{
+        gap: 12px;
+    }
+    &_m{
+        gap: 18px;
+    }
+    &_l{
+        gap: 24px;
+    }
+    &_xl{
+        gap: 32px;
+    }
+}
+
+.fcc{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ffab{
+    font-family: 'ARIAL bold'
+}
+
+.ffar{
+    font-family: 'ARIAL regular';
+}
+
+.brad{
+    &_50{
+        border-radius: 50px;
+    }
+    &_25{
+        border-radius: 25px;
+    }
+    &_30{
+        border-radius: 30px;
+    }
+    &_15{
+        border-radius: 15px;
+    }
+}
+
+.m0{
+    margin: 0 auto;
 }

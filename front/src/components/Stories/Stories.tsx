@@ -37,7 +37,7 @@ const Stories: React.FC<Props> = ({ title }) => {
 
     return (
         <div className='Stories container'>
-            <div className='Stories_header'>
+            <div className='Stories_header fs_l'>
                 <div className='Stories_title fsL fsW' >
                     {title}
                 </div>

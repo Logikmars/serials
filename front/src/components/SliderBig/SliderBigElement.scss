@@ -66,9 +66,7 @@
     }
 
     &_header {
-        font-size: 32px;
         text-shadow: 0px 0px 2px #000, 0px 0px 10px #000;
-        font-family: 'ARIAL bold';
     }
 
     &_content {
@@ -81,20 +79,16 @@
     }
 
     &_desc {
-        font-size: 24px;
         padding-right: 160px;
-        margin-top: 8px;
         text-shadow: 0px 0px 2px #000, 0px 0px 10px #000;
 
         @media(max-width: 600px) {
-            padding-right: 0px;
+            padding-right: 0px !important;
         }
     }
 
     &_buttons {
         display: flex;
-        margin-top: 24px;
-
     }
 }
 

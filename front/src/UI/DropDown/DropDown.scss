@@ -1,12 +1,9 @@
 .DropDown {
     &_value {
-        font-size: 18px;
         display: flex;
         align-items: center;
         column-gap: 10px;
-        padding: 8px 16px;
         border: 2px solid #fff4;
-        border-radius: 20px;
         background-color: #fff0;
         transition: background-color 200ms;
 
@@ -50,8 +47,6 @@
     }
 
     &_element {
-        padding: 8px 12px;
-        font-size: 16px;
         border-bottom: 1px solid #fff1;
         background-color: #fff0;
         transition: background-color 200ms;

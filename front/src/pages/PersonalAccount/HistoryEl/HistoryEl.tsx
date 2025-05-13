@@ -30,40 +30,40 @@ const HistoryEl: React.FC = () => {
   const isPortrait = useIsPortrait();
 
   return (
-    <div className={`HistoryEl ${isPortrait ? 'container' : ''}`}>
-      <div className={`HistoryEl_header ${isPortrait && 'HistoryEl_headermob'}`}>
+    <div className={`HistoryEl gap_xl ${isPortrait ? 'container' : ''}`}>
+      <div className={`HistoryEl_header fcc gap_m ${isPortrait && 'HistoryEl_headermob'}`}>
         {
           isPortrait ?
             <div className='HistoryEl_header_mob'>
-              <div className='HistoryEl_header_mob_close HistoryEl_header_mob_btn'>
+              <div className='HistoryEl_header_mob_close HistoryEl_header_mob_btn fcc brad_50'>
                 <img src="/img/icons/close.svg" alt="" />
               </div>
-              <div className='HistoryEl_header_mob_title'>
+              <div className='HistoryEl_header_mob_title fs_m ffab fs_lw'>
                 History
               </div>
-              <div className='HistoryEl_header_mob_edit HistoryEl_header_mob_btn'>
+              <div className='HistoryEl_header_mob_edit HistoryEl_header_mob_btn fcc brad_50'>
                 <img src="/img/icons/edit.svg" alt="" />
               </div>
             </div>
             :
-            <h2 className='HistoryEl_header_title'>Viewing history</h2>
+            <h2 className='HistoryEl_header_title fs_m ffab'>Viewing history</h2>
         }
         <div
-          className={`HistoryEl_header_choise ${activeFilter === 'date' ? 'HistoryEl_header_choise_active' : ''}`}
+          className={`HistoryEl_header_choise pa_xs brad_50 ffar fs_s ${activeFilter === 'date' ? 'HistoryEl_header_choise_active' : ''}`}
           onClick={() => setActiveFilter('date')}
         >
           By date
         </div>
 
         <div
-          className={`HistoryEl_header_choise ${activeFilter === 'popularity' ? 'HistoryEl_header_choise_active' : ''}`}
+          className={`HistoryEl_header_choise pa_xs brad_50 ffar fs_s ${activeFilter === 'popularity' ? 'HistoryEl_header_choise_active' : ''}`}
           onClick={() => setActiveFilter('popularity')}
         >
           By popularity
         </div>
       </div>
-      <div className='HistoryEl_list'>
-        <h2 className='HistoryEl_list_title'>
+      <div className='HistoryEl_list gap_l'>
+        <h2 className='HistoryEl_list_title fs_s ffar'>
           Yeasterday
         </h2>
         {

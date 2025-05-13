@@ -65,8 +65,8 @@ const Films: React.FC<Props> = ({ title }) => {
     const navigate = useNavigate();
 
     return (
-        <div className='Films'>
-            <div className='Films_header container'>
+        <div className='Films mt_xl'>
+            <div className='Films_header container fcc'>
                 <div className='Films_header_title fs_l fs_w' >
                     {title}
                 </div>

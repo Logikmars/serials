@@ -3,57 +3,13 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    margin-top: 60px !important;
+    margin-top: 64px !important;
 
     &_header {
         width: 100%;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        font-size: 32px;
         font-weight: 800;
-    }
-
-    &_slider {
-        // display: flex;
-        // justify-content: space-between;
-        // align-items: center;
-        // height: 200px;
-        // overflow: hidden;
-        // width: 100%;
-        // gap: 0px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 400px;
-        width: 1200px;
-
-        &_element {
-            // transition: transform 200ms, opacity 200ms;
-        }
-    }
-
-    &_content {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    &_btn_wrapper {
-        position: relative;
-        z-index: 2;
-
-        @media(max-width: 1200px) {
-            left: 40px;
-        }
-
-        &_right {
-            position: relative;
-            z-index: 2;
-
-            @media(max-width: 1200px) {
-                left: -40px !important;
-            }
-        }
     }
 }

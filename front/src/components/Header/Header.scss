@@ -4,7 +4,7 @@
     align-items: center;
     height: 60px;
     position: relative;
-    z-index: 999;
+    z-index: 999999999;
     justify-content: space-between;
 
     @media(max-width: 1000px) {
@@ -12,38 +12,16 @@
     }
 
     &_left {
-        display: flex;
-        justify-content: start;
-        align-items: center;
-        gap: 24px;
 
         &_logo {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 11px;
 
             img {
                 width: 37px;
                 height: 37px;
             }
-
-            &_title {
-                font-family: 'ARIAL bold';
-                font-size: 24px;
-            }
-        }
-
-        &_btns {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 23px;
         }
 
         &_text {
-            font-family: 'ARIAL regular';
-            font-size: 16px;
             cursor: pointer;
             transition: color 300ms;
 
@@ -60,14 +38,8 @@
     &_right {
         display: flex;
         justify-content: end;
-        gap: 20px;
 
         &_icons {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 18px;
-
             img {
                 width: 15px;
                 height: 15px;
@@ -80,12 +52,8 @@
         }
 
         &_language {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 5px;
+
             font-family: 'ARIAL regular';
-            font-size: 16px;
             cursor: pointer;
 
             &_arrow {
@@ -93,33 +61,8 @@
                 rotate: -90deg;
             }
         }
-
-        &_signin {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 4px 18px;
-            background-color: #007AFF;
-            border-radius: 50px;
-            border: 1px solid #007AFF;
-            font-family: 'ARIAL regular';
-            font-size: 16px;
-            cursor: pointer;
-            transition: color 300ms, background-color 300ms;
-
-            &:hover {
-                color: #000;
-                background-color: #FFF;
-            }
-        }
-
         &_login {
-            padding: 10px 12px 11px 12px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             background-color: #FFF;
-            border-radius: 50px;
             transition: background-color 300ms;
 
             img {
@@ -137,10 +80,8 @@
 
         &_language {
             position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             cursor: pointer;
+            z-index: 99999;
 
             &_dropdown {
                 position: absolute;
@@ -148,17 +89,14 @@
                 background-color: #000;
                 box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
                 list-style-type: none;
-                z-index: 999;
+                z-index: 999999;
                 opacity: 0;
                 transform: translateY(-10px);
                 visibility: hidden;
                 transition: opacity 300ms ease, transform 300ms ease, visibility 300ms;
 
                 li {
-                    padding: 10px 20px;
                     cursor: pointer;
-                    font-family: 'ARIAL regular';
-                    font-size: 16px;
                     transition: background-color 200ms;
 
                     &:hover {
