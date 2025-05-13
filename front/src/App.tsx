@@ -38,10 +38,14 @@ function App() {
 
           <Route path="/profile/history" element={<HistoryEl />} />
           <Route path="/profile" element={<PersonalAccount />} />
+          <Route path="/personalaccount" element={<PersonalAccount />} />
           <Route path="/register" element={<Register />} />
           <Route path="/topUp" element={<TopUp />} />
           <Route path="/genre" element={<Genre />} />
+          <Route path="/fandom" element={<Fandom />} />
+          <Route path="/register" element={<Register />} />
 
+          
         </Routes>
         <Footer />
         <MobMenu />
