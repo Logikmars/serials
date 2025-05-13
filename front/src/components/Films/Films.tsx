@@ -73,7 +73,7 @@ const Films: React.FC<Props> = ({ title }) => {
                 <div className='Films_header_filter' >
                     <DropDown
                         list={categories}
-                        select={(el) => { navigate(`/categories/${el}`) }}
+                        select={(el) => { navigate(`/genre/${el}`) }}
                         selected={category}
                         defaultValue='Category'
                     />

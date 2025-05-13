@@ -1,4 +1,4 @@
-.ListItem{
+.ListItem {
     width: 100%;
     padding: 20px 41px;
     display: flex;
@@ -9,16 +9,25 @@
     font-size: 24px;
     background: transparent;
     cursor: pointer;
-    img{
+
+    img {
         width: 23px;
         height: 22px;
+        filter: contrast(0) brightness(50);
+        ;
     }
-    &_second{
+
+    &_second {
         border-top: 1px solid rgba($color: #FFFFFF21, $alpha: .13);
         border-bottom: 1px solid rgba($color: #FFFFFF21, $alpha: .13);
     }
-    &_active{
+
+    &_active {
         background-color: rgba($color: #007AFF0D, $alpha: .05);
         color: #007AFF;
+
+        img {
+            filter: contrast(1) brightness(1);
+        }
     }
 }

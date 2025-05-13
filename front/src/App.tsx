@@ -41,11 +41,11 @@ function App() {
           <Route path="/personalaccount" element={<PersonalAccount />} />
           <Route path="/register" element={<Register />} />
           <Route path="/topUp" element={<TopUp />} />
-          <Route path="/genre" element={<Genre />} />
+          <Route path="/genre/:genre" element={<Genre />} />
           <Route path="/fandom" element={<Fandom />} />
           <Route path="/register" element={<Register />} />
 
-          
+
         </Routes>
         <Footer />
         <MobMenu />

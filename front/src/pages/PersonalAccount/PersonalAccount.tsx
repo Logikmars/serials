@@ -28,12 +28,12 @@ const PersonalAccount: React.FC = () => {
             to: 'wallet'
         },
         {
-            img: "/img/header/likes.png",
+            img: "/img/icons/heartBlueNoFill.svg",
             title: "My favorites",
             to: 'liked'
         },
         {
-            img: "/img/header/clock.png",
+            img: "/img/icons/timeColored.svg",
             title: "History",
             to: 'history'
         },
@@ -56,7 +56,7 @@ const PersonalAccount: React.FC = () => {
                         Account balance
                     </h2>
                     <div className='PersonalAccount_leftinfo_balance_tickets_wrapper'>
-                        <Coins coinsAmount={0}/>
+                        <Coins coinsAmount={0} />
                         <TicketsAmount ticketsAmount={0} />
                     </div>
                     <Link className='PersonalAccount_leftinfo_balance_btn' to={'/topUp'}>
@@ -65,28 +65,28 @@ const PersonalAccount: React.FC = () => {
                 </div>
                 <div className='PersonalAccount_leftinfo_list'>
                     {
-                    listItems.map((el, index) => (
-                        isPortrait ? (
-                        <Link to={el.to} key={index}>
-                            <ListItem
-                            img={el.img}
-                            title={el.title}
-                            index={index}
-                            isActive={activeIndex === index}
-                            onClick={() => setActiveIndex(index)}
-                            />
-                        </Link>
-                        ) : (
-                        <ListItem
-                            img={el.img}
-                            title={el.title}
-                            key={index}
-                            index={index}
-                            isActive={activeIndex === index}
-                            onClick={() => setActiveIndex(index)}
-                        />
-                        )
-                    ))
+                        listItems.map((el, index) => (
+                            isPortrait ? (
+                                <Link to={el.to} key={index}>
+                                    <ListItem
+                                        img={el.img}
+                                        title={el.title}
+                                        index={index}
+                                        isActive={activeIndex === index}
+                                        onClick={() => setActiveIndex(index)}
+                                    />
+                                </Link>
+                            ) : (
+                                <ListItem
+                                    img={el.img}
+                                    title={el.title}
+                                    key={index}
+                                    index={index}
+                                    isActive={activeIndex === index}
+                                    onClick={() => setActiveIndex(index)}
+                                />
+                            )
+                        ))
                     }
                 </div>
             </div>
