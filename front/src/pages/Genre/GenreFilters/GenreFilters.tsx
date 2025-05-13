@@ -36,7 +36,7 @@ const GenreFilters: React.FC = () => {
     ]
 
     return (
-        <div className='GenreFilters'>
+        <div className='GenreFilters gap_s'>
             <DropDown list={genre} select={(el) => { navigate(`/categories/${el}`) }} selected={category} defaultValue='Genre'/>
             <DropDown list={date} select={(el) => { navigate(`/categories/${el}`) }} selected={category} defaultValue='Air date'/>
             <DropDown list={language} select={(el) => { navigate(`/categories/${el}`) }} selected={category} defaultValue='Language'/>

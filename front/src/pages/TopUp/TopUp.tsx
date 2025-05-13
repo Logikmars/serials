@@ -82,26 +82,26 @@ const paymentMethods = [
 ]
 
     return (
-        <div className='TopUp container'>
-            <div className='TopUp_header'>
+        <div className='TopUp container gap_xxl'>
+            <div className='TopUp_header brad_25 pa_xxs'>
                 <div className='TopUp_header_info'>
                     <TicketsAmount ticketsAmount={0} />
                     <Coins coinsAmount={0} />
                 </div>
                 <PersonalAccountPerson name='123412314' uid={123412314} small/>
             </div>
-            <div className='TopUp_modes'>
+            <div className='TopUp_modes fcc gap_xxl'>
                 {
                     modes.map((el, index) => (
                         <TopUpModes el={el} key={`TopUpModes_${index}`} />
                     ))
                 }
             </div>
-            <div className='TopUp_refil'>
-                <div className='TopUp_refil_title'>
+            <div className='TopUp_refil gap_m'>
+                <div className='TopUp_refil_title ffab fs_m pa_xxxs'>
                     Refil
                 </div>
-                <div className='TopUp_refil_content'>
+                <div className='TopUp_refil_content gap_l'>
                     {
                         refilModes.map((el, index) => (
                             <RefilModes el={el} key={`RefilModes_${index}`}/>
@@ -109,11 +109,11 @@ const paymentMethods = [
                     }
                 </div>
             </div>
-            <div className='TopUp_payments'>
-                <div className='TopUp_payments_title'>
+            <div className='TopUp_payments gap_m'>
+                <div className='TopUp_payments_title ffab fs_m pa_xxxs'>
                     Payment Method
                 </div>
-                <div className='TopUp_payments_content'>
+                <div className='TopUp_payments_content gap_m'>
                     {
                         paymentMethods.map((el, index) => (
                             <img src={el.src} alt="" key={`paymentMethods_img_${index}`}/>

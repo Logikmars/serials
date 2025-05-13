@@ -1,13 +1,7 @@
 .BigDarkGrayBtn{
     width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     background-color: #1F1838;
-    padding: 12px 64px;
-    border-radius: 25px;
     cursor: pointer;
-    font-family: 'ARIAL bold';
     transition: color 300ms, background-color 300ms;
     &:hover{
         background-color: #FFF;

@@ -159,6 +159,9 @@ html {
     &_xxs{
         font-size: 10px;
     }
+    &_xs{
+        font-size: 12px;
+    }
     &_s {
         font-size: 16px;
     }
@@ -210,20 +213,38 @@ html {
 }
 
 .pa{
+    &_xxxs{
+        padding: 0px 20px;
+    }
+    &_xxs{
+        padding: 0px 10px;
+    }
     &_xs{
-        padding: 4px 18px !important;
+        padding: 4px 18px;
+    }
+    &_s{
+        padding: 5px 15px;
     }
     &_logo{
-        padding: 10px 12px 11px 12px !important;
+        padding: 10px 12px 11px 12px;
     }
     &_smallLogo{
         padding: 6px 8px 7px 9px;
     }
     &_m{
-        padding: 8px 16px !important; 
+        padding: 8px 16px; 
     }
     &_l{
-        padding: 10px 20px !important;
+        padding: 10px 20px;
+    }
+    &_input{
+        padding: 10px 18px;
+    }
+    &_xl{
+        padding: 10px 13px;
+    }
+    &_large{
+        padding: 20px;
     }
 }
 
@@ -245,6 +266,9 @@ html {
     }
     &_xl{
         gap: 32px;
+    }
+    &_xxl{
+        gap: 50px;
     }
 }
 

@@ -4,7 +4,6 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 40px;
     &_header{
         width: 100%;
         display: flex;
@@ -15,8 +14,6 @@
             justify-content: center;
         }
         &_title{
-            font-family: 'ARIAL bold';
-            font-size: 24px;
             @media(max-width: 1000px){
                 width: 100%;
                 text-align: center;
@@ -28,7 +25,6 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: start;
-        gap: 32px;
         @media(max-width: 1010px){
             justify-content: center;
         }

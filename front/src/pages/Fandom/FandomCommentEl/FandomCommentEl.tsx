@@ -22,39 +22,39 @@ const FandomCommentEl: React.FC<Props> = ({ el }) => {
             : `${diffHours} hr. ago`;
 
     return (
-        <div className='FandomCommentEl'>
-            <div className='FandomCommentEl_header'>
-                <div className='FandomCommentEl_header_left'>
+        <div className='FandomCommentEl pa_input gap_m'>
+            <div className='FandomCommentEl_header fcc gap_xs'>
+                <div className='FandomCommentEl_header_left fcc gap_xxxs ffar fs_xs'>
                     <LogoWhite />
                     {el.name}
-                    <div className='FandomCommentEl_round'></div>
+                    <div className='FandomCommentEl_round brad_50'></div>
                     <div className='FandomCommentEl_header_left_time'>
                         {timeAgo}
                     </div>
                 </div>
-                <div className='FandomCommentEl_header_right'>
+                <div className='FandomCommentEl_header_right fcc gap_xs'>
                     <SignInBtn title='Join'/>
                     <ShareDots />
                 </div>
             </div>
-            <div className='FandomCommentEl_text'>
+            <div className='FandomCommentEl_text ffar fs_s'>
                 {el.text}
             </div>
-            <div className='FandomCommentEl_nav'>
-                <div className='FandomCommentEl_nav_left'>
-                    <div className='FandomCommentEl_nav_left_plus'>
+            <div className='FandomCommentEl_nav fcc'>
+                <div className='FandomCommentEl_nav_left fcc gap_xs'>
+                    <div className='FandomCommentEl_nav_left_plus fcc brad_50'>
                         <span className='FandomCommentEl_nav_left_plus_span'></span>
                     </div>
-                    <div className='FandomCommentEl_nav_left_text'>
+                    <div className='FandomCommentEl_nav_left_text ffar fs_xs'>
                         12 more replies
                     </div>
                 </div>
-                <div className='FandomCommentEl_nav_right'>
-                    <div className='FandomCommentEl_nav_right_likes'>
+                <div className='FandomCommentEl_nav_right fcc'>
+                    <div className='FandomCommentEl_nav_right_likes pa_m brad_50 fcc gap_xs ffar fs_xs'>
                         <img src="/img/icons/heart.svg" alt="" className='FandomCommentEl_nav_right_likes_img'/>
                         23k
                     </div>
-                    <div className='FandomCommentEl_nav_right_likes'>
+                    <div className='FandomCommentEl_nav_right_likes pa_m brad_50 fcc gap_xs ffar fs_xs'>
                         <img src="/img/icons/comments.svg" alt="" />
                         Reply
                     </div>

@@ -10,7 +10,7 @@ interface Props {
 const RegisterBtn: React.FC<Props> = ({ onclick, isregister, value, formBtn,}) => {
     return (
         <div
-            className={`RegisterBtn ${isregister === value ? 'RegisterBtn_active' : ''} ${formBtn && 'RegisterBtn_form'}`}
+            className={`RegisterBtn fcc pa_s brad_30 ffar fs_s ${isregister === value ? 'RegisterBtn_active' : ''} ${formBtn && 'RegisterBtn_form pa_l'}`}
             onClick={onclick}
         >
             {

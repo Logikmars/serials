@@ -39,12 +39,10 @@ function App() {
           <Route path="/profile/history" element={<HistoryEl />} />
           <Route path="/profile" element={<PersonalAccount />} />
           <Route path="/personalaccount" element={<PersonalAccount />} />
-          {/* дальше не делал */}
           <Route path="/register" element={<Register />} />
           <Route path="/topUp" element={<TopUp />} />
           <Route path="/genre/:genre" element={<Genre />} />
           <Route path="/fandom" element={<Fandom />} />
-
         </Routes>
         <Footer />
         <MobMenu />

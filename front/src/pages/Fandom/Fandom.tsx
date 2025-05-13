@@ -175,16 +175,16 @@ const Fandom: React.FC = () => {
     }
 
     return (
-        <div className='Fandom container mobPt_s'>
-            <div className={`Fandom_mobDiscussions ${openDiscussions && 'Fandom_mobDiscussions_open'}`}>
-                <div className='Fandom_mobDiscussions_header'>
+        <div className='Fandom container mobPt_s fcc'>
+            <div className={`Fandom_mobDiscussions gap_m fcc ${openDiscussions && 'Fandom_mobDiscussions_open'}`}>
+                <div className='Fandom_mobDiscussions_header ffab fs_s'>
                     <Close onclick={handleOpenDiscussions} />
                     My Discussions
-                    <div className='Fandom_mobDiscussions_header_pencil'>
+                    <div className='Fandom_mobDiscussions_header_pencil fcc brad_50'>
                         <img src="/img/icons/pencil.svg" alt="" />
                     </div>
                 </div>
-                <div className='Fandom_mobDiscussions_list'>
+                <div className='Fandom_mobDiscussions_list brad_25'>
                     {
                         discussionsEl.map((el, index) => (
                             <FandomDiscussionEl name={el.name} members={el.members} key={`FandomDiscussionEl-${index}`} />
@@ -194,35 +194,35 @@ const Fandom: React.FC = () => {
             </div>
             {/* <Slider content={elements} contentType='fandom' /> */}
 
-            <div className='Fandom_content'>
-                <div className='Fandom_content_nav'>
-                    <div className='Fandom_content_nav_left'>
-                        <div className='Fandom_content_nav_item'>
+            <div className='Fandom_content fcc gap_m'>
+                <div className='Fandom_content_nav gap_l'>
+                    <div className='Fandom_content_nav_left gap_m'>
+                        <div className='Fandom_content_nav_item fcc gap_xs'>
                             Hot
                             <img src="/img/icons/arrow.svg" alt="" />
                         </div>
-                        <div className='Fandom_content_nav_item'>
+                        <div className='Fandom_content_nav_item fcc gap_xs'>
                             Everywhere
                             <img src="/img/icons/arrow.svg" alt="" />
                         </div>
                     </div>
                     <div className='Fandom_content_nav_right'>
-                        <div className='Fandom_content_nav_right_discussions' onClick={handleOpenDiscussions}>
+                        <div className='Fandom_content_nav_right_discussions fcc brad_50 pa_xl' onClick={handleOpenDiscussions}>
                             My Discussions
                         </div>
                     </div>
                 </div>
-                <div className='Fandom_content_main'>
+                <div className='Fandom_content_main gap_m'>
                     <div className='Fandom_content_balance'></div>
-                    <div className='Fandom_content_middle'>
+                    <div className='Fandom_content_middle gap_l'>
                         {
                             postEl.map((el, index) => (
                                 <FandomPostEl el={el} key={`FandomPostEl-${index}`} />
                             ))
                         }
                     </div>
-                    <div className='Fandom_content_left'>
-                        <div className='Fandom_content_left_title'>
+                    <div className='Fandom_content_left gap_m brad_25'>
+                        <div className='Fandom_content_left_title ffar fs_xs'>
                             MY DISCUSSIONS
                         </div>
                         <div className='Fandom_content_left_list'>
@@ -234,8 +234,8 @@ const Fandom: React.FC = () => {
                         </div>
                         {
                             visibleDiscussions < discussionsEl.length && (
-                                <div className='Fandom_content_left_btn'>
-                                    <div className='Fandom_content_left_btn_el' onClick={handleSeeMore}>
+                                <div className='Fandom_content_left_btn fcc'>
+                                    <div className='Fandom_content_left_btn_el pa_s brad_50 ffar fs_s' onClick={handleSeeMore}>
                                         See more
                                     </div>
                                 </div>

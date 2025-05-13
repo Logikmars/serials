@@ -10,35 +10,29 @@
         justify-content: center;
         align-items: center;
         background-color: #000;
-        gap: 10px;
         padding: 16px;
         z-index: 999999999999;
 
         &_navHome {
             width: calc(100% / 4 - 10px);
-            display: flex;
-            justify-content: center;
-            align-items: center;
             flex-wrap: wrap;
-            gap: 4px;
 
             img {
                 width: 21px;
+                filter: contrast(0) brightness(50);
             }
 
             &_active {
                 .MobMenu_navHome_title {
                     color: #007AFF;
                 }
+                img {
+                    filter: contrast(1) brightness(1);
+                }
             }
 
             &_title {
                 width: 100%;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                font-family: 'ARIAL regular';
-                font-size: 12px;
                 transition: color 300ms;
             }
         }

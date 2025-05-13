@@ -31,46 +31,46 @@ const FandomPostEl: React.FC<Props> = ({ el }) => {
             : `${diffHours} hr. ago`;
 
     return (
-        <div className='FandomPostEl'>
-            <div className='FandomPostEl_header'>
-                <div className='FandomPostEl_header_left'>
+        <div className='FandomPostEl brad_25 gap_s'>
+            <div className='FandomPostEl_header pa_xxxs gap_xs'>
+                <div className='FandomPostEl_header_left fcc gap_xs ffar fs_xs'>
                     <LogoWhite />
                     {el.name}
-                    <div className='FandomPostEl_header_left_round'></div>
+                    <div className='FandomPostEl_header_left_round brad_50'></div>
                     <div className='FandomPostEl_header_left_date'>
                         {timeAgo}
                     </div>
                 </div>
-                <div className='FandomPostEl_header_right'>
+                <div className='FandomPostEl_header_right fcc gap_xs'>
                     <SignInBtn title='Join'/>
                     <ShareDots />
                 </div>
             </div>
-            <div className='FandomPostEl_title'>
+            <div className='FandomPostEl_title fcc ffar fs_s'>
                 {el.title}
             </div>
-            <div className='FandomPostEl_post'>
+            <div className='FandomPostEl_post brad_25'>
                 <div className='FandomPostEl_post_bg free_img'>
-                    <img src={el.img} alt="" className='FandomPostEl_post_bg_img'/>
+                    <img src={el.img} alt="" className='FandomPostEl_post_bg_img brad_25'/>
                 </div>
                 <div className='FandomPostEl_post_content'>
                     <img src={el.img} alt="" className='FandomPostEl_post_content_img'/>
                 </div>
             </div> 
-            <div className='FandomPostEl_nav'>
-                <div className='FandomPostEl_nav_likes'>
+            <div className='FandomPostEl_nav fcc'>
+                <div className='FandomPostEl_nav_likes pa_m brad_25 fcc gap_xxxs ffar fs_xs'>
                     <div className='FandomPostEl_nav_likes_img'>
                         <img src="/img/icons/heart.svg" alt="" />
                     </div>
                     {el.likes}k 
                 </div>
-                <div className='FandomPostEl_nav_likes FandomPostEl_nav_el'>
+                <div className='FandomPostEl_nav_likes FandomPostEl_nav_el fcc pa_m brad_25 gap_xxxs ffar fs_xs'>
                     <div className='FandomPostEl_nav_likes_img FandomPostEl_nav_comments_img'>
                         <img src="/img/icons/comments.svg" alt="" />
                     </div>
                     {el.comments}k
                 </div>
-                <div className='FandomPostEl_nav_likes FandomPostEl_nav_el'>
+                <div className='FandomPostEl_nav_likes FandomPostEl_nav_el fcc pa_m brad_25 gap_xxxs ffar fs_xs'>
                     <div className='FandomPostEl_nav_likes_img FandomPostEl_nav_comments_img'>
                         <img src="/img/icons/shareArrow.svg" alt="" />
                     </div>

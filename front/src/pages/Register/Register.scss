@@ -1,8 +1,5 @@
 .Register{
     width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     flex-wrap: wrap;
     align-content: center;
     min-height: calc(100vh - 60px);
@@ -35,50 +32,26 @@
     }
     &_content{
         width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
         flex-wrap: wrap;
-        gap: 30px;
     }
     &_logo{
         width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
         flex-direction: column;
-        gap: 8px;
         &_img{
             width: 72px;
             height: 72px;
-            border-radius: 15px;
             background: linear-gradient(45deg, #EC4AC5 20%, #1437D1 100%);
-        }
-        &_title{
-            font-family: 'ARIAL bold';
-            font-size: 20px;
         }
     }
     &_btns{
         width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 8px;
     }
     &_form{
         width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
         flex-wrap: wrap;
-        gap: 12px;
     }
     &_line {
     width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     color: #535353;
 
         &::before,
@@ -92,17 +65,8 @@
     }
     &_method{
         width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 11px;
         &_ico{
-            display: flex;
-            justify-content: center;
-            align-items: center;
             background-color: #FFF;
-            border-radius: 15px;
-            padding: 10px 13px;
             transition: background-color 300ms;
             cursor: pointer;
             img{
@@ -120,7 +84,6 @@
         width: 100%;
         text-align: center;
         color: #535353;
-        font-size: 12px;
         &_link{
             color: #007AFF;
         }

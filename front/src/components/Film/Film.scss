@@ -5,7 +5,6 @@
         width: 220px;
         height: 310px;
         background-size: cover;
-        border-radius: 18px;
         display: flex;
         justify-content: center;
         align-items: end;
@@ -35,19 +34,12 @@
 
             &_center {
                 width: 50%;
-                display: flex;
-                justify-content: center;
-                align-items: center;
 
                 position: relative;
                 z-index: 999;
 
                 &_play {
                     padding: 20px 20px 20px 25px;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    border-radius: 50px;
                     border: 2px solid #FFF;
                     cursor: pointer;
                     background-color: #000B;
@@ -65,11 +57,8 @@
             &_right {
                 width: 25%;
                 height: 270px;
-                display: flex;
-                justify-content: start;
-                align-items: center;
+                justify-content: start !important;
                 flex-direction: column;
-                gap: 7px;
 
                 &_heart {
                     rotate: 25deg;
@@ -92,11 +81,7 @@
 
         &_inner {
             background: #EF4BC5;
-            display: flex;
-            justify-content: right;
-            align-items: center;
-            font-size: 12px;
-            font-weight: 800;
+            justify-content: right !important;
             height: 15px;
         }
 
@@ -115,9 +100,6 @@
     &_btn {
         margin-bottom: 20px;
         width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
         transition: opacity 300ms;
     }
 
@@ -128,9 +110,6 @@
         &_top,
         &_bot {
             width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             opacity: 1;
             transition: opacity 300ms;
             position: relative;
@@ -161,17 +140,12 @@
                 bottom: 10px;
 
                 &_title {
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
                     text-align: center;
                     flex-wrap: wrap;
                     gap: 5px;
 
                     span {
-                        font-family: 'ARIAL bold';
                         letter-spacing: 0%;
-                        font-size: 16px;
                         white-space: nowrap;
                         text-shadow: 1px 1px 2px #000;
                     }

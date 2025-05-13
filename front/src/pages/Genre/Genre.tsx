@@ -43,14 +43,14 @@ const Genre: React.FC = () => {
     ]
 
     return (
-        <div className='Genre container'>
-            <div className='Genre_header'>
-                <div className='Genre_header_title'>
+        <div className='Genre container gap_xl'>
+            <div className='Genre_header gap_s'>
+                <div className='Genre_header_title ffab fs_m'>
                     Filters
                 </div>
                 <GenreFilters />
             </div>
-            <div className='Genre_list'>
+            <div className='Genre_list gap_xl'>
                 {
                     elements.map((el, index) => (
                         <Film el={el} key={`Genre_SliderSmallElement_${index}`} />

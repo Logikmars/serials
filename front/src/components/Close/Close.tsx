@@ -6,7 +6,7 @@ interface Props {
 
 const Close: React.FC<Props> = ({ onclick }) => {
     return (
-        <div className='Close' onClick={onclick}>
+        <div className='Close fcc brad_50' onClick={onclick}>
             <img src="/img/icons/close.svg" alt="" />
         </div>
     )

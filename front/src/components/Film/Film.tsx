@@ -23,22 +23,22 @@ const Film: React.FC<Props> = ({ el }) => {
             <div className='Film_decor'>
                 {el.effect && <FilmDecor type={el.effect} />}
             </div>
-            <div className='Film_line_top'>
+            <div className='Film_line_top fcc'>
                 {typeof el.releaseInSec === 'number' && el.releaseInSec > 0 && (
                     <div className='Film_line_decor free_img'>
                         <div className='Film_line_decor_top free_img'>
                             <img src="/img/icons/releaseInFront.svg" alt="" />
                         </div>
                         <div className='Film_line_decor_text free_img'>
-                            <div className='Film_line_decor_text_title'>
-                                <span>RELEASE IN</span>
+                            <div className='Film_line_decor_text_title fcc'>
+                                <span className='ffab fs_s'>RELEASE IN</span>
                                 <span>{formatReleaseTime(el.releaseInSec)}</span>
                             </div>
                         </div>
                     </div>
                 )}
             </div>
-            <div className='Film_line_bot'>
+            <div className='Film_line_bot fcc'>
                 {typeof el.releaseInSec === 'number' && el.releaseInSec > 0 && (
                     <div className='Film_line_decor free_img'>
                         <div className='Film_line_decor_back free_img'>
@@ -50,10 +50,10 @@ const Film: React.FC<Props> = ({ el }) => {
 
             <div className='Film_effects free_img'></div>
 
-            <div className='Film_img' style={{
+            <div className='Film_img brad_15' style={{
                 backgroundImage: `url(${el.img})`
             }}>
-                {el.actionType && <div className='Film_btn'>
+                {el.actionType && <div className='Film_btn fcc'>
                     <Button
                         text={{
                             'trailer': "Trailer watching",
@@ -71,7 +71,7 @@ const Film: React.FC<Props> = ({ el }) => {
                 }
                 {
                     el.progress && <div className='Film_progress'>
-                        <div className='Film_progress_inner' style={{
+                        <div className='Film_progress_inner fs_w fs_xs fcc' style={{
                             width: `${Math.min(Math.max(20, Math.round(el.progress)), el.progress < 100 ? 90 : 100)}%`,
                             justifyContent: el.progress >= 100 ? `center` : 'right',
                             columnGap: el.progress >= 100 ? `10px` : '0px',
@@ -93,12 +93,12 @@ const Film: React.FC<Props> = ({ el }) => {
                 }
                 <div className='Film_img_hover'>
                     <div className='Film_img_hover_leftBouncer'></div>
-                    <div className='Film_img_hover_center'>
-                        <Link to="/film/default" className='Film_img_hover_center_play'>
+                    <div className='Film_img_hover_center fcc'>
+                        <Link to="/film/default" className='Film_img_hover_center_play fcc brad_50'>
                             <img src="/img/icons/play.svg" alt="" />
                         </Link>
                     </div>
-                    <div className='Film_img_hover_right'>
+                    <div className='Film_img_hover_right fcc gap_xs'>
                         <img src="/img/icons/heart.svg" alt="" className='Film_img_hover_right_heart' />
                         <img src="/img/icons/shareArrow.svg" alt="" />
                     </div>

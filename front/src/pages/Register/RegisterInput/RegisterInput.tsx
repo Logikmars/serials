@@ -6,7 +6,7 @@ interface Props {
 }
 const RegisterInput: React.FC<Props> = ({ title, isPassword }) => {
     return (
-        <input type={`${isPassword ? 'password' : 'email'}`} className='RegisterInput' placeholder={title}/>
+        <input type={`${isPassword ? 'password' : 'email'}`} className='RegisterInput pa_input ffar fs_s brad_50' placeholder={title}/>
     )
 };
 export default RegisterInput

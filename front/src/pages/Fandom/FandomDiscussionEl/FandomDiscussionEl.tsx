@@ -7,11 +7,11 @@ interface Props {
 }
 const FandomDiscussionEl: React.FC<Props> = ({ name, members }) => {
     return (
-        <div className='FandomDiscussionEl'>
+        <div className='FandomDiscussionEl fcc gap_s'>
             <LogoWhite />
-            <div className='FandomDiscussionEl_info'>
-                <div className='FandomDiscussionEl_info_name'>{name}</div>
-                <div className='FandomDiscussionEl_info_members'>{members} members</div>
+            <div className='FandomDiscussionEl_info fcc'>
+                <div className='FandomDiscussionEl_info_name ffar fs_xs'>{name}</div>
+                <div className='FandomDiscussionEl_info_members ffar fs_xs'>{members} members</div>
             </div>
         </div>
     )
