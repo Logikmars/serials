@@ -44,8 +44,6 @@ function App() {
           <Route path="/topUp" element={<TopUp />} />
           <Route path="/genre/:genre" element={<Genre />} />
           <Route path="/fandom" element={<Fandom />} />
-          <Route path="/register" element={<Register />} />
-
 
         </Routes>
         <Footer />
