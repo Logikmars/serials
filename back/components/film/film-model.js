@@ -6,7 +6,7 @@ const filmSchema = new Schema({
     tags: [String],
     episodesCount: Number,
     episodesCountFree: Number,
-    releaseIn: Number,
+    releaseIn: Number,//Если есть - то будет таймер до релиза
     additionalStatus: String,
     mediaFilePath: String,
     previewUrl: String,

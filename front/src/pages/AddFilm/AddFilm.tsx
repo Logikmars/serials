@@ -104,7 +104,7 @@ const handleImageClick = () => imageInputRef.current?.click();
             <video src={getValue('previewUrl')} controls className="AddFilm_preview" />
           )
         ) : (
-          <p className="ff_s ffar">Drag and Drop or click</p>
+          <p className="ff_s ffar">Drag and Drop or click(Video)</p>
         )}
         <input
           type="file"
@@ -127,7 +127,7 @@ const handleImageClick = () => imageInputRef.current?.click();
             className="AddFilm_preview"
           />
         ) : (
-          <p className="ff_s ffar">Drag and Drop image or click</p>
+          <p className="ff_s ffar">Drag and Drop or click(Preview(image))</p>
         )}
         <input
           type="file"

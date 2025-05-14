@@ -3,6 +3,8 @@ import './Register.scss';
 import RegisterBtn from './RegisterBtn/RegisterBtn';
 import RegisterInput from './RegisterInput/RegisterInput';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import userStore from '../../stores/userStore';
 const Register: React.FC = () => {
 
     const [activeTab, setactiveTab] = useState('reg');
@@ -13,6 +15,28 @@ const Register: React.FC = () => {
 
     const setRegister = () => {
         setactiveTab('reg');
+    }
+
+    const [email, setemail] = useState('');
+    const [password, setpassword] = useState('');
+    const [rpassword, setrpassword] = useState('');
+
+    const auth = async () => {
+        try{
+            if (activeTab === 'log') {
+                await userStore.login(email, password)
+            }
+            else{
+                if(rpassword == password){
+                    await userStore.register(email, password)
+                }else{
+
+                }
+            }
+        }catch(error){
+            toast.error('Wrong credentials')
+            return
+        }
     }
 
     return (
@@ -33,12 +57,12 @@ const Register: React.FC = () => {
                         <RegisterBtn onclick={setLogIn} isregister={activeTab} value='log' />
                     </div>
                     <div className='Register_form fcc gap_s'>
-                        <RegisterInput title='Login' />
-                        <RegisterInput title='Password' isPassword/>
+                        <RegisterInput title='Login' onChange={(e) => { setemail(e.target.value) }}/>
+                        <RegisterInput title='Password' isPassword onChange={(e) => { setpassword(e.target.value) }}/>
                         {
-                            activeTab === 'reg' && <RegisterInput title='Confirm password' isPassword/>
+                            activeTab === 'reg' && <RegisterInput title='Confirm password' isPassword onChange={(e) => { setrpassword(e.target.value) }}/>
                         }
-                        <RegisterBtn value={activeTab} formBtn/>
+                        <RegisterBtn value={activeTab} formBtn onclick={auth}/>
                     </div>
                     <div className='Register_line fcc'>
                         or

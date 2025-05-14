@@ -1,4 +1,6 @@
 import { makeAutoObservable } from "mobx";
+import api from './api';
+import axios from "axios";
 
 class FilmStore {
   constructor() {
@@ -28,19 +30,19 @@ class FilmStore {
 
       console.log("Send:", formData);
 
-      const response = await fetch("http://localhost:5000/film/newFilm", {
-        method: "POST",
-        body: formData,
-      });
+      const response = await api.post('/film/newFilm', formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+        });
 
-      if (response.ok) {
-        console.log("Film data sent successfully");
-      } else {
-        const errorText = await response.text();
-        console.error("Failed to send film data:", errorText);
-      }
-    } catch (error) {
-      console.error("Error while sending film data:", error);
+        console.log('Film data sent successfully', response.data);
+      } catch (error) {
+        if (axios.isAxiosError(error)) {
+          console.error('Failed to send film data:', error.response?.data || error.message);
+        } else {
+          console.error('Unexpected error:', error);
+        }
     }
   }
 

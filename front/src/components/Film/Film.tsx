@@ -72,7 +72,7 @@ const Film: React.FC<Props> = ({ el }) => {
                                     <div className='Film_line_decor_text free_img'>
                                         <div className='Film_line_decor_text_title fcc'>
                                             <span className='ffab fs_s'>RELEASE IN</span>
-                                            <span>{formatReleaseTime(releasedInSec / 60)}</span>
+                                            <span>{formatReleaseTime(releasedInSec)}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -158,20 +158,22 @@ const Film: React.FC<Props> = ({ el }) => {
 export default Film;
 
 
-const formatReleaseTime = (minutes?: number): string => {
-    if (typeof minutes !== 'number' || minutes <= 0) return '';
+const formatReleaseTime = (sec?: number): string => {
+    if (typeof sec !== 'number' || sec <= 0) return '';
 
-    const hours = Math.floor(minutes / 60);
-    const days = Math.floor(hours / 24);
-    const remainingMinutes = minutes % 60;
-    const remainingHours = hours % 24;
+    const seconds = sec % 60;
+    const totalMinutes = Math.floor(sec / 60);
+    const minutes = totalMinutes % 60;
+    const hours = Math.floor(totalMinutes / 60) % 24;
+    const days = Math.floor(totalMinutes / 60 / 24);
 
-    if (minutes < 60) {
-        return `${minutes} mins`;
-    } else if (hours < 24) {
-        return `${hours} hour ${remainingMinutes > 0 ? `${remainingMinutes} mins` : ''}`;
+    if (sec < 60) {
+        return `${sec} sec`;
+    } else if (sec < 3600) {
+        return `${totalMinutes} min${seconds > 0 ? ` ${seconds} sec` : ''}`;
+    } else if (sec < 86400) {
+        return `${hours} hour${minutes > 0 ? ` ${minutes} min` : ''}${seconds > 0 ? ` ${seconds} sec` : ''}`;
     } else {
-        // Если дней больше 0, добавляем оставшиеся часы и минуты
-        return `${days} day${remainingHours > 0 || remainingMinutes > 0 ? ' ' + remainingHours + ' hour' : ''} ${remainingMinutes > 0 ? `${remainingMinutes} min` : ''}`;
+        return `${days} day${hours > 0 ? ` ${hours} hour` : ''}${minutes > 0 ? ` ${minutes} min` : ''}${seconds > 0 ? ` ${seconds} sec` : ''}`;
     }
 };
