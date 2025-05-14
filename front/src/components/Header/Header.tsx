@@ -26,8 +26,8 @@ const Header: React.FC = () => {
             title: 'Genre',
             src: '/genre/drama'
         },{
-            title: 'AddFilm',
-            src: '/addFilm'
+            title: 'Admin',
+            src: '/adminPanel'
         }
     ]
 

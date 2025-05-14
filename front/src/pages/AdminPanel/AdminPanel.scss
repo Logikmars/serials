@@ -1,0 +1,35 @@
+.AdminPanel{
+    width: 100%;
+    flex-wrap: wrap;
+    &_addfilm{
+        width: 100%;
+    }
+    &_editFilm{
+        width: 100%;
+        &_list{
+            width: 100%;
+            flex-wrap: wrap;
+            &_el{
+                width: 100%;
+                display: flex;
+                cursor: pointer;
+                background-color: #FFFFFF50;
+                &_item{
+                    width: 30%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    &_small{
+                        max-width: 60px;
+                    }
+                    video{
+                        max-width: 200px;
+                    }
+                    img{
+                        max-width: 100px;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -19,6 +19,7 @@ import CategoriesPage from "./pages/CategoriesPage/CategoriesPage"
 import HomePage from "./pages/HomePage/HomePage"
 import Footer from "./components/Footer/Footer"
 import AddFilm from "./pages/AddFilm/AddFilm"
+import AdminPanel from "./pages/AdminPanel/AdminPanel"
 
 function App() {
 
@@ -45,7 +46,7 @@ function App() {
           <Route path="/fandom" element={<Fandom />} />
 
           {/* meow */}
-          <Route path="/addFilm" element={<AddFilm />} />
+          <Route path="/adminPanel" element={<AdminPanel />} />
         </Routes>
         <Footer />
         <MobMenu />
