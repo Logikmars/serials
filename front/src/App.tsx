@@ -18,6 +18,7 @@ import Genre from "./pages/Genre/Genre"
 import CategoriesPage from "./pages/CategoriesPage/CategoriesPage"
 import HomePage from "./pages/HomePage/HomePage"
 import Footer from "./components/Footer/Footer"
+import AddFilm from "./pages/AddFilm/AddFilm"
 
 function App() {
 
@@ -43,6 +44,9 @@ function App() {
           <Route path="/topUp" element={<TopUp />} />
           <Route path="/genre/:genre" element={<Genre />} />
           <Route path="/fandom" element={<Fandom />} />
+
+          {/* meow */}
+          <Route path="/addFilm" element={<AddFilm />} />
         </Routes>
         <Footer />
         <MobMenu />

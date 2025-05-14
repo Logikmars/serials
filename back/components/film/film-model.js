@@ -8,6 +8,7 @@ const filmSchema = new Schema({
     episodesCountFree: Number,
     releaseIn: Number,
     additionalStatus: String,
+    mediaFilePath: String,
 }, { timestamps: true });
 
 module.exports = model('Film', filmSchema);

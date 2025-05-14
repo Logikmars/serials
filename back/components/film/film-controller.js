@@ -1,26 +1,41 @@
 const filmService = require('./film-service');
 
 class filmController {
-    // async set(req, res, next) {
-    //     try {
-    //         const { data } = req.body;
-    //         await filmService.set(data);
-    //         return res.json('ok');
-    //     } catch (e) {
-    //         next(e);
-    //     }
-    // }
+  async newFilm(req, res, next) {
+    console.log('filmController работает');
+    try {
+      const file = req.file;
+      const {
+        filmName,
+        filmDescription,
+        tags,
+        filmEpisodes,
+        filmEpisodesFree,
+        releaseAt,
+        liked,
+        isReleased,
+        isHot,
+      } = req.body;
 
-    // async get(req, res, next) {
-    //     try {
-    //         const { type } = req.query;
+      await filmService.saveFilm({
+        filmName,
+        filmDescription,
+        tags,
+        filmEpisodes,
+        filmEpisodesFree,
+        releaseAt,
+        liked,
+        isReleased,
+        isHot,
+        mediaFilePath: file ? `/uploads/${file.filename}` : null,
+      });
 
-    //         const scores = await filmService.get(type);
-    //         return res.json(scores);
-    //     } catch (e) {
-    //         next(e);
-    //     }
-    // }
+      res.json('ok');
+    } catch (e) {
+      console.error('Ошибка в контроллере:', e);
+      next(e);
+    }
+  }
 }
 
 module.exports = new filmController();

@@ -1,8 +1,27 @@
-const Router = require('express').Router;
-const filmController = require('./film-controller'); 
-const router = new Router();
+const express = require('express');
+const multer = require('multer');
+const path = require('path');
+const filmController = require('./film-controller');
+const filmService = require('./film-service'); // Импортируем сервис для обработки данных
 
-// router.post('/', filmController.set); 
-// router.get('/', filmController.get); 
+// Настроим хранилище для multer
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'uploads/');  // Указываем папку для хранения файлов
+  },
+  filename: (req, file, cb) => {
+    cb(null, Date.now() + path.extname(file.originalname));  // Уникальное имя для файла
+  },
+});
 
-module.exports = router;
+const upload = multer({ storage });
+
+const filmRouter = express.Router();
+
+// Middleware для обработки JSON и URL-encoded данных
+filmRouter.use(express.json());
+filmRouter.use(express.urlencoded({ extended: true }));
+
+filmRouter.post('/newFilm', upload.single('mediaFile'), filmController.newFilm);
+
+module.exports = filmRouter;
