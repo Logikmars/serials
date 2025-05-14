@@ -4,21 +4,24 @@ import BigDarkGrayBtn from '../../components/BigDarkGrayBtn/BigDarkGrayBtn';
 import filmStore from '../../stores/filmStore';
 
 const AddFilm: React.FC = () => {
-  const [form, setForm] = useState<{ name: string; value: any }[]>([
-    { name: 'mediaFile', value: null },
-    { name: 'previewUrl', value: null },
-    { name: 'filmName', value: '' },
-    { name: 'filmDescription', value: '' },
-    { name: 'tags', value: '' },
-    { name: 'filmEpisodes', value: 0 },
-    { name: 'filmEpisodesFree', value: 0 },
-    { name: 'releaseAt', value: null },
-    { name: 'liked', value: false },
-    { name: 'isReleased', value: false },
-    { name: 'isHot', value: false },
-  ]);
+ const [form, setForm] = useState<{ name: string; value: any }[]>([
+  { name: 'mediaFile', value: null },
+  { name: 'previewUrl', value: null },
+  { name: 'filmImage', value: null },
+  { name: 'filmImagePreviewUrl', value: null },
+  { name: 'filmName', value: '' },
+  { name: 'filmDescription', value: '' },
+  { name: 'tags', value: '' },
+  { name: 'filmEpisodes', value: 0 },
+  { name: 'filmEpisodesFree', value: 0 },
+  { name: 'releaseAt', value: null },
+  { name: 'liked', value: false },
+  { name: 'isReleased', value: false },
+  { name: 'isHot', value: false },
+]);
 
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const imageInputRef = useRef<HTMLInputElement>(null);
 
   const getValue = (name: string) =>
     form.find(f => f.name === name)?.value;
@@ -32,6 +35,13 @@ const AddFilm: React.FC = () => {
     if (file.type.startsWith('video/')) {
       setValue('mediaFile', file);
       setValue('previewUrl', URL.createObjectURL(file));
+    }
+  };
+
+  const handleImageFile = (file: File) => {
+    if (file.type.startsWith('image/')) {
+      setValue('filmImage', file);
+      setValue('filmImagePreviewUrl', URL.createObjectURL(file));
     }
   };
 
@@ -58,6 +68,19 @@ const AddFilm: React.FC = () => {
     const file = e.target.files?.[0];
     if (file) handleFile(file);
   };
+
+  const handleImageDrop = (e: React.DragEvent<HTMLDivElement>) => {
+  e.preventDefault();
+  const file = e.dataTransfer.files[0];
+  if (file) handleImageFile(file);
+};
+
+const handleImageFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const file = e.target.files?.[0];
+  if (file) handleImageFile(file);
+};
+
+const handleImageClick = () => imageInputRef.current?.click();
 
   const handleClick = () => fileInputRef.current?.click();
 
@@ -91,7 +114,29 @@ const AddFilm: React.FC = () => {
           onChange={handleFileChange}
         />
       </div>
-
+      <div
+        className="AddFilm_drop fcc brad_25 pa_l"
+        onDrop={handleImageDrop}
+        onDragOver={e => e.preventDefault()}
+        onClick={handleImageClick}
+      >
+        {getValue('filmImagePreviewUrl') ? (
+          <img
+            src={getValue('filmImagePreviewUrl')}
+            alt="image preview"
+            className="AddFilm_preview"
+          />
+        ) : (
+          <p className="ff_s ffar">Drag and Drop image or click</p>
+        )}
+        <input
+          type="file"
+          accept="image/*"
+          ref={imageInputRef}
+          style={{ display: 'none' }}
+          onChange={handleImageFileChange}
+        />
+      </div>
       {[{ name: 'filmName', placeholder: 'Film name' }, { name: 'filmDescription', placeholder: 'Film description' }, { name: 'tags', placeholder: 'Enter tags(separated by space)' }]
         .map(({ name, placeholder }) => (
           <div key={name} className={`AddFilm_${name} AddFilm_name fcc brad_25`}>

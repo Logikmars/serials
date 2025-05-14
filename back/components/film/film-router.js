@@ -22,6 +22,11 @@ const filmRouter = express.Router();
 filmRouter.use(express.json());
 filmRouter.use(express.urlencoded({ extended: true }));
 
-filmRouter.post('/newFilm', upload.single('mediaFile'), filmController.newFilm);
+filmRouter.post('/newFilm', upload.fields([
+  { name: 'mediaFile', maxCount: 1 },
+  { name: 'filmImage', maxCount: 1 }
+]), filmController.newFilm);
+
+filmRouter.get('/getfilms', filmController.getFilms);
 
 module.exports = filmRouter;

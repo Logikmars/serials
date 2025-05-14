@@ -9,6 +9,7 @@ const filmSchema = new Schema({
     releaseIn: Number,
     additionalStatus: String,
     mediaFilePath: String,
+    previewUrl: String,
 }, { timestamps: true });
 
 module.exports = model('Film', filmSchema);

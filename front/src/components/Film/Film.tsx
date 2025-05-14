@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Film.scss';
 import FilmDecor from '../../UI/FilmDecor/FilmDecor';
 import Button from '../../UI/Button/Button';
@@ -11,11 +11,14 @@ interface Props {
         effect?: string;
         actionType?: string;
         img?: string;
+        previewUrl: string;
     }
 }
 const Film: React.FC<Props> = ({ el }) => {
 
-
+    useEffect(() => {
+        console.log('Preview URL:', el.previewUrl);
+    }, [])
 
     return (
         <div className='Film'>
@@ -51,7 +54,7 @@ const Film: React.FC<Props> = ({ el }) => {
             <div className='Film_effects free_img'></div>
 
             <div className='Film_img brad_15' style={{
-                backgroundImage: `url(${el.img})`
+                backgroundImage: `url(${el.previewUrl})`
             }}>
                 {el.actionType && <div className='Film_btn fcc'>
                     <Button
