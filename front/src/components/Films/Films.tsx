@@ -4,50 +4,51 @@ import './Films.scss';
 import Slider from '../Slider/Slider';
 import DropDown from '../../UI/DropDown/DropDown';
 import { useNavigate } from 'react-router-dom';
+import filmStore from '../../stores/filmStore';
 
 interface Props {
     title?: string;
 }
 
-const elements = [
-    {
-        img: '/img/trends/0.webp',
-        progress: 11,
-        actionType: 'loveIt',
-        releaseInSec: 1000,
-        effect: 'heart'
-    },
-    {
-        img: '/img/trends/1.webp',
-        progress: 22,
-        actionType: 'continue',
-        releaseInSec: 1000,
-    },
-    {
-        img: '/img/trends/2.webp',
-        progress: 33,
-        actionType: 'trailer',
-    },
-    {
-        img: '/img/trends/0.webp',
-        progress: 44,
-        actionType: 'loveIt',
-        effect: 'heart',
-        releaseInSec: 1
-    },
-    {
-        img: '/img/trends/1.webp',
-        progress: 55,
-        actionType: 'continue',
-        effect: 'fire'
-    },
-    {
-        img: '/img/trends/2.webp',
-        actionType: 'trailer',
-        progress: 66,
-        effect: 'heart'
-    },
-]
+// const elements = [
+//     {
+//         img: '/img/trends/0.webp',
+//         progress: 11,
+//         actionType: 'loveIt',
+//         releaseInSec: 1000,
+//         effect: 'heart'
+//     },
+//     {
+//         img: '/img/trends/1.webp',
+//         progress: 22,
+//         actionType: 'continue',
+//         releaseInSec: 1000,
+//     },
+//     {
+//         img: '/img/trends/2.webp',
+//         progress: 33,
+//         actionType: 'trailer',
+//     },
+//     {
+//         img: '/img/trends/0.webp',
+//         progress: 44,
+//         actionType: 'loveIt',
+//         effect: 'heart',
+//         releaseInSec: 1
+//     },
+//     {
+//         img: '/img/trends/1.webp',
+//         progress: 55,
+//         actionType: 'continue',
+//         effect: 'fire'
+//     },
+//     {
+//         img: '/img/trends/2.webp',
+//         actionType: 'trailer',
+//         progress: 66,
+//         effect: 'heart'
+//     },
+// ]
 
 const categories = [
     'Love',
@@ -63,6 +64,16 @@ const Films: React.FC<Props> = ({ title }) => {
     const [category, setcategory] = useState('');
 
     const navigate = useNavigate();
+
+    const [films, setFilms] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+        const data = await filmStore.getAllFilms();
+        setFilms(data);
+        };
+        fetchData();
+    }, []);
 
     return (
         <div className='Films mt_xl'>
@@ -80,7 +91,7 @@ const Films: React.FC<Props> = ({ title }) => {
                 </div>
             </div >
 
-            <Slider content={elements} contentType='films' />
+            <Slider content={films} contentType='films' />
 
 
         </div >

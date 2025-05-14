@@ -7,7 +7,7 @@ interface Props {
 }
 const Button: React.FC<Props> = ({ text = 'Text', size = 'm', color = 'pink' }) => {
     return (
-        <div className={`Button Button_size_${size}  Button_color_${color} `}>
+        <div className={`Button Button_size_${size} fs_xs ffar brad_50 fcc  Button_color_${color} `}>
             {text === 'Watch' && <img src="/img/icons/play.svg" alt="watch-decor" />}
             {text}
         </div>

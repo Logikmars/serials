@@ -2,76 +2,116 @@ import React, { useEffect, useState } from 'react';
 import './Film.scss';
 import FilmDecor from '../../UI/FilmDecor/FilmDecor';
 import Button from '../../UI/Button/Button';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 interface Props {
     el: {
         progress?: number;
-        releaseInSec?: number;
-        effect?: string;
+        releaseIn?: number;
+        tags?: string;
         actionType?: string;
         img?: string;
         previewUrl: string;
+        additionalStatus?: string;
     }
 }
+
+// Для использования изображения/видео с бека нужно ставить не относительный путь
+// Пример для превью: http://localhost:5000${el.previewUrl})
 const Film: React.FC<Props> = ({ el }) => {
 
-    useEffect(() => {
-        console.log('Preview URL:', el.previewUrl);
-    }, [])
+    const location = useLocation();
+
+    // useEffect(() => {
+    //     console.log('Preview URL:', el.previewUrl);
+    //     console.log('Preview effect:', el.tags);
+    //     console.log('Additional statis: ', el.additionalStatus);
+    // }, [])
+
+    const isGenrePage = location.pathname.includes('/genre');
+
+    const statuses = el.additionalStatus?.split(' ') || [];
+
+    const actionTypes = ['trailer', 'lovessIt', 'continue'] as const;
+
+    type ActionType = typeof actionTypes[number];
+
+    // Разбиваем строку на массив тегов, если это строка, или используем массив как есть
+    const tagArray = Array.isArray(el.tags) ? el.tags : el.tags?.split(' ') || [];
+
+    // Ищем первый тег, подходящий под допустимые actionType
+    const currentAction = tagArray.find(tag => actionTypes.includes(tag as ActionType));
+
+    const isValidAction = !!currentAction;
+
+    const releasedInSec = el.releaseIn !== undefined
+  ? Math.floor((el.releaseIn - Date.now()) / 1000)
+  : undefined;
 
     return (
         <div className='Film'>
 
             <div className='Film_decor'>
-                {el.effect && <FilmDecor type={el.effect} />}
+                {!isGenrePage && (
+                <div className='Film_decor'>
+                    {statuses.includes('hot') && <FilmDecor type={'fire'} />}
+                    {statuses.includes('liked') && <FilmDecor type={'heart'} />}
+                    {statuses.includes('released') && <FilmDecor type={'check'} />}
+                </div>
+            )}
             </div>
-            <div className='Film_line_top fcc'>
-                {typeof el.releaseInSec === 'number' && el.releaseInSec > 0 && (
-                    <div className='Film_line_decor free_img'>
-                        <div className='Film_line_decor_top free_img'>
-                            <img src="/img/icons/releaseInFront.svg" alt="" />
+            {
+                !isGenrePage && (
+                    <>
+                        <div className='Film_line_top fcc'>
+                            {releasedInSec !== undefined && releasedInSec > 0 && (
+                                <div className='Film_line_decor free_img'>
+                                    <div className='Film_line_decor_top free_img'>
+                                        <img src="/img/icons/releaseInFront.svg" alt="" />
+                                    </div>
+                                    <div className='Film_line_decor_text free_img'>
+                                        <div className='Film_line_decor_text_title fcc'>
+                                            <span className='ffab fs_s'>RELEASE IN</span>
+                                            <span>{formatReleaseTime(releasedInSec)}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            )}
                         </div>
-                        <div className='Film_line_decor_text free_img'>
-                            <div className='Film_line_decor_text_title fcc'>
-                                <span className='ffab fs_s'>RELEASE IN</span>
-                                <span>{formatReleaseTime(el.releaseInSec)}</span>
-                            </div>
+                        <div className='Film_line_bot fcc'>
+                            {releasedInSec !== undefined && releasedInSec > 0 && (
+                                <div className='Film_line_decor free_img'>
+                                    <div className='Film_line_decor_back free_img'>
+                                        <img src="/img/icons/releaseInBack.svg" alt="" />
+                                    </div>
+                                </div>
+                            )}
                         </div>
-                    </div>
-                )}
-            </div>
-            <div className='Film_line_bot fcc'>
-                {typeof el.releaseInSec === 'number' && el.releaseInSec > 0 && (
-                    <div className='Film_line_decor free_img'>
-                        <div className='Film_line_decor_back free_img'>
-                            <img src="/img/icons/releaseInBack.svg" alt="" />
-                        </div>
-                    </div>
-                )}
-            </div>
+                    </>
+            )}
 
             <div className='Film_effects free_img'></div>
 
             <div className='Film_img brad_15' style={{
-                backgroundImage: `url(${el.previewUrl})`
+                backgroundImage: `url(http://localhost:5000${el.previewUrl})`
             }}>
-                {el.actionType && <div className='Film_btn fcc'>
+            {!isGenrePage && isValidAction && currentAction && (
+                <div className='Film_btn fcc'>
                     <Button
                         text={{
-                            'trailer': "Trailer watching",
-                            'lovessIt': "Love It",
-                            'continue': "Continue watching!"
-                        }[el.actionType]}
+                            trailer: "Trailer watching",
+                            lovessIt: "Love It",
+                            continue: "Continue watching!"
+                        }[currentAction as ActionType]}
                         size='s'
                         color={{
-                            'trailer': "blue",
-                            'loveIt': "pink",
-                            'continue': "gradient"
-                        }[el.actionType]}
+                            trailer: "blue",
+                            lovessIt: "pink",
+                            continue: "gradient"
+                        }[currentAction as ActionType]}
                     />
                 </div>
-                }
+            )}
                 {
                     el.progress && <div className='Film_progress'>
                         <div className='Film_progress_inner fs_w fs_xs fcc' style={{
