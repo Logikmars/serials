@@ -36,7 +36,6 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/categories/:selectedCategory" element={<CategoriesPage />} />
           <Route path="/history" element={<HistoryEl />} />
-
           <Route path="/profile/history" element={<HistoryEl />} />
           <Route path="/profile" element={<PersonalAccount />} />
           <Route path="/personalaccount" element={<PersonalAccount />} />

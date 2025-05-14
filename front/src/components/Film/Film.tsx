@@ -45,20 +45,20 @@ const Film: React.FC<Props> = ({ el }) => {
     const isValidAction = !!currentAction;
 
     const releasedInSec = el.releaseIn !== undefined
-  ? Math.floor((el.releaseIn - Date.now()) / 1000)
-  : undefined;
+        ? Math.floor((el.releaseIn - Date.now()) / 1000)
+        : undefined;
 
     return (
         <div className='Film'>
 
             <div className='Film_decor'>
                 {!isGenrePage && (
-                <div className='Film_decor'>
-                    {statuses.includes('hot') && <FilmDecor type={'fire'} />}
-                    {statuses.includes('liked') && <FilmDecor type={'heart'} />}
-                    {statuses.includes('released') && <FilmDecor type={'check'} />}
-                </div>
-            )}
+                    <div className='Film_decor'>
+                        {statuses.includes('hot') && <FilmDecor type={'fire'} />}
+                        {statuses.includes('liked') && <FilmDecor type={'heart'} />}
+                        {statuses.includes('released') && <FilmDecor type={'check'} />}
+                    </div>
+                )}
             </div>
             {
                 !isGenrePage && (
@@ -72,7 +72,7 @@ const Film: React.FC<Props> = ({ el }) => {
                                     <div className='Film_line_decor_text free_img'>
                                         <div className='Film_line_decor_text_title fcc'>
                                             <span className='ffab fs_s'>RELEASE IN</span>
-                                            <span>{formatReleaseTime(releasedInSec)}</span>
+                                            <span>{formatReleaseTime(releasedInSec / 60)}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -88,30 +88,34 @@ const Film: React.FC<Props> = ({ el }) => {
                             )}
                         </div>
                     </>
-            )}
+                )}
 
             <div className='Film_effects free_img'></div>
-
+            <div className='Film_ambient free_img'>
+                <div className='Film_ambient_inner brad_15' style={{
+                    backgroundImage: `url(http://localhost:5000${el.previewUrl})`
+                }} />
+            </div>
             <div className='Film_img brad_15' style={{
                 backgroundImage: `url(http://localhost:5000${el.previewUrl})`
             }}>
-            {!isGenrePage && isValidAction && currentAction && (
-                <div className='Film_btn fcc'>
-                    <Button
-                        text={{
-                            trailer: "Trailer watching",
-                            lovessIt: "Love It",
-                            continue: "Continue watching!"
-                        }[currentAction as ActionType]}
-                        size='s'
-                        color={{
-                            trailer: "blue",
-                            lovessIt: "pink",
-                            continue: "gradient"
-                        }[currentAction as ActionType]}
-                    />
-                </div>
-            )}
+                {!isGenrePage && isValidAction && currentAction && (
+                    <div className='Film_btn fcc'>
+                        <Button
+                            text={{
+                                trailer: "Trailer watching",
+                                lovessIt: "Love It",
+                                continue: "Continue watching!"
+                            }[currentAction as ActionType]}
+                            size='s'
+                            color={{
+                                trailer: "blue",
+                                lovessIt: "pink",
+                                continue: "gradient"
+                            }[currentAction as ActionType]}
+                        />
+                    </div>
+                )}
                 {
                     el.progress && <div className='Film_progress'>
                         <div className='Film_progress_inner fs_w fs_xs fcc' style={{
