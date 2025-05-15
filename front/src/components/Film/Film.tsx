@@ -16,6 +16,7 @@ interface Props {
         additionalStatus?: string;
         mediaFilePath?: string;
         filmImage?: string;
+        previewUrl?: string;
     }
 }
 
@@ -96,11 +97,11 @@ const Film: React.FC<Props> = ({ el }) => {
             <div className='Film_effects free_img'></div>
             <div className='Film_ambient free_img'>
                 <div className='Film_ambient_inner brad_15' style={{
-                    backgroundImage: `url(http://localhost:5000${el.filmImage})`
+                    backgroundImage: `url(${el.previewUrl})`
                 }} />
             </div>
             <div className='Film_img brad_15' style={{
-                backgroundImage: `url(http://localhost:5000${el.filmImage})`
+                backgroundImage: `url(${el.previewUrl})`
             }}>
                 {!isGenrePage && isValidAction && currentAction && (
                     <div className='Film_btn fcc'>

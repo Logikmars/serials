@@ -70,6 +70,7 @@ const Films: React.FC<Props> = ({ title }) => {
     useEffect(() => {
         const fetchData = async () => {
             const data = await filmStore.getAllFilms();
+            console.log(data);
             setFilms(data);
         };
         fetchData();
