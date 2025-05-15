@@ -73,6 +73,11 @@ class FilmService {
     const films = await filmModel.find().sort({ createdAt: -1 });
     return films;
   }
+
+  async getFilmById(id) {
+    const film = await filmModel.findById(id);
+    return film;
+  }
 }
 
 module.exports = new FilmService();

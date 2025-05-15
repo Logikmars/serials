@@ -6,9 +6,11 @@ import { Link, useLocation } from 'react-router-dom';
 
 interface Props {
     el: {
+        _id: string;
+        name: string;
         progress?: number;
         releaseIn?: number;
-        tags?: string;
+        tags?: string[] | string;
         actionType?: string;
         img?: string;
         additionalStatus?: string;
@@ -142,7 +144,7 @@ const Film: React.FC<Props> = ({ el }) => {
                 <div className='Film_img_hover'>
                     <div className='Film_img_hover_leftBouncer'></div>
                     <div className='Film_img_hover_center fcc'>
-                        <Link to="/film/default" className='Film_img_hover_center_play fcc brad_50'>
+                        <Link to={`/watch/${el._id}`} className='Film_img_hover_center_play fcc brad_50'>
                             <img src="/img/icons/play.svg" alt="" />
                         </Link>
                     </div>

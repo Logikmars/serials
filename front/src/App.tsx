@@ -20,6 +20,7 @@ import HomePage from "./pages/HomePage/HomePage"
 import Footer from "./components/Footer/Footer"
 import AddFilm from "./pages/AddFilm/AddFilm"
 import AdminPanel from "./pages/AdminPanel/AdminPanel"
+import Watch from "./pages/Watch/Watch"
 
 function App() {
 
@@ -44,6 +45,7 @@ function App() {
           <Route path="/topUp" element={<TopUp />} />
           <Route path="/genre/:genre" element={<Genre />} />
           <Route path="/fandom" element={<Fandom />} />
+          <Route path="/watch/:id" element={<Watch />} />
 
           {/* meow */}
           <Route path="/adminPanel" element={<AdminPanel />} />

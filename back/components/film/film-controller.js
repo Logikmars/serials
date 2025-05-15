@@ -110,6 +110,22 @@ async updateFilm(req, res, next) {
     next(e);
   }
 }
+
+  async getFilmById(req, res, next) {
+  try {
+    const filmId = req.params.id;
+    const film = await filmService.getFilmById(filmId);
+
+    if (!film) {
+      return res.status(404).json({ message: 'Фильм не найден' });
+    }
+
+    res.json(film);
+  } catch (e) {
+    console.error('Ошибка при получении фильма по ID:', e);
+    next(e);
+  }
+}
 }
 
 module.exports = new filmController();

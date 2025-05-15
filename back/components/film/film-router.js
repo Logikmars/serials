@@ -34,5 +34,6 @@ filmRouter.put('/editFilm/:id', upload.fields([
 
 filmRouter.get('/getfilms', filmController.getFilms);
 filmRouter.delete('/deleteFilm/:id', filmController.deleteFilm);
+filmRouter.get('/film/:id', filmController.getFilmById);
 
 module.exports = filmRouter;

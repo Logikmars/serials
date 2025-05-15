@@ -74,6 +74,13 @@ class FilmStore {
     }
   }
 
+  async getFilmById(id: string) {
+      const res = await api.get(`/film/${id}`);
+      console.log('Полученный фильм: ', res.data);
+      
+      return res.data;
+  }
+
 }
 
 export default new FilmStore();

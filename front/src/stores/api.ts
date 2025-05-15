@@ -3,7 +3,8 @@ import axios from 'axios';
 // const dev = import.meta.env.VITE_DEV || false;
 
 // let API_URL = "https://api.everbetai.com";
-let API_URL = "http://localhost:5000";
+// let API_URL = "http://localhost:5000";
+let API_URL = import.meta.env.VITE_API_URL;
 // let API_URL = "https://1jfqnl4w-5000.euw.devtunnels.ms";
 
 // if (dev) {
