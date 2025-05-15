@@ -56,14 +56,21 @@ const Register: React.FC = () => {
                         <RegisterBtn onclick={setRegister} isregister={activeTab} value='reg' />
                         <RegisterBtn onclick={setLogIn} isregister={activeTab} value='log' />
                     </div>
-                    <div className='Register_form fcc gap_s'>
-                        <RegisterInput title='Login' onChange={(e) => { setemail(e.target.value) }}/>
-                        <RegisterInput title='Password' isPassword onChange={(e) => { setpassword(e.target.value) }}/>
-                        {
-                            activeTab === 'reg' && <RegisterInput title='Confirm password' isPassword onChange={(e) => { setrpassword(e.target.value) }}/>
-                        }
-                        <RegisterBtn value={activeTab} formBtn onclick={auth}/>
-                    </div>
+                    <form
+                    className='Register_form fcc gap_s'
+                    onSubmit={async (e) => {
+                        e.preventDefault();
+                        await auth();
+                    }}
+                    >
+                    <RegisterInput title='Login' onChange={(e) => { setemail(e.target.value) }} />
+                    <RegisterInput title='Password' isPassword onChange={(e) => { setpassword(e.target.value) }} />
+                    {
+                        activeTab === 'reg' &&
+                        <RegisterInput title='Confirm password' isPassword onChange={(e) => { setrpassword(e.target.value) }} />
+                    }
+                    <button type="submit" className='Register_form_btn brad_25'>{activeTab === 'reg' ? 'Register' : 'Sign up'}</button>
+                    </form>
                     <div className='Register_line fcc'>
                         or
                     </div>

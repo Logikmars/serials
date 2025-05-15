@@ -49,6 +49,17 @@
     &_form{
         width: 100%;
         flex-wrap: wrap;
+        &_btn{
+            width: 100%;
+            padding: 10px;
+            background-color: #007AFF;
+            cursor: pointer;
+            transition: color 300ms, background-color 300ms;
+            &:hover{
+                background-color: #FFF;
+                color: #000;
+            }
+        }
     }
     &_line {
     width: 100%;
