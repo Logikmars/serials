@@ -21,12 +21,12 @@
             position: relative;
             z-index: 2;
 
-            @media(max-width: 1200px) {
+            @media(max-width: 1350px) {
                 left: 40px;
             }
 
             &_right {
-                @media(max-width: 1200px) {
+                @media(max-width: 1350px) {
                     left: -40px !important;
                 }
             }
@@ -36,7 +36,7 @@
 
     &_content {
         height: 400px;
-        width: 1200px;
+        width: 1300px;
         max-width: calc(100vw);
 
         &_stories {

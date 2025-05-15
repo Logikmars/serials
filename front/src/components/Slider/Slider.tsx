@@ -18,8 +18,8 @@ const Slider: React.FC<Props> = ({ content, contentType }) => {
     const [elementsPerScreen, setelementsPerScreen] = useState(4);
 
     const elementWidths = {
-        stories: 200,
-        films: 280,
+        stories: 180,
+        films: 240,
         fandom: 280
     }
 
@@ -28,17 +28,20 @@ const Slider: React.FC<Props> = ({ content, contentType }) => {
 
     const elementsPerType: Record<'stories' | 'films' | 'fandom', Record<number, number>> = {
         stories: {
-            99999: 5,
-            1300: 4,
-            950: 3,
-            650: 2,
-            450: 1,
+            99999: 7,
+            1300: 6,
+            1100: 5,
+            950: 4,
+            750: 3,
+            550: 2,
+            380: 1,
         },
         films: {
-            99999: 4,
-            1300: 3,
-            950: 2,
-            650: 1,
+            99999: 5,
+            1300: 4,
+            1000: 3,
+            750: 2,
+            550: 1,
         },
         fandom: {
             99999: 4,

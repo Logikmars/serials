@@ -1,43 +1,56 @@
-.AdminPanel{
+.AdminPanel {
     width: 100%;
     flex-wrap: wrap;
-    &_addfilm{
+    min-height: calc(100vh - 200px);
+    align-items: start;
+    align-content: start;
+
+    &_addfilm {
         width: 100%;
     }
-    &_editFilm{
+
+    &_editFilm {
         width: 100%;
-        &_list{
+
+        &_list {
             width: 100%;
             flex-wrap: wrap;
-            &_el{
+
+            &_el {
                 width: 100%;
                 display: flex;
                 cursor: pointer;
                 background-color: #FFFFFF50;
                 transition: background-color 300ms;
-                &:hover{
+
+                &:hover {
                     background-color: #000;
                 }
-                &_item{
+
+                &_item {
                     width: 30%;
                     display: flex;
                     justify-content: center;
                     align-items: center;
                     flex-wrap: wrap;
-                    &_small{
+
+                    &_small {
                         max-width: 60px;
                     }
-                    video{
+
+                    video {
                         max-width: 200px;
                     }
-                    img{
+
+                    img {
                         max-width: 100px;
                     }
                 }
             }
         }
     }
-    &_mm{
+
+    &_mm {
         position: fixed;
         width: 100vw;
         height: 100vh;
