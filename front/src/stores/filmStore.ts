@@ -7,44 +7,22 @@ class FilmStore {
     makeAutoObservable(this);
   }
 
-  async sendDataToServer(filmData: any) {
-    try {
-      const formData = new FormData();
-
-      // Добавляем данные фильма
-      formData.append('filmName', filmData.filmName);
-      formData.append('filmImage', filmData.filmImage);
-      formData.append('filmDescription', filmData.filmDescription);
-      formData.append('tags', filmData.tags);
-      formData.append('filmEpisodes', filmData.filmEpisodes.toString());
-      formData.append('filmEpisodesFree', filmData.filmEpisodesFree.toString());
-      formData.append('releaseAt', filmData.releaseAt ? filmData.releaseAt.toISOString() : '');
-      formData.append('liked', filmData.liked.toString());
-      formData.append('isReleased', filmData.isReleased.toString());
-      formData.append('isHot', filmData.isHot.toString());
-
-      // Добавляем файл
-      if (filmData.mediaFile) {
-        formData.append('mediaFile', filmData.mediaFile); // предполагаем, что это объект File
-      }
-
-      console.log("Send:", formData);
-
-      const response = await api.post('/film/newFilm', formData, {
-          headers: {
-            'Content-Type': 'multipart/form-data',
-          },
-        });
-
-        console.log('Film data sent successfully', response.data);
-      } catch (error) {
-        if (axios.isAxiosError(error)) {
-          console.error('Failed to send film data:', error.response?.data || error.message);
-        } else {
-          console.error('Unexpected error:', error);
-        }
+  async sendDataToServer(formData: FormData) {
+  try {
+    const response = await api.post('/film/newFilm', formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    });
+    console.log('Film data sent successfully', response.data);
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      console.error('Failed to send film data:', error.response?.data || error.message);
+    } else {
+      console.error('Unexpected error:', error);
     }
   }
+}
 
   async getAllFilms() {
     try {
@@ -63,6 +41,36 @@ class FilmStore {
     } catch (error) {
       console.error("Error while fetching films:", error);
       return [];
+    }
+  }
+
+  async updateFilm(id: string, formData: FormData) {
+    try {
+      const response = await api.put(`/film/editFilm/${id}`, formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+      console.log('Фильм обновлён:', response.data);
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        console.error('Ошибка при обновлении фильма:', error.response?.data || error.message);
+      } else {
+        console.error('Неизвестная ошибка:', error);
+      }
+    }
+  }
+
+  async deleteFilm(id: string) {
+    try {
+      const response = await api.delete(`/film/deleteFilm/${id}`);
+      console.log('Фильм удалён:', response.data);
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        console.error('Ошибка при удалении фильма:', error.response?.data || error.message);
+      } else {
+        console.error('Неизвестная ошибка:', error);
+      }
     }
   }
 

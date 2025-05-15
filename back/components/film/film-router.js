@@ -27,6 +27,12 @@ filmRouter.post('/newFilm', upload.fields([
   { name: 'filmImage', maxCount: 1 }
 ]), filmController.newFilm);
 
+filmRouter.put('/editFilm/:id', upload.fields([
+  { name: 'mediaFile', maxCount: 1 },
+  { name: 'filmImage', maxCount: 1 }
+]), filmController.updateFilm);
+
 filmRouter.get('/getfilms', filmController.getFilms);
+filmRouter.delete('/deleteFilm/:id', filmController.deleteFilm);
 
 module.exports = filmRouter;

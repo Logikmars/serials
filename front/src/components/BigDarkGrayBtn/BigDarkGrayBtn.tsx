@@ -6,7 +6,7 @@ onClick: () => void;
 }
 const BigDarkGrayBtn: React.FC<Props> = ({ title, onClick }) => {
     return (
-    <div className='BigDarkGrayBtn fcc brad_25 ffab fs_s pa_l' onClick={title === 'send' ? onClick : undefined}>
+    <div className='BigDarkGrayBtn fcc brad_25 ffab fs_s pa_l' onClick={onClick}>
         {title}
     </div>
     )
