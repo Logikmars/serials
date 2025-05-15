@@ -10,6 +10,7 @@ const path = require('path');
 
 const PORT = process.env.PORT || 5000;
 const app = express();
+const CLIENT_URL = process.env.CLIENT_URL || 'http://localhost:5175';
 
 // Настройка multer
 const storage = multer.diskStorage({
@@ -25,10 +26,12 @@ const upload = multer({ storage });
 // Middleware
 app.use(cors({
   origin: [
+    
     'http://localhost:5173',
     'http://localhost:5174',
     'https://1jfqnl4w-5173.euw.devtunnels.ms',
     'https://everbetai.com',
+    CLIENT_URL
   ],
   credentials: true
 }));
