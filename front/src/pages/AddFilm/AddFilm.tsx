@@ -99,38 +99,38 @@ const AddFilm: React.FC<AddFilmProps> = ({ filmToEdit, onClose, onSave, onDelete
   };
 
   const handleSubmit = async () => {
-const formData = new FormData();
-formData.append('filmName', form.filmName);
-formData.append('filmDescription', form.filmDescription);
-formData.append('tags', form.tags);
-formData.append('filmEpisodes', form.filmEpisodes.toString());
-formData.append('filmEpisodesFree', form.filmEpisodesFree.toString());
+    const formData = new FormData();
+    formData.append('filmName', form.filmName);
+    formData.append('filmDescription', form.filmDescription);
+    formData.append('tags', form.tags);
+    formData.append('filmEpisodes', form.filmEpisodes.toString());
+    formData.append('filmEpisodesFree', form.filmEpisodesFree.toString());
 
-if (form.releaseAt) {
-  formData.append('releaseAt', form.releaseAt.toISOString());
-}
+    if (form.releaseAt) {
+      formData.append('releaseAt', form.releaseAt.toISOString());
+    }
 
-formData.append('liked', form.liked.toString());
-formData.append('isHot', form.isHot.toString());
+    formData.append('liked', form.liked.toString());
+    formData.append('isHot', form.isHot.toString());
 
-if (form.mediaFile instanceof File) {
-  formData.append('mediaFile', form.mediaFile);
-}
+    if (form.mediaFile instanceof File) {
+      formData.append('mediaFile', form.mediaFile);
+    }
 
-if (form.filmImage instanceof File) {
-  formData.append('filmImage', form.filmImage);
-}
+    if (form.filmImage instanceof File) {
+      formData.append('filmImage', form.filmImage);
+    }
 
-if (filmToEdit) {
-  await filmStore.updateFilm(filmToEdit._id, formData);
-} else {
-  await filmStore.sendDataToServer(formData);
-}
+    if (filmToEdit) {
+      await filmStore.updateFilm(filmToEdit._id, formData);
+    } else {
+      await filmStore.sendDataToServer(formData);
+    }
 
-onSave?.();
-onClose?.();
-onDelete?.();
-};
+    onSave?.();
+    onClose?.();
+    onDelete?.();
+  };
 
 
   return (
@@ -254,7 +254,7 @@ onDelete?.();
       {/* BUTTONS */}
       <div className="AddFilm_btn fcc gap_s">
         <BigDarkGrayBtn title={filmToEdit ? 'Update' : 'Send'} onClick={handleSubmit} />
-        {onClose &&<> <BigDarkGrayBtn title="Close" onClick={onClose} />  {onDelete && <BigDarkGrayBtn title="Delete" onClick={onDelete} />}</>}
+        {onClose && <> <BigDarkGrayBtn title="Close" onClick={onClose} />  {onDelete && <BigDarkGrayBtn title="Delete" onClick={onDelete} />}</>}
       </div>
     </div>
   );

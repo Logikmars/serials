@@ -8,35 +8,35 @@ class FilmStore {
   }
 
   async sendDataToServer(formData: FormData) {
-  try {
-    const response = await api.post('/film/newFilm', formData, {
-      headers: {
-        'Content-Type': 'multipart/form-data',
-      },
-    });
-    console.log('Film data sent successfully', response.data);
-  } catch (error) {
-    if (axios.isAxiosError(error)) {
-      console.error('Failed to send film data:', error.response?.data || error.message);
-    } else {
-      console.error('Unexpected error:', error);
+    try {
+      const response = await api.post('/film/newFilm', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+      console.log('Film data sent successfully', response.data);
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        console.error('Failed to send film data:', error.response?.data || error.message);
+      } else {
+        console.error('Unexpected error:', error);
+      }
     }
   }
-}
 
-  async getAllFilms() {
+  async getAllFilms(): Promise<Record<string, any>[]> {
     try {
       console.log('Start fetch all films');
-      const response = await fetch("http://localhost:5000/film/getfilms");
 
+      const { data } = await api.get<Record<string, any>[]>("/film/getfilms");
+      console.log('Полученные фильмы:', data);
 
+      const films = data.map((film) => ({
+        ...film,
+        mediaFilePath: film.mediaFilePath?.replace('/uploads/', 'https://contentlooktwice.demotest.live/'),
+        previewUrl: film.previewUrl?.replace('/uploads/', 'https://contentlooktwice.demotest.live/')
+      }));
 
-      if (!response.ok) {
-        throw new Error(`Ошибка сервера: ${response.status}`);
-      }
-
-      const films = await response.json();
-      console.log('Полученные фильмы:', films);
       return films;
     } catch (error) {
       console.error("Error while fetching films:", error);
@@ -75,10 +75,10 @@ class FilmStore {
   }
 
   async getFilmById(id: string) {
-      const res = await api.get(`/film/${id}`);
-      console.log('Полученный фильм: ', res.data);
-      
-      return res.data;
+    const res = await api.get(`/film/${id}`);
+    console.log('Полученный фильм: ', res.data);
+
+    return res.data;
   }
 
 }

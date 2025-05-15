@@ -2,31 +2,31 @@ const filmModel = require('./film-model');
 
 class FilmService {
   async saveFilm(data) {
-  const {
-    filmName,
-    filmDescription,
-    tags,
-    filmEpisodes,
-    filmEpisodesFree,
-    releaseAt,
-    liked,
-    isReleased,
-    isHot,
-    mediaFilePath,
-    filmImage
-  } = data;
+    const {
+      filmName,
+      filmDescription,
+      tags,
+      filmEpisodes,
+      filmEpisodesFree,
+      releaseAt,
+      liked,
+      isReleased,
+      isHot,
+      mediaFilePath,
+      filmImage
+    } = data;
 
-  const newFilm = await filmModel.create({
-    name: filmName,
-    description: filmDescription,
-    tags: tags ? tags.split(',').map(t => t.trim()) : [],
-    filmEpisodes: Number(filmEpisodes),
-    filmEpisodesFree: Number(filmEpisodesFree),
-    releaseIn: releaseAt ? new Date(releaseAt).getTime() : null,
-    additionalStatus: `${liked === 'true' ? 'liked ' : ''}${isReleased === 'true' ? 'released ' : ''}${isHot === 'true' ? 'hot' : ''}`.trim(),
-    mediaFilePath,
-    filmImage
-  });
+    const newFilm = await filmModel.create({
+      name: filmName,
+      description: filmDescription,
+      tags: tags ? tags.split(',').map(t => t.trim()) : [],
+      filmEpisodes: Number(filmEpisodes),
+      filmEpisodesFree: Number(filmEpisodesFree),
+      releaseIn: releaseAt ? new Date(releaseAt).getTime() : null,
+      additionalStatus: `${liked === 'true' ? 'liked ' : ''}${isReleased === 'true' ? 'released ' : ''}${isHot === 'true' ? 'hot' : ''}`.trim(),
+      mediaFilePath,
+      filmImage
+    });
 
     console.log('Film saved:', newFilm);
     return newFilm;

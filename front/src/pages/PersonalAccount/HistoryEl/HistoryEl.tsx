@@ -28,15 +28,15 @@ const HistoryEl: React.FC = () => {
   //   },
   // ]
 
-      const [films, setFilms] = useState([]);
-  
-      useEffect(() => {
-          const fetchData = async () => {
-          const data = await filmStore.getAllFilms();
-          setFilms(data);
-          };
-          fetchData();
-      }, []);
+  const [films, setFilms] = useState<any[]>([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await filmStore.getAllFilms();
+      setFilms(data);
+    };
+    fetchData();
+  }, []);
 
   const isPortrait = useIsPortrait();
 

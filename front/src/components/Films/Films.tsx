@@ -65,7 +65,7 @@ const Films: React.FC<Props> = ({ title }) => {
 
     const navigate = useNavigate();
 
-    const [films, setFilms] = useState([]);
+    const [films, setFilms] = useState<any[]>([]);
 
     useEffect(() => {
         const fetchData = async () => {

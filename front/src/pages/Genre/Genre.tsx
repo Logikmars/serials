@@ -5,12 +5,12 @@ import Film from '../../components/Film/Film';
 import filmStore from '../../stores/filmStore';
 const Genre: React.FC = () => {
 
-    const [films, setFilms] = useState([]);
+    const [films, setFilms] = useState<any[]>([]);
 
     useEffect(() => {
         const fetchData = async () => {
-        const data = await filmStore.getAllFilms();
-        setFilms(data);
+            const data = await filmStore.getAllFilms();
+            setFilms(data);
         };
         fetchData();
     }, []);

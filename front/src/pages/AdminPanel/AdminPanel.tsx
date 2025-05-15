@@ -4,16 +4,16 @@ import AddFilm from '../AddFilm/AddFilm';
 import filmStore from '../../stores/filmStore';
 
 interface Film {
-  id: string;
-  name: string;
-  description: string;
-  tags: string;
-  filmEpisodes: number;
-  filmEpisodesFree: number;
-  releaseIn: number;
-  additionalStatus: string;
-  mediaFilePath: string;
-  filmImage: string;
+    id: string;
+    name: string;
+    description: string;
+    tags: string;
+    filmEpisodes: number;
+    filmEpisodesFree: number;
+    releaseIn: number;
+    additionalStatus: string;
+    mediaFilePath: string;
+    filmImage: string;
 }
 
 const AdminPanel: React.FC = () => {
@@ -32,42 +32,50 @@ const AdminPanel: React.FC = () => {
     }
 
     useEffect(() => {
-            const fetchData = async () => {
-                const data = await filmStore.getAllFilms();
-                const filmsWithId = data.map((film: any) => ({
+        const fetchData = async () => {
+            const data = await filmStore.getAllFilms();
+            const filmsWithId = data.map((film: any) => ({
                 ...film,
                 id: film._id,
-                }));
-                setFilms(filmsWithId);
-            };
+            }));
+            setFilms(filmsWithId);
+        };
         fetchData();
     }, []);
 
     const handleDeleteFilm = async (filmId: string) => {
-    console.log('Start delete front', filmId);
+        console.log('Start delete front', filmId);
 
-    await filmStore.deleteFilm(filmId);
-    const data = await filmStore.getAllFilms();
-    const filmsWithId = data.map((film: any) => ({
-        ...film,
-        id: film._id,
-    }));
-    setFilms(filmsWithId);
-    setEditingFilm(null);
+        await filmStore.deleteFilm(filmId);
+        const data = await filmStore.getAllFilms();
+        const filmsWithId = data.map((film: any) => ({
+            ...film,
+            id: film._id,
+        }));
+        setFilms(filmsWithId);
+        setEditingFilm(null);
     };
 
     return (
         <div className='AdminPanel fcc container gap_m'>
             <div className='AdminPanel_addfilm fcc fs_s ffab' onClick={handlerOpenAddFilm}>Click to open menu with add film</div>
             {
-                openAdd && <AddFilm 
+                openAdd && <AddFilm
                     onSave={() => {
-                        filmStore.getAllFilms().then(setFilms); // обновляем список фильмов после добавления
-                    }}/>
+                        filmStore.getAllFilms().then((data: any[]) => {
+                            const filmsWithId = data.map(film => ({
+                                ...film,
+                                id: film._id,
+                            }));
+                            setFilms(filmsWithId);
+                        });
+
+                        // filmStore.getAllFilms().then(setFilms); // обновляем список фильмов после добавления
+                    }} />
             }
             <div className='AdminPanel_editFilm fcc' onClick={handlerOpenEditFilm}>Click to open menu for film editing</div>
             {
-                openEdit && 
+                openEdit &&
                 <div className='AdminPanel_editFilm_list fcc gap_l'>
                     {
                         films.map((el, index) => {
@@ -85,7 +93,7 @@ const AdminPanel: React.FC = () => {
                                     <div className='AdminPanel_editFilm_list_el_item'>{formatReleaseTime(releasedInSec)}</div>
                                     <div className='AdminPanel_editFilm_list_el_item'>{el.additionalStatus}</div>
                                     <div className='AdminPanel_editFilm_list_el_item'>
-                                        <video src={`http://localhost:5000${el.mediaFilePath}`} controls/>
+                                        <video src={`http://localhost:5000${el.mediaFilePath}`} controls />
                                     </div>
                                     <div className='AdminPanel_editFilm_list_el_item'>
                                         <img src={`http://localhost:5000${el.filmImage}`} alt="" />
@@ -100,7 +108,15 @@ const AdminPanel: React.FC = () => {
                                 filmToEdit={editingFilm}
                                 onClose={() => setEditingFilm(null)}
                                 onSave={() => {
-                                    filmStore.getAllFilms().then(setFilms); // обновляем список фильмов после редактирования
+                                    filmStore.getAllFilms().then((data: any[]) => {
+                                        const filmsWithId = data.map(film => ({
+                                            ...film,
+                                            id: film._id,
+                                        }));
+                                        setFilms(filmsWithId);
+                                    });
+
+                                    // filmStore.getAllFilms().then(setFilms); // обновляем список фильмов после редактирования
                                 }}
                                 onDelete={() => handleDeleteFilm(editingFilm.id)}
                             />
