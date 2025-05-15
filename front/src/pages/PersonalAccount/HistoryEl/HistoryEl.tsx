@@ -1,31 +1,42 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './HistoryEl.scss';
 import HistoryElFilm from './HistoryElFilm/HistoryElFilm';
 import useIsPortrait from '../../../hooks/useIsPortrait';
+import filmStore from '../../../stores/filmStore';
 
 const HistoryEl: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState<'date' | 'popularity'>('date');
 
-  const FilmEl = [
-    {
-      img: '/img/trends/0.webp',
-      progress: 10,
-      title: "Episode 3 - The Empire Strikes Back",
-      percent: 78,
-    },
-    {
-      img: '/img/trends/0.webp',
-      progress: 50,
-      title: "Episode 3 - The Empire Strikes Back",
-      percent: 78,
-    },
-    {
-      img: '/img/trends/0.webp',
-      progress: 10,
-      title: "Episode 3 - The Empire Strikes Back",
-      percent: 78,
-    },
-  ]
+  // const FilmEl = [
+  //   {
+  //     img: '/img/trends/0.webp',
+  //     progress: 10,
+  //     title: "Episode 3 - The Empire Strikes Back",
+  //     percent: 78,
+  //   },
+  //   {
+  //     img: '/img/trends/0.webp',
+  //     progress: 50,
+  //     title: "Episode 3 - The Empire Strikes Back",
+  //     percent: 78,
+  //   },
+  //   {
+  //     img: '/img/trends/0.webp',
+  //     progress: 10,
+  //     title: "Episode 3 - The Empire Strikes Back",
+  //     percent: 78,
+  //   },
+  // ]
+
+      const [films, setFilms] = useState([]);
+  
+      useEffect(() => {
+          const fetchData = async () => {
+          const data = await filmStore.getAllFilms();
+          setFilms(data);
+          };
+          fetchData();
+      }, []);
 
   const isPortrait = useIsPortrait();
 
@@ -67,7 +78,7 @@ const HistoryEl: React.FC = () => {
           Yeasterday
         </h2>
         {
-          FilmEl.map((el, index) => (
+          films.map((el, index) => (
             <HistoryElFilm el={el} key={index} />
           ))
         }

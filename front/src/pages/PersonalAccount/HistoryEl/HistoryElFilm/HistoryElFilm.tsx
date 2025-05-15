@@ -5,19 +5,35 @@ import SliderSmallElement from '../../../../components/Film/Film';
 import ShareDots from '../../../../components/ShareDots/ShareDots';
 
 interface Props {
-    el: {
+el: {
+        _id: string;
+        name: string;
         img?: string;
         progress?: number;
         title?: string;
         percent: number;
+        releaseIn?: number;
+        tags?: string[] | string;
+        actionType?: string;
+        additionalStatus?: string;
+        mediaFilePath?: string;
+        filmImage?: string;
     }
 }
 
 const HistoryElFilm: React.FC<Props> = ({ el }) => {
 
     const newEl = {
-        img: el.img,
-        progress: el.progress
+    _id: el._id,
+    name: el.name,
+    img: el.filmImage,
+    progress: el.progress,
+    releaseIn: el.releaseIn,
+    tags: el.tags,
+    actionType: el.actionType,
+    additionalStatus: el.additionalStatus,
+    mediaFilePath: el.mediaFilePath,
+    filmImage: el.filmImage
     };
 
     return (
