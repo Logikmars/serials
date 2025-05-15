@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './TopUpModes.scss';
 import BigDarkGrayBtn from '../../../components/BigDarkGrayBtn/BigDarkGrayBtn';
 
@@ -15,6 +15,13 @@ interface Props {
 }
 
 const TopUpModes: React.FC<Props> = ({ el }) => {
+
+    const [shoto, setshoto] = useState(false);
+
+    const handlerShoto = () => {
+        setshoto(prev => !prev);
+    }
+
   return (
     <div className='TopUpModes brad_25 gap_m'>
         <div className='TopUpModes_header fcc gap_m ffab fs_m'>
@@ -42,7 +49,7 @@ const TopUpModes: React.FC<Props> = ({ el }) => {
                 <span className='TopUpModes_content_price_perTime ffar fs_xs'>(Per month)</span>
             </div>
             <div className='TopUpModes_content_btn fcc'>
-                <BigDarkGrayBtn title='Buy Now' />
+                <BigDarkGrayBtn title='Buy Now ' onClick={handlerShoto}/>
             </div>
         </div>
     </div>
