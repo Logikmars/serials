@@ -22,7 +22,7 @@ const Watch: React.FC = () => {
         <div className='Watch'>
             <h1>{film.name}</h1>
             <video
-                src={`http://localhost:5000${film.mediaFilePath}`}
+                src={`${import.meta.env.VITE_API_URL}${film.mediaFilePath}`}
                 controls
             />
             <p>{film.description}</p>

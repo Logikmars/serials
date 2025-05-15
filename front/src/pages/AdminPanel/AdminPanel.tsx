@@ -14,6 +14,34 @@ interface Film {
     additionalStatus: string;
     mediaFilePath: string;
     filmImage: string;
+    action?: string;
+    changes?: {
+        id: string;
+        name: string;
+        description: string;
+        filmEpisodes: number;
+        filmEpisodesFree: number;
+        tags: string;
+        additionalStatus: string;
+        mediaFilePath: string;
+        filmImage: string;
+    }
+}
+
+interface FilmHistoryItem {
+    action: string;
+    filmId: string;
+    changes: {
+        id: string;
+        name: string;
+        description: string;
+        filmEpisodes: number;
+        filmEpisodesFree: number;
+        tags: string;
+        additionalStatus: string;
+        mediaFilePath: string;
+        filmImage: string;
+    };
 }
 
 const AdminPanel: React.FC = () => {
@@ -22,6 +50,9 @@ const AdminPanel: React.FC = () => {
     const [openEdit, setopenEdit] = useState(false);
     const [films, setFilms] = useState<Film[]>([]);
     const [editingFilm, setEditingFilm] = useState<Film | null>(null);
+    const [historyData, sethistoryData] = useState<FilmHistoryItem[]>([]);
+    const [showHistory, setshowHistory] = useState(false);
+    
 
     const handlerOpenAddFilm = () => {
         setopenAdd(prev => !prev)
@@ -43,6 +74,14 @@ const AdminPanel: React.FC = () => {
         fetchData();
     }, []);
 
+    useEffect(() => {
+        const fetchData = async () => {
+            const data = await filmStore.getHistory();
+            sethistoryData(data);            
+        }
+        fetchData();
+    }, [])
+
     const handleDeleteFilm = async (filmId: string) => {
         console.log('Start delete front', filmId);
 
@@ -55,6 +94,10 @@ const AdminPanel: React.FC = () => {
         setFilms(filmsWithId);
         setEditingFilm(null);
     };
+
+    const handleShowHistoryEl = () => {
+        setshowHistory(prev => !prev)
+    }
 
     return (
         <div className='AdminPanel fcc container gap_m'>
@@ -93,17 +136,17 @@ const AdminPanel: React.FC = () => {
                                     <div className='AdminPanel_editFilm_list_el_item'>{formatReleaseTime(releasedInSec)}</div>
                                     <div className='AdminPanel_editFilm_list_el_item'>{el.additionalStatus}</div>
                                     <div className='AdminPanel_editFilm_list_el_item'>
-                                        <video src={`http://localhost:5000${el.mediaFilePath}`} controls />
+                                        <video src={`${import.meta.env.VITE_API_URL}${el.mediaFilePath}`} controls />
                                     </div>
                                     <div className='AdminPanel_editFilm_list_el_item'>
-                                        <img src={`http://localhost:5000${el.filmImage}`} alt="" />
+                                        <img src={`${import.meta.env.VITE_API_URL}${el.filmImage}`} alt="" />
                                     </div>
                                 </div>
                             );
                         })
                     }
                     {editingFilm && (
-                        <div className='AdminPanel_mm fcc'>
+                        <div className='AdminPanel_mm fcc gap_xl'>
                             <AddFilm
                                 filmToEdit={editingFilm}
                                 onClose={() => setEditingFilm(null)}
@@ -120,10 +163,58 @@ const AdminPanel: React.FC = () => {
                                 }}
                                 onDelete={() => handleDeleteFilm(editingFilm.id)}
                             />
+                            <div className='AdminPanel_mm_showHistory fcc gap_m'>
+                                <div className='AdminPanel_mm_showHistory_btn fcc brad_50 pa_l' onClick={handleShowHistoryEl}>Show history</div>
+                                {
+                                    showHistory && editingFilm && (
+                                        <div className='AdminPanel_mm_showHistory_list fcc gap_s'>
+                                            {historyData
+                                                .filter(h => h.filmId === editingFilm.id)
+                                                .map((el, index) => (
+                                                    <div className='AdminPanel_history_el gap_s fcc' key={`film_history_${index}`}>
+                                                        <div className='AdminPanel_history_el_action fcc'>{el.action}</div>
+                                                        <div className='AdminPanel_history_el_action fcc'>{el.changes?.name}</div>
+                                                        <div className='AdminPanel_history_el_action fcc'>{el.changes?.description}</div>
+                                                        <div className='AdminPanel_history_el_action fcc'>{el.changes?.tags}</div>
+                                                        <div className='AdminPanel_history_el_action fcc'>{el.changes?.additionalStatus}</div>
+                                                        <div className='AdminPanel_history_el_action fcc'>
+                                                            <img src={`${import.meta.env.VITE_API_URL}${el.changes?.filmImage}`} alt='' />
+                                                        </div>
+                                                        <div className='AdminPanel_history_el_action fcc'>
+                                                            <video src={`${import.meta.env.VITE_API_URL}${el.changes?.mediaFilePath}`} controls />
+                                                        </div>
+                                                    </div>
+                                                ))
+                                            }
+                                        </div>
+                                    )
+                                }
+                            </div>
                         </div>
                     )}
                 </div>
             }
+
+            <div className='AdminPanel_history fcc'>
+                <div className='AdminPanel_history_title'>History</div>
+                {
+                    historyData.map((el, index) => (
+                        <div className='AdminPanel_history_el gap_s' key={`AdminPanel_history_el_${index}`}>
+                            <div className='AdminPanel_history_el_action fcc'>{el.action}</div>
+                            <div className='AdminPanel_history_el_action fcc'>{el.changes?.name}</div>
+                            <div className='AdminPanel_history_el_action fcc'>{el.changes?.description}</div>
+                            <div className='AdminPanel_history_el_action fcc'>{el.changes?.tags}</div>
+                            <div className='AdminPanel_history_el_action fcc'>{el.changes?.additionalStatus}</div>
+                            <div className='AdminPanel_history_el_action fcc'>
+                                <img src={`${import.meta.env.VITE_API_URL}${el.changes?.filmImage}`} alt="" />
+                            </div>
+                            <div className='AdminPanel_history_el_action fcc'>
+                                <video src={`${import.meta.env.VITE_API_URL}${el.changes?.mediaFilePath}`} controls></video>
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
         </div>
     )
 };

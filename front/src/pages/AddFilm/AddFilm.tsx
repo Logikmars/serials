@@ -116,6 +116,12 @@ const AddFilm: React.FC<AddFilmProps> = ({ filmToEdit, onClose, onSave, onDelete
     if (form.mediaFile instanceof File) {
       formData.append('mediaFile', form.mediaFile);
     }
+    if (!form.mediaFile && filmToEdit?.mediaFilePath) {
+      formData.append('mediaFilePath', filmToEdit.mediaFilePath);
+    }
+    if (!form.filmImage && filmToEdit?.filmImage) {
+      formData.append('filmImagePath', filmToEdit.filmImage);
+    }
 
     if (form.filmImage instanceof File) {
       formData.append('filmImage', form.filmImage);
@@ -129,7 +135,7 @@ const AddFilm: React.FC<AddFilmProps> = ({ filmToEdit, onClose, onSave, onDelete
 
     onSave?.();
     onClose?.();
-    onDelete?.();
+    // onDelete?.();
   };
 
 

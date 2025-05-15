@@ -55,8 +55,51 @@
         width: 100vw;
         height: 100vh;
         z-index: 9999999999999;
-        background-color: rgba($color: #000, $alpha: .7);
+        background-color: rgba($color: #000, $alpha: .9);
         top: 0px;
         overflow-y: auto;
+        flex-wrap: wrap;
+        &_showHistory{
+            width: 100%;
+            margin-bottom: 200px;
+            flex-wrap: wrap;
+            &_btn{
+                width: 300px;
+                background-color: #FFF;
+                color: #000;
+                cursor: pointer;
+                transition: color 300ms, background-color 300ms;
+                &:hover{
+                    background-color: #000;
+                    color: #FFF;
+                }
+            }
+            &_list{
+                width: 100%;
+                flex-wrap: wrap;
+            }
+        }
+    }
+
+    &_history{
+        width: 100%;
+        flex-wrap: wrap;
+        min-width: 1000px;
+        overflow: auto;
+        &_el{
+            width: 100%;
+            display: flex;
+            overflow: auto;
+            min-width: 1000px;
+            &_action{
+                width: 200px;
+                img{
+                    width: 100px;
+                }
+                video{
+                    width: 200px;
+                }
+            }
+        }
     }
 }

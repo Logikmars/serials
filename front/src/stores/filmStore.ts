@@ -33,8 +33,9 @@ class FilmStore {
 
       const films = data.map((film) => ({
         ...film,
-        mediaFilePath: film.mediaFilePath?.replace('/uploads/', 'https://contentlooktwice.demotest.live/'),
-        previewUrl: film.previewUrl?.replace('/uploads/', 'https://contentlooktwice.demotest.live/')
+        // ПРОД включить
+        // mediaFilePath: film.mediaFilePath?.replace('/uploads/', 'https://contentlooktwice.demotest.live/'),
+        // previewUrl: film.previewUrl?.replace('/uploads/', 'https://contentlooktwice.demotest.live/')
       }));
 
       return films;
@@ -79,6 +80,13 @@ class FilmStore {
     console.log('Полученный фильм: ', res.data);
 
     return res.data;
+  }
+
+  async getHistory(){
+    const response = await api.get('/film/history');
+    console.log('Получена история: ', response.data);
+
+    return response.data;
   }
 
 }

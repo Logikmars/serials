@@ -126,6 +126,18 @@ async updateFilm(req, res, next) {
     next(e);
   }
 }
+
+  async getHistory(req, res, next) {
+    console.log('het history controller workaet');
+    
+    try {
+      const films = await filmService.getHistory();
+      res.json(films);
+    } catch (e) {
+      console.error('Ошибка при получении фильмов:', e);
+      next(e);
+    }
+  }
 }
 
 module.exports = new filmController();
